@@ -1,0 +1,1 @@
+This wildlife engagement project is about creating a physical trail of artwork and accompanying digital app related to insects. The project goals are to encourage visiting of local green spaces, as well as learning about insects and how to help them in their own way. It is currently in development!

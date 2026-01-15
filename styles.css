@@ -1,0 +1,729 @@
+
+/* --- Overall Page Layout --- */
+
+body {
+    background-color: #FFFBF4;   /* soft cream background */
+    color: #341407;              /* dark brown text */
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 1.125rem;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 600px;
+    margin: auto;                /* centers the content */
+    box-sizing: border-box; 
+}
+
+/* --- Headers! --- */
+
+.floating-header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    padding: 5px 20px;
+    background-color: #FFFFFF;
+    border-bottom: 3px solid #008081;
+    display: flex;
+    justify-content: space-between; /* left + right */
+    align-items: center;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Site title styling */
+.site-title {
+    font-family: 'Nunito', 'Lato', Arial, sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #341407;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.site-title:hover {
+    background-color: rgba(209, 222, 127, 0.3);
+}
+
+
+
+
+
+/* Burger button (now only icon) */
+#burger {
+    font-size: 1.6em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #341407;
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+#burger:hover {
+    background-color: rgba(209, 222, 127, 0.3);
+}
+
+/* Main dropdown menu */
+#dropdown-menu {
+    position: fixed;
+    top: -500px;
+
+    /* centres */
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    width: 100%;
+    max-width: 600px; /* lines up with header */
+
+    background-color: #008081;
+    color: #FFFBF4;
+
+    padding: 20px 20px 10px;  /* comfy padding */
+    box-sizing: border-box; /* Make it so padding doesn't add to it */
+    transition: top 0.3s ease;
+    z-index: 997;
+    border-radius: 0 0 9px 9px; /* rounded drop menu */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+    
+    /* ACCESSIBILITY: hide from keyboard unless open */
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* When open: slides down just enough to show content */
+#dropdown-menu.open {
+    top: 65px; /* sits below the floating header */
+    visibility: visible;       
+    pointer-events: auto;
+}
+
+#dropdown-menu ul {
+    list-style: none;
+    padding: 10px 20px 0 0;
+    margin: 0;
+}
+
+#dropdown-menu ul li {
+    margin: 12px 0;
+    padding: 0; 
+}
+
+#dropdown-menu ul li a {
+    display: block;
+    padding: 8px 12px;
+    color: #FFFBF4;
+    text-decoration: none;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    
+    border: 1px solid transparent; /* reserve space for hover border */
+    border-radius: 4px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Smooth hover, no layout shift */
+#dropdown-menu ul li a:hover {
+    border-color: #FFFBF4;
+    background-color: rgba(255,255,255,0.15);
+}
+
+#close-dropdown-menu {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 10%;
+    font-size: 1.375rem;
+    background: none;
+    border: none;
+    color: #FFFBF4;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#close-dropdown-menu:hover {
+    color: #D07E80;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 900; /* under the menu but above page */
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+.codeword-link-btn {
+    display: block;          /* full-width element */
+    width: fit-content;      /* shrink to the button's content */
+    margin: 0 auto;          /* centers horizontally */
+    
+    background-color: #87CF6A;
+    color: #341407;
+    
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    text-decoration: none;
+    cursor: pointer;
+    
+    transition: background-color 0.2s ease;
+}
+
+.codeword-link-btn:hover {
+    background-color: #d1de7f; /* same hover effect as submit */
+}
+
+.codeword-btn-container {
+        padding: 20px;
+        
+}
+
+.title-block {
+    background-color: #341407;
+    color: #FFFFFF;
+    text-align: center;       /* center the text horizontally */
+    align-content: center;
+    padding: 20px 0;          /* add vertical space, makes it taller */
+    font-family: 'Lato', Arial, sans-serif; 
+    font-weight: bold;
+}
+
+.title-block h1 {
+    font-family: 'Rammetto One', 'Lato', Arial, sans-serif; 
+    margin: 0;                /* remove default margin so padding works cleanly */
+    font-size: 1.8em;         
+    line-height: 1.2;
+}
+
+/* Container for input + button */
+.input-row {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;        /* space between input and button */
+    margin: 45px 0;   /* space around the whole row */
+    width: 100%;
+}
+
+/* Text input styling */
+#keyword-input {
+    flex: 4;                 /* input grows to fill extra space */
+    padding: 14px;           /* taller input */
+    border: 2px solid #008081;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* --- Feedback Messages (Correct / Error) --- */
+.correct {
+    color: #008081;              /* teal */
+    font-weight: bold;
+}
+
+.error {
+    color: #D07E80;              /* rose */
+    font-weight: bold;
+}
+
+/* --- Buttons! --- */
+button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer; 
+    font-family: 'Lato', Arial, sans-serif;    
+    font-weight: bold;   
+    font-size: 1.2rem;  
+}
+
+/* Button styling */
+#submit-btn {
+    flex: 1;
+    padding: 14px 20px;      /* taller and wider */
+    background-color: #87CF6A;
+    color: #341407;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;     /* keeps text on one line */
+}
+
+#submit-btn:hover {
+    background-color: #D1DE7F;   /* lighter green when hovered */
+}
+
+#reset-btn {
+    background-color: #008081; 
+    padding: 15px;
+    width: auto;
+    color: #FFFFFF;
+}
+
+/* --- Box showing found words --- */
+#foundWordBox {
+    width: auto;
+    margin: 10px 0px;
+    padding: 10px;
+    border: 2px solid #9C4E2C;   /* brown border */
+    border-radius: 5px;
+    background-color: #FFFFFF;   /* white to stand out */
+    min-height: 40px;
+}
+
+/* --- Bottom Navigation Bar --- */
+.bottom-nav {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100%;
+    max-width: 600px;
+
+    background-color: #FFFFFF;
+    border: 3px solid #008081;       
+    border-bottom-width: 0;           
+    border-top-left-radius: 6px;     
+    border-top-right-radius: 6px;
+
+    display: flex;
+    justify-content: space-around;
+    z-index: 998;
+
+    font-weight: bold;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+/* Each item still takes equal width */
+.nav-item {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #341407;
+    font-size: 0.875rem;
+
+    /* shrink clickable area */
+    padding: 2px 4px;       /* reduce inner size */
+    margin: 6px;            /* ensures spacing around each button */
+    border-radius: 4px;     /* soften edges */
+
+    transition: background-color 0.2s ease;
+}
+
+/* Active page */
+.nav-item.active {
+    background-color: #87CF6A;
+}
+
+/* Hover for non-active links only */
+.nav-item:not(.active):hover {
+    background-color: rgba(209, 222, 127, 0.6);
+}
+
+/* Prevent active hover override */
+.nav-item.active:hover {
+    background-color: #87CF6A;
+}
+
+/* Icons */
+.nav-item .icon {
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+.nav-item .label {
+    display: block;
+    line-height: 1.2;
+}
+
+.hex-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-auto-rows: 120px;
+    row-gap: 40px; 
+    column-gap: 30px; 
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    padding-bottom: 20px;
+}
+
+/* Hexagon shape */
+.hex {
+    position: relative;
+    width: 120px; /* must match the hex-grid sizes */
+    height: 120px; 
+    background-image: url("hex-bg.png");
+    background-size: contain; /* keeps exact image proportions */
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    font-weight: bold;
+    color: #341407;
+    text-decoration: none;
+}
+
+
+.hex-home {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.hex-home:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+.profiles-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* spacing between profiles */
+}
+
+.profile {
+    display: flex;
+    flex-wrap: wrap; /* mobile-friendly */
+    align-items: flex-start;
+    background-color: #FFFBF4;
+    border: 2px solid #D1DE7F;
+    border-radius: 12px;
+    padding: 15px;
+    gap: 15px;
+}
+
+.profile-emoji {
+    font-size: 4rem;
+    flex: 0 0 80px; /* keep emoji width fixed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-content {
+    flex: 1 1 0; /* take remaining space */
+}
+
+.profile-content h2 {
+    margin: 0 0 10px 0;
+    color: #341407;
+}
+
+.profile-content h3 {
+    margin: 10px 0 5px 0;
+    color: #008081;
+}
+
+.profile-content p {
+    margin: 0 0 8px 0;
+    color: #341407;
+    line-height: 1.4;
+}
+
+p[data-field="subtitle"] {
+    font-style: italic;
+}
+
+/* Highlight profiles that have been found */
+.profile.found {
+    border-color: #87CF6A; /* green border */
+    box-shadow: 0 4px 10px rgba(52, 168, 83, 0.3); /* subtle glow */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Grayed-out (unfound) profiles */
+.profile:not(.found) {
+    background-color: #e1e1e1;  /* Light gray background for unfound profiles */
+    opacity: 0.5;  /* Slightly transparent */
+}
+
+.profile-head {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.profile-head .hex {
+    width: 120px;
+    height: 120px;
+    flex: none;         /* no growing, no shrinking, no flex-basis override */
+}
+
+.profile-head-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* stack vertically */
+    width: 100%;            /* take full width */
+}
+
+.profile-head-text h2 {
+    margin: 0;
+    width: 100%;            /* forces full line */
+    display: block;
+}
+
+.profile-head-text p[data-field="subtitle"] {
+    margin: 2px 0 0 0;
+    font-style: italic;
+    width: 100%;            /* forces subtitle onto its own line */
+    display: block;
+}
+
+
+
+/* === Modal Overlay === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.hidden {
+    display: none;
+}
+
+/* === Modal Box === */
+.modal-box {
+    background: #FFFBF4;
+    border: 4px solid #87CF6A;
+    border-radius: 20px;
+    padding: 30px 40px;
+    position: relative;
+    text-align: center;
+    min-width: 280px;
+}
+
+/* === Hex background inside modal === */
+.modal-hex {
+    background-image: url("hex-bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-emoji {
+    font-size: 70px;
+}
+
+.modal-text {
+    font-size: 18px;
+    margin: 10px 0 20px 0;
+    line-height: 1.4;
+}
+
+/* profile buttons */
+.profile-btn {
+    background: #87CF6A;
+    color: #000;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.profile-btn:hover {
+    background: #75b85d;
+}
+
+/* bit of extra padding for bottom of the codeword button in profile */
+#profile-btm-btn {
+    margin-bottom: 40px;
+}
+
+/* Simple quiz box styling */
+.quiz-box {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #FFFBF4;
+    border: 2px solid #D1DE7F;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #341407;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Optional: different color when unlocked */
+.quiz-box.unlocked {
+    background-color: #e6ffee;
+    border-color: #34a853;
+    font-weight: bold;
+}
+
+.quiz-app {
+    background: #fff;
+    border: 2px solid #34a853;
+    max-width: 500px;
+    margin: 00px auto 60px;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 60px;
+    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.quiz-app h1 {
+    border-bottom: 1px solid #341407;
+    padding-bottom: 20px;
+}
+
+.quiz-question {
+    padding: 10px 0;
+}
+
+.quiz-option-btn {
+    font-size: 1rem;
+    background: #ffffff;
+    color: #341407;
+    width: 100%;
+    border: 1px solid #341407;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+
+.quiz-option-btn:hover:not([disabled]) {
+    background: #008081;
+    color: #ffffff;
+    
+}
+
+.quiz-option-btn:disabled {
+    cursor: default;
+    
+}
+
+
+#quiz-next-btn {
+    background: #008081;
+    color: #ffffff; 
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 5px;
+    display: block;
+}
+
+#quiz-next-btn:disabled {
+    background: #d3d3d3; 
+    color: #8b8b8b;
+    cursor: not-allowed;
+}
+
+.quiz-correct {
+    background: #87CF6A;
+}
+
+
+.quiz-incorrect {
+    background: #D07E80;
+}
+
+
+/* Simple quiz box styling */
+.placeholder-map-box {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #FFFBF4;
+    border: 2px solid #D1DE7F;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #341407;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Feedback and issue report Google form */
+.iframe-form {
+    border: none; 
+    display: block; 
+    margin: 0 auto;
+}
+
+/* Responsiveness */
+@media (max-width: 640px) {
+    .hex-grid {
+        grid-template-columns: repeat(2, 120px); /* 2 per row on mobile */
+        padding-bottom: 60px; /* slightly more for mobile nav */
+    }
+    .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    /* Stack hex + title + subtitle vertically */
+    .profile-head {
+        flex-direction: column;   /* instead of row */
+        align-items: center;      /* center everything */
+        text-align: center;
+    }
+
+    .profile-head .hex {
+        flex: none;
+        margin-bottom: 10px;      /* spacing between hex + title */
+    }
+
+    .profile-head-text {
+        align-items: center;      /* center title & subtitle */
+        width: 100%;
+    }
+
+    .profile-head-text h2,
+    .profile-head-text p[data-field="subtitle"] {
+        text-align: center;
+        width: 100%;
+    }
+    .emoji {
+        flex: none;
+    }
+}

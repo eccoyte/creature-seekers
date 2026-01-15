@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creature Seekers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="images/svg" href="comma-favicon-svg-test.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+
+<!-- Top Header with title left, burger right -->
+<header class="floating-header">
+    <a href="index.html" class="site-title">Creature Seekers</a>
+    <button type="button" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
+        &#9776;
+    </button>
+</header>
+
+<!-- Pull-out menu -->
+<nav id="dropdown-menu" aria-label="burger-menu">
+    <button type="button" id="close-dropdown-menu" aria-label="Close menu">✖</button>
+    <ul>
+        <li><a href="index.html">About the trail</a></li>
+        <li><a href="index.html">About the site</a></li>
+        <li><a href="index.html">FAQs</a></li>
+        <li><a href="index.html">Give feedback</a></li>
+        <li><a href="index.html">Report an issue</a></li>
+        <li><a href="index.html">Settings</a></li>
+    </ul>
+</nav>
+
+<!-- Bottom Navigation Bar -->
+<nav class="bottom-nav" aria-label="main menu">
+    <a href="index.html" class="nav-item active">
+        <div class="icon">🏠</div>
+        <div class="label">Home</div>
+    </a>
+
+    <a href="index.html" class="nav-item">
+        <div class="icon">🪲</div>
+        <div class="label">Profiles</div>
+    </a>
+    <a href="index.html" class="nav-item">
+        <div class="icon">🔍</div>
+        <div class="label">Codeword</div>
+    </a>
+
+    <a href="index.html" class="nav-item">
+        <div class="icon">🗺️</div>
+        <div class="label">Map</div>
+    </a>
+
+    <a href="index.html" class="nav-item">
+        <div class="icon">❓</div>
+        <div class="label">Quiz</div>
+    </a>
+</nav>
+
+<main>
+
+<div class="title-block">
+<h1>Welcome to Creature Seekers!</h1>
+</div>
+
+
+<!-- Page content -->
+
+<p>Coming soon!</p>
+
+
+
+<section title="Codewords found">
+<div class="hex-grid">
+    <!-- Top row -->
+    <a href="index.html" id="fruit-hex" class="hex hex-home">?</a>
+    <a href="index.html" id="sports-hex" class="hex hex-home">?</a>
+    <a href="index.html" id="animal-hex" class="hex hex-home">?</a>
+
+    <!-- Bottom row -->
+    <a href="index.html" id="instrument-hex" class="hex hex-home">?</a>
+    <a href="index.html" id="species-hex" class="hex hex-home">?</a>
+    <a href="index.html" id="element-hex" class="hex hex-home">?</a>
+</div>
+</section>
+
+<div id="menu-overlay" class="menu-overlay hidden"></div>
+
+<script src="script.js"></script>
+</main>
+
+
+</body>
+</html>
