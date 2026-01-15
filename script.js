@@ -63,7 +63,7 @@ const keyvalues = [
 {category: "element", congrats: "Awesome!",  prefix: "a", keyword: "fire", icon: "🔥", fullname: "Fire", sciname: "Hestia", subtitle: "Will you fight fire with fire, or go down in flames?", size: "literally any size", lifecycle: "The ball is made, the ball is thrown. Maybe the ball is caught", howtohelp: "It needs heat, fuel and an oxidising agent, like oxygen! Consider whether you need to help the fire though, or stop the fire as soon as possible. It's circumstantial like that.", found: false},
 ]
 
-const defaultvalues = {category: "default", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", subtitle: "Find my artwork to unlock info about me.", size: "Could be any size (probably quite small?)", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this insect to find out!", found: false}
+const defaultvalues = {category: "default", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", subtitle: "Find my artwork in BS6 to unlock info about me.", size: "Could be any size (probably quite small?)", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this insect to find out!", found: false}
 
 // load progress from localStorage
 function loadProgress() {

@@ -1,4 +1,11 @@
 
+/* TO-DO: When percentages are used to set padding and margin, however, they are calculated based only on the width of the parent element. */
+/* TO-DO: Eliminate all use of pixels except when revelant e.g. when choosing screensize */
+/* TO-DO: Determine proper sematic colour scheme with variables and use that */
+/* TO-DO: Rework menu with overlay that slightly darkens the rest of website as here: https://www.youtube.com/watch?v=m7YDWNz65iI */
+/* TO-DO: Rework aria attributes in all aspects, also from video reference above */
+/* TO-DO: Make more responsive with clamp() etc*/
+
 /* --- Overall Page Layout --- */
 
 body {

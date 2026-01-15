@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creature Seekers: Profiles</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="images/svg" href="comma-favicon-svg-test.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<!-- Top Header with title left, burger right -->
+<header class="floating-header">
+    <a href="index.html" class="site-title">Creature Seekers: BS6</a>
+    <button type="button" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
+        &#9776;
+    </button>
+</header>
+
+<!-- Pull-out menu -->
+<nav id="dropdown-menu" aria-label="burger-menu">
+    <button type="button" id="close-dropdown-menu" aria-label="Close menu">✖</button>
+    <ul>
+        <li><a href="about-trail.html">About the trail</a></li>
+        <li><a href="about-site.html">About the site</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="feedback.html">Give feedback</a></li>
+        <li><a href="issue-report.html">Report an issue</a></li>
+        <li><a href="settings.html">Settings</a></li>
+    </ul>
+</nav>
+
+
+<!-- Bottom Navigation Bar -->
+<nav class="bottom-nav" aria-label="main menu">
+    <a href="index.html" class="nav-item">
+        <div class="icon">🏠</div>
+        <div class="label">Home</div>
+    </a>
+
+    <a href="profiles.html" class="nav-item active">
+        <div class="icon">🪲</div>
+        <div class="label">Profiles</div>
+    </a>
+    <a href="codeword.html" class="nav-item">
+        <div class="icon">🔍</div>
+        <div class="label">Codeword</div>
+    </a>
+
+    <a href="map.html" class="nav-item">
+        <div class="icon">🗺️</div>
+        <div class="label">Map</div>
+    </a>
+
+    <a href="quiz.html" class="nav-item">
+        <div class="icon">❓</div>
+        <div class="label">Quiz</div>
+    </a>
+</nav>
+
+<!-- Page content -->
+<main>
+
+<div class="title-block">
+<h1>Creature profiles</h1>
+</div>
+
+<p>Here you can find out all about the creatures on the trail - though their identities will remain secret until you've found their keywords on the artwork!</p>
+
+<div class="codeword-btn-container">
+<a href="codeword.html" class="codeword-link-btn">Found a codeword? Click here!</a>
+</div>
+<div class="profiles-container">
+
+    <!-- FRUIT -->
+    <div class="profile" id="fruit-box">
+        <div class="profile-head">
+            <div class="hex hex-profile" id="fruit-hex">?</div>
+
+            <div class="profile-head-text">
+                <h2 data-field="fullname">Apple</h2>
+                <p data-field="subtitle">Subtitle text here</p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <h3>Scientific name</h3>
+            <p data-field="sciname">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Life cycle</h3>
+            <p data-field="lifecycle">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h3>How to help them</h3>
+            <p data-field="howtohelp">Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        </div>
+    </div>
+
+    <!-- SPORTS -->
+    <div class="profile" id="sports-box">
+        <div class="profile-head">
+            <div class="hex hex-profile" id="sports-hex">?</div>
+
+            <div class="profile-head-text">
+                <h2 data-field="fullname">Baseball</h2>
+                <p data-field="subtitle">Subtitle text here</p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <h3>Scientific name</h3>
+            <p data-field="sciname">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Life cycle</h3>
+            <p data-field="lifecycle">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h3>How to help them</h3>
+            <p data-field="howtohelp">Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        </div>
+    </div>
+
+    <!-- ANIMAL -->
+    <div class="profile" id="animal-box">
+        <div class="profile-head">
+            <div class="hex hex-profile" id="animal-hex">?</div>
+
+            <div class="profile-head-text">
+                <h2 data-field="fullname">Cat</h2>
+                <p data-field="subtitle">Subtitle text here</p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <h3>Scientific name</h3>
+            <p data-field="sciname">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Life cycle</h3>
+            <p data-field="lifecycle">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h3>How to help them</h3>
+            <p data-field="howtohelp">Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        </div>
+    </div>
+
+    <!-- INSTRUMENT -->
+    <div class="profile" id="instrument-box">
+        <div class="profile-head">
+            <div class="hex hex-profile" id="instrument-hex">?</div>
+
+            <div class="profile-head-text">
+                <h2 data-field="fullname">Dog</h2>
+                <p data-field="subtitle">Subtitle text here</p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <h3>Scientific name</h3>
+            <p data-field="sciname">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Life cycle</h3>
+            <p data-field="lifecycle">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h3>How to help them</h3>
+            <p data-field="howtohelp">Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        </div>
+    </div>
+
+    <!-- SPECIES -->
+    <div class="profile" id="species-box">
+        <div class="profile-head">
+            <div class="hex hex-profile" id="species-hex">?</div>
+
+            <div class="profile-head-text">
+                <h2 data-field="fullname">Elf</h2>
+                <p data-field="subtitle">Subtitle text here</p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <h3>Scientific name</h3>
+            <p data-field="sciname">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Life cycle</h3>
+            <p data-field="lifecycle">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h3>How to help them</h3>
+            <p data-field="howtohelp">Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        </div>
+    </div>
+
+    <!-- ELEMENT -->
+    <div class="profile" id="element-box">
+        <div class="profile-head">
+            <div class="hex hex-profile" id="element-hex">?</div>
+
+            <div class="profile-head-text">
+                <h2 data-field="fullname">Fire</h2>
+                <p data-field="subtitle">Subtitle text here</p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <h3>Scientific name</h3>
+            <p data-field="sciname">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Life cycle</h3>
+            <p data-field="lifecycle">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h3>How to help them</h3>
+            <p data-field="howtohelp">Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="codeword-btn-container">
+<a href="codeword.html" class="codeword-link-btn" id="profile-btm-btn">Found a codeword? Press here!</a>
+</div>
+
+<div id="menu-overlay" class="menu-overlay hidden"></div>
+
+<script src="script.js"></script>
+</main>
+
+
+
+
+</body>
+</html>

@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Creature Seekers</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <title>Creature Seekers: Enter codeword</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="images/svg" href="comma-favicon-svg-test.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +15,7 @@
 
 <!-- Top Header with title left, burger right -->
 <header class="floating-header">
-    <a href="index.html" class="site-title">Creature Seekers: BS6</a>
+    <div class="site-title">Creature Seekers: BS6</div>
     <button type="button" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
         &#9776;
     </button>
@@ -36,9 +34,10 @@
     </ul>
 </nav>
 
+
 <!-- Bottom Navigation Bar -->
 <nav class="bottom-nav" aria-label="main menu">
-    <a href="index.html" class="nav-item active">
+    <a href="index.html" class="nav-item">
         <div class="icon">🏠</div>
         <div class="label">Home</div>
     </a>
@@ -47,7 +46,8 @@
         <div class="icon">🪲</div>
         <div class="label">Profiles</div>
     </a>
-    <a href="codeword.html" class="nav-item">
+
+    <a href="codeword.html" class="nav-item active">
         <div class="icon">🔍</div>
         <div class="label">Codeword</div>
     </a>
@@ -63,42 +63,56 @@
     </a>
 </nav>
 
-<main>
-
-<div class="title-block">
-<h1>Welcome to Creature Seekers!</h1>
-</div>
-
 
 <!-- Page content -->
+<main>
 
-<p>There are six insect artworks found across parks and green spaces this summer. Can you find them all?</p>
-<p>Each artwork has an associated codeword somewhere on it - find it and enter it to unlock profile on that creature. Complete all six to unlock the quiz!
-</p>
 
-<div class="codeword-btn-container">
-<a href="codeword.html" class="codeword-link-btn">Found a codeword? Press here!</a>
+<div class="title-block">
+    <h1>Enter your codeword! </h1>
 </div>
 
-<section title="Codewords found">
-<div class="hex-grid">
-    <!-- Top row -->
-    <a href="profiles.html#fruit-box" id="fruit-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#sports-box" id="sports-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#animal-box" id="animal-hex" class="hex hex-home">?</a>
+    <p>Have you found a creature station? Great!</p>
 
-    <!-- Bottom row -->
-    <a href="profiles.html#instrument-box" id="instrument-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#species-box" id="species-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#element-box" id="element-hex" class="hex hex-home">?</a>
+<p>Enter in the codeword to unlock the creature in the app, and find out more about them!</p>
+
+
+
+<section title="Codeword entry">
+
+<div class="input-row">
+    <input id="keyword-input" type="text" placeholder="Enter a codeword…">
+    <button type="button" id="submit-btn" onclick="handleKeywordGuess()">Submit</button>
 </div>
+<p id="guess-msg"></p>
 </section>
 
-<div id="menu-overlay" class="menu-overlay hidden"></div>
+<!-- <section title="debugging">
+<h3>Log of found Words (for debugging purposes):</h3>
+<div id="foundWordBox"></div>
 
+
+<button type="button" id="reset-btn" onclick="handleReset()">Reset found words</button>
+</section> -->
+
+<!-- Modal Overlay -->
+<div id="reward-modal-overlay" class="modal-overlay hidden">
+    <div class="modal-box">
+        <div class="modal-hex">
+            <span id="modal-emoji">?</span>
+        </div>
+
+         <div id="modal-text" class="modal-text"></div>
+
+        <button type="button" id="go-to-profile-btn" class="profile-btn">
+            Go to profile
+        </button>
+    </div>
+</div>
+
+<div id="menu-overlay" class="menu-overlay hidden"></div>
 <script src="script.js"></script>
 </main>
-
 
 </body>
 </html>

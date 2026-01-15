@@ -2,18 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Creature Seekers</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <title>Creature Seekers: Map</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="images/svg" href="comma-favicon-svg-test.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
-<body>
 
+
+<body>
 
 <!-- Top Header with title left, burger right -->
 <header class="floating-header">
@@ -36,9 +34,10 @@
     </ul>
 </nav>
 
+
 <!-- Bottom Navigation Bar -->
 <nav class="bottom-nav" aria-label="main menu">
-    <a href="index.html" class="nav-item active">
+    <a href="index.html" class="nav-item">
         <div class="icon">🏠</div>
         <div class="label">Home</div>
     </a>
@@ -52,7 +51,7 @@
         <div class="label">Codeword</div>
     </a>
 
-    <a href="map.html" class="nav-item">
+    <a href="map.html" class="nav-item active">
         <div class="icon">🗺️</div>
         <div class="label">Map</div>
     </a>
@@ -63,41 +62,27 @@
     </a>
 </nav>
 
+
 <main>
 
+<!-- Page content -->
 <div class="title-block">
-<h1>Welcome to Creature Seekers!</h1>
+<h1>Creature map</h1>
 </div>
 
-
-<!-- Page content -->
-
-<p>There are six insect artworks found across parks and green spaces this summer. Can you find them all?</p>
-<p>Each artwork has an associated codeword somewhere on it - find it and enter it to unlock profile on that creature. Complete all six to unlock the quiz!
-</p>
+    <div class="placeholder-map-box" id="placeholder-map-box">
+        <p>The map is not ready yet - try again later!</p>
+    </div>
 
 <div class="codeword-btn-container">
 <a href="codeword.html" class="codeword-link-btn">Found a codeword? Press here!</a>
 </div>
 
-<section title="Codewords found">
-<div class="hex-grid">
-    <!-- Top row -->
-    <a href="profiles.html#fruit-box" id="fruit-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#sports-box" id="sports-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#animal-box" id="animal-hex" class="hex hex-home">?</a>
-
-    <!-- Bottom row -->
-    <a href="profiles.html#instrument-box" id="instrument-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#species-box" id="species-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#element-box" id="element-hex" class="hex hex-home">?</a>
-</div>
-</section>
-
 <div id="menu-overlay" class="menu-overlay hidden"></div>
 
 <script src="script.js"></script>
-</main>
+ </main>
+
 
 
 </body>

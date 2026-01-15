@@ -1,0 +1,211 @@
+// quiz logic assumes the quiz has been unlocked (all codewords found)
+
+const questions = [
+    {
+        question: "Which was the <b>fruit</b> that you found on your word trail journey?",
+        answers: [
+            {text: "apples", correct: true},
+            {text: "pears", correct: false},
+            {text: "oranges", correct: false},
+            {text: "bananas", correct: false}
+        ]
+    },
+    {
+        question: "Which was the <b>ball</b> that you found on your word trail journey?",
+        answers: [
+            {text: "baseball", correct: true},
+            {text: "basketball", correct: false},
+            {text: "tennis ball", correct: false},
+            {text: "volleyball", correct: false}
+        ]
+    },
+    {
+        question: "Which was the <b>animal</b> that you found on your word trail journey?",
+        answers: [
+            {text: "cat", correct: true},
+            {text: "cow", correct: false},
+            {text: "crab", correct: false},
+            {text: "chicken", correct: false}
+        ]
+    },
+    {
+        question: "Which was the <b>instrument</b> that you found on your word trail journey?",
+        answers: [
+            {text: "drum", correct: true},
+            {text: "piano", correct: false},
+            {text: "trumpet", correct: false},
+            {text: "banjo", correct: false}
+        ]
+    },
+    {
+        question: "Which was the <b>fantasy race</b> that you found on your word trail journey?",
+        answers: [
+            {text: "elf", correct: true},
+            {text: "dwarf", correct: false},
+            {text: "hobbit", correct: false},
+            {text: "orc", correct: false}
+        ]
+    },
+    {
+        question: "Which was the <b>element</b> that you found on your word trail journey?",
+        answers: [
+            {text: "fire", correct: true},
+            {text: "earth", correct: false},
+            {text: "air", correct: false},
+            {text: "water", correct: false}
+        ]
+    }
+];
+
+const questionElement = document.getElementById("quiz-question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("quiz-next-btn");
+
+
+
+// this is suboptimal but good enough for this purpose. 12 possible combinations, to pick between. Unlikely to get same twice!
+const questionOrders = [
+    [2, 0, 5, 1, 4, 3], [4, 1, 3, 5, 0, 2], [1, 5, 0, 4, 3, 2], [3, 2, 1, 0, 5, 4], 
+    [5, 4, 2, 3, 1, 0], [0, 3, 4, 2, 5, 1], [1, 0, 5, 3, 4, 2], [4, 2, 0, 1, 3, 5], 
+    [3, 5, 1, 4, 2, 0], [5, 1, 3, 0, 2, 4], [2, 4, 0, 5, 1, 3], [0, 5, 2, 3, 4, 1]
+];
+
+
+//12 possible different combinations, 3 where 1 is first, 3 where 1 is second and so on. 1 is always correct here, so it's evenly balanced
+const answerOrders = [
+    [0, 1, 2, 3], [0, 1, 3, 2], [0, 2, 1, 3],
+    [3, 0, 2, 1], [2, 0, 1, 3], [3, 0, 1, 2],
+    [1, 2, 0, 3], [2, 1, 0, 3], [1, 3, 0, 2],
+    [1, 2, 3, 0], [1, 2, 3, 0], [3, 2, 1, 0]
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+// pick random set of question and answer orders at start of quiz
+let selectedQuestionOrder = [];
+let selectedAnswerOrder = [];
+
+// TO-DO: Generate randomised question order within the quiz, and use that going forward
+// TO-DO: Generate randomised answer order within each question, and use that going forward.
+// possible randomisation: "options = choices[matrix(shuffle(1:size(choices)[1]))];" but this only works when it's a straight list, currently it's an object
+// could rework to answers: ["a", "b", "c", "d"], and correct is always the first one.
+
+let quizState = "front"; // "front" = front page, "inProgress" = quiz active
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+
+    if (quizState === "front") {
+        // show front page message
+        questionElement.innerHTML = "Well done! Now you can start the quiz.";
+        
+        resetState(); 
+        nextButton.disabled = false; 
+        nextButton.innerHTML = "Start Quiz";
+    } 
+};
+
+function showQuestion() {
+    resetState();
+    let currentQuestion = questions[selectedQuestionOrder[currentQuestionIndex]];
+    selectedAnswerOrder = answerOrders[Math.floor(Math.random() * answerOrders.length)];
+    let questionNo = currentQuestionIndex + 1;
+    
+    // write question text with number
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    // generate the buttons
+// loop through answers in the selected random order
+    selectedAnswerOrder.forEach(i => {
+        let answer = currentQuestion.answers[i]; 
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("quiz-option-btn");
+        answerButtons.appendChild(button);
+        if(answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+        
+    })
+}
+
+// removes other questions
+function resetState() {
+    
+    // keep Next button always visible but disabled
+    nextButton.disabled = true;
+
+    while(answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild)
+    }
+}
+
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    
+    // adds the coloration etc based on correctness
+    if (isCorrect) {
+        selectedBtn.classList.add("quiz-correct");
+        score += 1;
+    } else {
+        selectedBtn.classList.add("quiz-incorrect");
+    }
+    
+    // automatically mark the correct options after answering
+    Array.from(answerButtons.children).forEach(button => {
+        if(button.dataset.correct === "true") {
+            button.classList.add("quiz-correct");
+        }
+        // stops further clicking on button
+        button.disabled = true;
+    });
+        // enable Next button
+    nextButton.disabled = false;
+}
+
+// display either the question, or the score
+function handleNextButton() {
+    if (quizState === "front") {
+        // move from front page to quiz
+        quizState = "inProgress";
+        currentQuestionIndex = 0;
+
+        // pick random question order 
+        selectedQuestionOrder = questionOrders[Math.floor(Math.random() * questionOrders.length)];
+
+        score = 0;
+        nextButton.innerHTML = "Next";
+        showQuestion();
+        return;
+    }
+
+    // normal quiz progression
+    currentQuestionIndex += 1;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        showScore();
+        quizState = "front"; // allow "Play Again"
+        nextButton.innerHTML = "Play Again";
+        nextButton.disabled = false;
+    }
+}
+
+
+function showScore() {
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`
+    nextButton.innerHTML = "Play again";
+    // enable the button so user can click it
+    nextButton.disabled = false;
+}
+
+
+// click handler for Next button
+nextButton.addEventListener("click", handleNextButton);
+
+startQuiz();
