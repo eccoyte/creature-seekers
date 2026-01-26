@@ -17,51 +17,9 @@
 
 <!-- Top Header with title left, burger right -->
 <header class="floating-header">
-    <a href="index.html" class="site-title">Creature Seekers: BS6</a>
-    <button type="button" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
-        &#9776;
-    </button>
+    <a class="site-title">Creature Seekers: BS6</a>
 </header>
 
-<!-- Pull-out menu -->
-<nav id="dropdown-menu" aria-label="burger-menu">
-    <button type="button" id="close-dropdown-menu" aria-label="Close menu">✖</button>
-    <ul>
-        <li><a href="about-trail.html">About the trail</a></li>
-        <li><a href="about-site.html">About the site</a></li>
-        <li><a href="faqs.html">FAQs</a></li>
-        <li><a href="feedback.html">Give feedback</a></li>
-        <li><a href="issue-report.html">Report an issue</a></li>
-        <li><a href="settings.html">Settings</a></li>
-    </ul>
-</nav>
-
-<!-- Bottom Navigation Bar -->
-<nav class="bottom-nav" aria-label="main menu">
-    <a href="index.html" class="nav-item active">
-        <div class="icon">🏠</div>
-        <div class="label">Home</div>
-    </a>
-
-    <a href="profiles.html" class="nav-item">
-        <div class="icon">🪲</div>
-        <div class="label">Profiles</div>
-    </a>
-    <a href="codeword.html" class="nav-item">
-        <div class="icon">🔍</div>
-        <div class="label">Codeword</div>
-    </a>
-
-    <a href="map.html" class="nav-item">
-        <div class="icon">🗺️</div>
-        <div class="label">Map</div>
-    </a>
-
-    <a href="quiz.html" class="nav-item">
-        <div class="icon">❓</div>
-        <div class="label">Quiz</div>
-    </a>
-</nav>
 
 <main>
 
@@ -72,31 +30,27 @@
 
 <!-- Page content -->
 
-<p>There are six insect artworks found across parks and green spaces this summer. Can you find them all?</p>
-<p>Each artwork has an associated codeword somewhere on it - find it and enter it to unlock profile on that creature. Complete all six to unlock the quiz!
-</p>
+<p>Welcome to the Creature Seekers trail.</p>
+<p>The creatures are currently running around looking for the best hiding places, so aren't ready to be found yet!</p>
+<p>However, if you have been asked to help with testing, type in the password and press Submit.</p>
 
-<div class="codeword-btn-container">
-<a href="codeword.html" class="codeword-link-btn">Found a codeword? Press here!</a>
+<!-- password input form -->
+<div class="input-row" id="password-container">
+
+    <input type="text" id="password-input" placeholder="Enter password" size="35">
+    <button type="button" onclick="checkPassword()">Submit</button>
+</div>
+<p id="error-message" class="error" style="display:none;">Incorrect password. Try again.</p>
+
+<!-- button to access homepage (hidden initially) -->
+<div id="pwd-access-container" style="display:none;">
+    <button type="button" onclick="window.location.href='homepage.html';">Go to Homepage</button>
 </div>
 
-<section title="Codewords found">
-<div class="hex-grid">
-    <!-- Top row -->
-    <a href="profiles.html#fruit-box" id="fruit-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#sports-box" id="sports-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#animal-box" id="animal-hex" class="hex hex-home">?</a>
-
-    <!-- Bottom row -->
-    <a href="profiles.html#instrument-box" id="instrument-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#species-box" id="species-hex" class="hex hex-home">?</a>
-    <a href="profiles.html#element-box" id="element-hex" class="hex hex-home">?</a>
-</div>
-</section>
 
 <div id="menu-overlay" class="menu-overlay hidden"></div>
 
-<script src="script.js"></script>
+<script src="pwd.js"></script>
 </main>
 
 

@@ -1,4 +1,4 @@
-let foundCount = 0;   // how many items have been found
+let foundCount = 0;   // how many creatures have been found
 
 // nav menu behaviour
 const burger = document.getElementById("burger");
@@ -22,7 +22,7 @@ function closeMenu() {
 }
 
 
-// --- event listeners ---
+// event listeners
 
 // open menu
 burger.addEventListener("click", (e) => {
@@ -133,10 +133,11 @@ if (keywordInput) {
     });
 }
 
+
+
+
 // finds matching hex link using its category and replaces the ? with relevant emoji
 // also updates the foundWordBox - will be phased out but handy for now
-
-
 function updateDisplay() {
 
     // Update hex icons  
@@ -254,6 +255,8 @@ function updateProfilesContent() {
         }
     });
 }
+
+
 
 
 //QUIZ SETTINGS

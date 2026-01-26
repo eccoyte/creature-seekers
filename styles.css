@@ -22,6 +22,24 @@ body {
     box-sizing: border-box; 
 }
 
+/* --- Password section - to be removed for release! --- */
+
+
+.pwd-access-container {
+        padding: 20px;
+        
+}
+
+/* Text input styling */
+#password-input {
+    flex: 4;                 /* input grows to fill extra space */
+    padding: 14px;           /* taller input */
+    border: 2px solid #008081;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+
 /* --- Headers! --- */
 
 .floating-header {
@@ -205,6 +223,8 @@ body {
         padding: 20px;
         
 }
+
+
 
 .title-block {
     background-color: #341407;
