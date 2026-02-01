@@ -472,6 +472,7 @@ button {
     margin: 0 0 8px 0;
     color: #341407;
     line-height: 1.4;
+    margin-bottom: 1.8rem;
 }
 
 p[data-field="subtitle"] {
