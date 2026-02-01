@@ -2,34 +2,34 @@
 
 const questions = [
     {
-        question: "Which was the <b>fruit</b> that you found on your word trail journey?",
+        question: "<b>Ivy bees</b> are named for their love of ivy flowers. In which season does this plant usually flower the most? ",
         answers: [
-            {text: "apples", correct: true},
-            {text: "pears", correct: false},
-            {text: "oranges", correct: false},
-            {text: "bananas", correct: false}
+            {text: "Autumn e.g. September to November", correct: true},
+            {text: "Spring e.g. March to May", correct: false},
+            {text: "Summer e.g. June to August", correct: false},
+            {text: "Winter e.g. December to February", correct: false}
         ]
     },
     {
-        question: "Which was the <b>ball</b> that you found on your word trail journey?",
+        question: "A pile of which of the following would be the most help to <b>lesser stag beetles</b>?",
         answers: [
-            {text: "baseball", correct: true},
-            {text: "basketball", correct: false},
-            {text: "tennis ball", correct: false},
-            {text: "volleyball", correct: false}
+            {text: "Untreated wood", correct: true},
+            {text: "Loamy soil", correct: false},
+            {text: "Food scraps", correct: false},
+            {text: "Deer droppings", correct: false}
         ]
     },
     {
-        question: "Which was the <b>animal</b> that you found on your word trail journey?",
+        question: "Where do <b>green shield bugs</b> like to lay their eggs?",
         answers: [
-            {text: "cat", correct: true},
-            {text: "cow", correct: false},
-            {text: "crab", correct: false},
-            {text: "chicken", correct: false}
+            {text: "On the underside of leaves", correct: true},
+            {text: "Deep underground", correct: false},
+            {text: "Near fresh water", correct: false},
+            {text: "In medieval armour", correct: false}
         ]
     },
     {
-        question: "Which was the <b>instrument</b> that you found on your word trail journey?",
+        question: "What are juveniles of dragonflies like the <b>common darter dragonfly</b> called?",
         answers: [
             {text: "drum", correct: true},
             {text: "piano", correct: false},
@@ -38,21 +38,21 @@ const questions = [
         ]
     },
     {
-        question: "Which was the <b>fantasy race</b> that you found on your word trail journey?",
+        question: "What is the favourite food of <b>marmalade hoverfly</b> larvae?",
         answers: [
-            {text: "elf", correct: true},
-            {text: "dwarf", correct: false},
-            {text: "hobbit", correct: false},
-            {text: "orc", correct: false}
+            {text: "Aphids", correct: true},
+            {text: "Compost", correct: false},
+            {text: "Jam", correct: false},
+            {text: "Ants", correct: false}
         ]
     },
     {
-        question: "Which was the <b>element</b> that you found on your word trail journey?",
+        question: "Why are mint moths called mint moths?",
         answers: [
-            {text: "fire", correct: true},
-            {text: "earth", correct: false},
-            {text: "air", correct: false},
-            {text: "water", correct: false}
+            {text: "Because the caterpillars feeds on herbs including mint", correct: true},
+            {text: "Because the adults create a minty smell when disturbed", correct: false},
+            {text: "Because the adults occasionally steal breath mints", correct: false},
+            {text: "Because the caterpillars are a bright minty green colour", correct: false}
         ]
     }
 ];
