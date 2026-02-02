@@ -396,9 +396,8 @@ button {
 /* Hexagon shape */
 .hex {
     position: relative;
-    width: 120px; /* must match the hex-grid sizes */
-    height: 120px; 
-    background-image: url("hex-bg.png");
+    width: 140px; /* must match the hex-grid sizes */
+    height: 140px; 
     background-size: contain; /* keeps exact image proportions */
     background-repeat: no-repeat;
     background-position: center;
@@ -427,12 +426,11 @@ button {
 
 
 .profiles-container {
-    max-width: 900px;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* spacing between profiles */
+    gap: 40px; /* spacing between profiles */
 }
 
 .profile {
@@ -475,7 +473,13 @@ button {
     margin-bottom: 1.8rem;
 }
 
-p[data-field="subtitle"] {
+p[data-field="tagline"] {
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+p[data-field="sciname"] {
     font-style: italic;
 }
 
@@ -500,8 +504,8 @@ p[data-field="subtitle"] {
 }
 
 .profile-head .hex {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     flex: none;         /* no growing, no shrinking, no flex-basis override */
 }
 
@@ -602,7 +606,7 @@ p[data-field="subtitle"] {
 
 /* Simple quiz box styling */
 .quiz-box {
-    max-width: 500px;
+    max-width: 550px;
     margin: 50px auto;
     padding: 30px;
     background-color: #FFFBF4;
@@ -624,11 +628,11 @@ p[data-field="subtitle"] {
 .quiz-app {
     background: #fff;
     border: 2px solid #34a853;
-    max-width: 500px;
+    max-width: 550px;
     margin: 00px auto 60px;
     border-radius: 10px;
     padding: 30px;
-    margin-top: 60px;
+    margin-top: 30px;
     
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -698,7 +702,7 @@ p[data-field="subtitle"] {
 
 /* Simple quiz box styling */
 .placeholder-map-box {
-    max-width: 500px;
+    max-width: 550px;
     margin: 50px auto;
     padding: 30px;
     background-color: #FFFBF4;
