@@ -562,7 +562,6 @@ p[data-field="sciname"] {
 
 /* === Hex background inside modal === */
 .modal-hex {
-    background-image: url("hex-bg.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
