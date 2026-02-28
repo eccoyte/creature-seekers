@@ -704,19 +704,56 @@ p[data-field="sciname"] {
 }
 
 
-/* Simple quiz box styling */
-.placeholder-map-box {
-    max-width: 550px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #FFFBF4;
-    border: 2px solid #D1DE7F;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #341407;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+/* map page! */
+#map-box {
+    max-width: 100%;
+    margin: 30px auto;
 }
+
+#map-box img {
+  width: 100%;
+  height: auto;
+}
+
+#route-details details {
+  border: 2px solid #341407;
+  background-color: #D7E5A8;
+  color: #341407;
+  border-radius: 6px;
+  padding: 0.5em 0.5em 0;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+#route-details summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+#route-details details[open] {
+  padding: 0.5em;
+      background-color: #FDFDFD;
+
+}
+
+
+#route-details details[open] summary {
+  border-bottom: 1px solid #341407;
+    background-color: #FDFDFD;
+  margin-bottom: 0.5em;
+}
+
+
+#route-details h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+
+
 
 /* Feedback and issue report Google form */
 .iframe-form {
