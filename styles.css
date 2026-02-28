@@ -755,12 +755,11 @@ p[data-field="sciname"] {
 
 
 
-/* Feedback and issue report Google form */
-.iframe-form {
-    border: none; 
-    display: block; 
-    margin: 0 auto;
+/* feedback survey and issue report form div - used twice */
+.external-form-wrapper {
+    margin-bottom: 60px;
 }
+
 
 /* Responsiveness */
 @media (max-width: 640px) {
