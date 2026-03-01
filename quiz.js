@@ -31,10 +31,10 @@ const questions = [
     {
         question: "What are juveniles of dragonflies like the <b>common darter dragonfly</b> called?",
         answers: [
-            {text: "drum", correct: true},
-            {text: "piano", correct: false},
-            {text: "trumpet", correct: false},
-            {text: "banjo", correct: false}
+            {text: "Nymphs", correct: true},
+            {text: "Griffins", correct: false},
+            {text: "Wyverns", correct: false},
+            {text: "Pixies", correct: false}
         ]
     },
     {
