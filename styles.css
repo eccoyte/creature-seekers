@@ -428,9 +428,6 @@ button {
 
 
 
-.profile {
-    scroll-margin-top: 35px; /* ensures the top doesn't get cut off */
-}
 
 .profiles-container {
     max-width: 600px;
@@ -449,6 +446,7 @@ button {
     border-radius: 12px;
     padding: 15px;
     gap: 15px;
+    scroll-margin-top: 35px; /* ensures the top doesn't get cut off */    
 }
 
 .profile-emoji {
@@ -537,6 +535,8 @@ p[data-field="sciname"] {
 }
 
 
+/* === Codeword page modals === */
+
 
 /* === Modal Overlay === */
 .modal-overlay {
@@ -567,23 +567,6 @@ p[data-field="sciname"] {
     min-width: 280px;
 }
 
-/* === Hex background inside modal === */
-.modal-hex {
-    background-image: url("hex-bg.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#modal-emoji {
-    font-size: 70px;
-}
 
 .modal-text {
     font-size: 18px;
@@ -611,49 +594,43 @@ p[data-field="sciname"] {
     margin-bottom: 40px;
 }
 
-/* Simple quiz box styling */
-.quiz-box {
-    max-width: 550px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #FFFBF4;
-    border: 2px solid #D1DE7F;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #341407;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
 
-/* Optional: different color when unlocked */
-.quiz-box.unlocked {
-    background-color: #e6ffee;
-    border-color: #34a853;
-    font-weight: bold;
-}
+
+/* Quiz box styling */
 
 .quiz-app {
-    background: #fff;
+    background: #ffffff;
     border: 2px solid #34a853;
+    
+    text-align: center;
     max-width: 550px;
     margin: 50px auto 60px;
     border-radius: 10px;
-    padding: 10px 20px 30px;
-
+    padding: 5px 20px 30px;
     
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.quiz-app h1 {
-    border-bottom: 1px solid #341407;
-    padding-bottom: 20px;
-}
-
 #quiz-question {
-    padding: 5px 0;
+    padding: 3px 0;
     font-size: 1.2rem;
     text-align: center;
 }
+
+#quiz-question-img {
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+    padding-top: 0.6rem;
+}
+
+#quiz-question-img img {
+    display: block;
+    height: 6rem;
+    width: auto;
+    margin: 0 auto;
+}
+
 
 .quiz-option-btn {
     font-size: 1rem;

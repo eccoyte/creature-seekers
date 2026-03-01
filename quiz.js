@@ -2,7 +2,8 @@
 
 const questions = [
     {
-        question: "<b>Ivy bees</b> are named for their love of ivy flowers. In which season does this plant usually flower the most? ",
+        imgsrc: "images/ivy-bee-animation-hex.svg",
+        question: "In which season does ivy produce the most flowers, loved by <i>ivy bees</i>?",
         answers: [
             {text: "Autumn e.g. September to November", correct: true},
             {text: "Spring e.g. March to May", correct: false},
@@ -11,7 +12,8 @@ const questions = [
         ]
     },
     {
-        question: "A pile of which of the following would be the most help to <b>lesser stag beetles</b>?",
+        imgsrc: "images/lesser-stag-beetle-animation-hex.svg",
+        question: "A pile of which of the following would be the most help to <i>lesser stag beetles</i>?",
         answers: [
             {text: "Untreated wood", correct: true},
             {text: "Loamy soil", correct: false},
@@ -20,7 +22,8 @@ const questions = [
         ]
     },
     {
-        question: "Where do <b>green shield bugs</b> like to lay their eggs?",
+        imgsrc: "images/green-shield-bug-animation-hex.svg",
+        question: "Where do <i>green shield bugs</i> like to lay their eggs?",
         answers: [
             {text: "On the underside of leaves", correct: true},
             {text: "Deep underground", correct: false},
@@ -29,7 +32,8 @@ const questions = [
         ]
     },
     {
-        question: "What are juveniles of dragonflies like the <b>common darter dragonfly</b> called?",
+        imgsrc: "images/darter-dragonfly-animation-hex.svg",
+        question: "What are juveniles of dragonflies like the <i>common darter dragonfly</i> called?",
         answers: [
             {text: "Nymphs", correct: true},
             {text: "Griffins", correct: false},
@@ -38,7 +42,8 @@ const questions = [
         ]
     },
     {
-        question: "What is the favourite food of <b>marmalade hoverfly</b> larvae?",
+        imgsrc: "images/marmalade-hoverfly-animation-hex.svg",
+        question: "What is the favourite food of <i>marmalade hoverfly</i> larvae?",
         answers: [
             {text: "Aphids", correct: true},
             {text: "Compost", correct: false},
@@ -47,7 +52,8 @@ const questions = [
         ]
     },
     {
-        question: "Why are mint moths called mint moths?",
+        imgsrc: "images/mint-moth-animation-hex.svg",
+        question: "Why do <i>mint moths</i> have this name?",
         answers: [
             {text: "Because the caterpillars feeds on herbs including mint", correct: true},
             {text: "Because the adults create a minty smell when disturbed", correct: false},
@@ -114,9 +120,12 @@ function showQuestion() {
     let questionNo = currentQuestionIndex + 1;
     
     // write question text with number
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
-    // generate the buttons
+        const quizImage = document.querySelector("#quiz-question-img img");
+    quizImage.src = currentQuestion.imgsrc;
+
+    // generate the answer buttons
 // loop through answers in the selected random order
     selectedAnswerOrder.forEach(i => {
         let answer = currentQuestion.answers[i]; 
@@ -200,6 +209,11 @@ function showScore() {
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`
     nextButton.innerHTML = "Play again";
+
+    // reset image back to mystery hex
+    const quizImage = document.querySelector("#quiz-question-img img");
+    quizImage.src = "images/mystery-bug-animation-hex.svg"; 
+
     // enable the button so user can click it
     nextButton.disabled = false;
 }
