@@ -101,18 +101,17 @@ body {
     position: fixed;
     top: -500px;
 
-    /* centres */
-    left: 0;
-    right: 0;
-    margin: auto;
+    /* centres and lines up with the header */
+    left: 50%;
+    transform: translateX(-50%);
 
     width: 100%;
-    max-width: 600px; /* lines up with header */
+    max-width: 600px;
 
     background-color: #008081;
     color: #FFFBF4;
 
-    padding: 20px 20px 10px;  /* comfy padding */
+    padding: 5px 20px;  /* comfy padding */
     box-sizing: border-box; /* Make it so padding doesn't add to it */
     transition: top 0.3s ease;
     z-index: 997;
@@ -124,9 +123,8 @@ body {
     pointer-events: none;
 }
 
-/* When open: slides down just enough to show content */
+/* When open: slides down */
 #dropdown-menu.open {
-    top: 65px; /* sits below the floating header */
     visibility: visible;       
     pointer-events: auto;
 }

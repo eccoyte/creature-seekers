@@ -3,22 +3,32 @@ let foundCount = 0;   // how many creatures have been found
 // nav menu behaviour
 const burger = document.getElementById("burger");
 const dropdownMenu = document.getElementById("dropdown-menu");
-const closeDropdownMenu = document.getElementById("close-dropdown-menu");
+
 const overlay = document.getElementById("menu-overlay");
 const dropdownLinks = dropdownMenu.querySelectorAll("a");
+
+// const closeDropdownMenu = document.getElementById("close-dropdown-menu");
 
 // --- helper functions ---
 
 function openMenu() {
+    // always appears just below the header banner, dynamically calcs it
+    const header = document.getElementById("floating-header");
+    const headerHeight = header.offsetHeight;
+
+    dropdownMenu.style.top = headerHeight + "px";
+
     dropdownMenu.classList.add("open");
     overlay.classList.remove("hidden");
     burger.setAttribute("aria-expanded", "true");
+    burger.innerHTML = "✖";
 }
 
 function closeMenu() {
     dropdownMenu.classList.remove("open");
     overlay.classList.add("hidden");
     burger.setAttribute("aria-expanded", "false");
+    burger.innerHTML = "&#9776;";
 }
 
 
@@ -36,9 +46,9 @@ burger.addEventListener("click", (e) => {
 });
 
 // close via X button
-closeDropdownMenu.addEventListener("click", () => {
+/* closeDropdownMenu.addEventListener("click", () => {
     closeMenu();
-});
+}); */
 
 // clicking the overlay closes the menu
 overlay.addEventListener("click", () => {
