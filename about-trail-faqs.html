@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Creature Seekers: reset</title>
+    <title>Creature Seekers: Map</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="images/svg" href="images/favicon-combo-hex.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
+
 
 <body>
 
 <!-- top banner with icon, page title and burger menu -->
 <header class="floating-header" id="floating-header">
     <a href="homepage.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/favicon-sign.svg" alt="" width="36" height="36"> </a>
-    <h2 class="page-title">Settings</h2>
+    <h2 class="page-title">About info</h2>
     <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
         &#9776;
     </button>
@@ -33,7 +34,6 @@
 </nav>
 
 
-
 <!-- Bottom Navigation Bar -->
 <nav class="bottom-nav" aria-label="main menu">
     <a href="homepage.html" class="nav-item">
@@ -45,7 +45,6 @@
         <div class="icon">🪲</div>
         <div class="label">Profiles</div>
     </a>
-
     <a href="codeword.html" class="nav-item">
         <div class="icon">🔍</div>
         <div class="label">Codeword</div>
@@ -62,29 +61,29 @@
     </a>
 </nav>
 
-
 <main>
 
-    
-<h1>Settings</h1>
+<!-- Page content -->
 
-<h2>Dark mode on</h2>
 
-<p>This setting is not available yet but hope it will be soon.</p>
+<h2>Overview</h2>
 
-<h2>Reset progress</h2>
+<p>This site was made as part of the Avon Wildlife Trust's <a href="https://www.avonwildlifetrust.org.uk/wildlife-champions">Wildlife Champion</a> scheme.</p>
 
-<p>This will remove all found keywords, and cannot be undone.</p>
+<h2>Data and privacy</h2>
 
-<button type="button" id="reset-btn" onclick="handleReset()">Reset found words</button>
+<p>This site collects a limited amount of data about how the site is used. This will be used solely for quality assurance and monitoring usage to gauge uptake and effectiveness. We do not collect any personal data, and we will not pass any individuals' data onto third parties.</p>
+
+<h2>Accessibility</h2>
+<p>This site was designed with accessibility in mind, including responsive design, keyboard navigation, colour choices and more. [Note: under development so this is not currently the case - will review!]
+
+If you have accessibility needs which are not being met, please let us know via the <a href="issue-report.html"> Issue Report</a> form.</p>
 
 
 <div id="menu-overlay" class="menu-overlay hidden"></div>
 
 <script src="script.js"></script>
 </main>
-
-
 
 </body>
 </html>

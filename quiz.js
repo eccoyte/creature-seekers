@@ -99,7 +99,7 @@ function startQuiz() {
 
     if (quizState === "front") {
         // show front page message
-        questionElement.innerHTML = "Well done! Now you can start the quiz.";
+        questionElement.innerHTML = "<p>Well done - you have completed the Creature Seekers trail!</p><p>Now you can start the quiz on all the insects you found.</p>";
         
         resetState(); 
         nextButton.disabled = false; 

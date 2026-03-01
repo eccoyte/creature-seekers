@@ -2,7 +2,6 @@
 /* TO-DO: When percentages are used to set padding and margin, however, they are calculated based only on the width of the parent element. */
 /* TO-DO: Eliminate all use of pixels except when revelant e.g. when choosing screensize */
 /* TO-DO: Determine proper sematic colour scheme with variables and use that */
-/* TO-DO: Rework menu with overlay that slightly darkens the rest of website as here: https://www.youtube.com/watch?v=m7YDWNz65iI */
 /* TO-DO: Rework aria attributes in all aspects, also from video reference above */
 /* TO-DO: Make more responsive with clamp() etc*/
 
@@ -49,7 +48,7 @@ body {
     transform: translateX(-50%);
     width: 100%;
     max-width: 600px;
-    padding: 5px 20px;
+    padding: 0 20px;
     background-color: #FFFFFF;
     border-bottom: 3px solid #008081;
     display: flex;
@@ -59,42 +58,48 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Site title styling */
-.site-title {
-    font-family: 'Nunito', 'Lato', Arial, sans-serif;
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #341407;
+
+/* class for both heading links */
+.header-link {
+    display: flex;
+    align-items: center;
+    
     border: none;
+    cursor: pointer;
     padding: 8px 14px;
     border-radius: 6px;
     text-decoration: none;
-    cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
-.site-title:hover {
+.header-link:hover {
     background-color: rgba(209, 222, 127, 0.3);
 }
 
+#logo-link img {
+    display: block;
+    height: 2.5rem;
+    width: auto;
+}
 
-
-
-
-/* Burger button (now only icon) */
 #burger {
     font-size: 1.6em;
-    background: none;
-    border: none;
-    cursor: pointer;
     color: #341407;
-    padding: 8px 14px;
-    border-radius: 6px;
 }
 
-#burger:hover {
-    background-color: rgba(209, 222, 127, 0.3);
+
+.page-title {
+    font-family: 'Nunito', 'Lato', Arial, sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #341407;
 }
+
+
+
+
+
+
 
 /* Main dropdown menu */
 #dropdown-menu {
@@ -223,7 +228,7 @@ body {
 }
 
 
-
+/* brown block, being deprecated but kept in case of some formatting info to reference */
 .title-block {
     background-color: #341407;
     color: #FFFFFF;
@@ -631,10 +636,10 @@ p[data-field="sciname"] {
     background: #fff;
     border: 2px solid #34a853;
     max-width: 550px;
-    margin: 00px auto 60px;
+    margin: 50px auto 60px;
     border-radius: 10px;
-    padding: 30px;
-    margin-top: 30px;
+    padding: 10px 20px 30px;
+
     
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -644,8 +649,10 @@ p[data-field="sciname"] {
     padding-bottom: 20px;
 }
 
-.quiz-question {
-    padding: 10px 0;
+#quiz-question {
+    padding: 5px 0;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 .quiz-option-btn {
@@ -653,10 +660,10 @@ p[data-field="sciname"] {
     background: #ffffff;
     color: #341407;
     width: 100%;
-    border: 1px solid #341407;
-    padding: 10px;
-    margin: 10px 0;
-    text-align: left;
+    border: 2px solid #341407;
+    padding: 0.6rem;
+    margin: 0.5rem 0;
+    text-align: center;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -713,17 +720,16 @@ p[data-field="sciname"] {
   height: auto;
 }
 
-#route-details details {
+.more-info-details details {
   border: 2px solid #341407;
   background-color: #D7E5A8;
   color: #341407;
   border-radius: 6px;
   padding: 0.5em 0.5em 0;
   margin-top: 40px;
-  margin-bottom: 80px;
 }
 
-#route-details summary {
+.more-info-details summary {
   font-weight: bold;
   margin: -0.5em -0.5em 0;
   padding: 0.5em;
@@ -731,23 +737,27 @@ p[data-field="sciname"] {
     border-top-right-radius: 6px;
 }
 
-#route-details details[open] {
+.more-info-details details[open] {
   padding: 0.5em;
       background-color: #FDFDFD;
 
 }
 
 
-#route-details details[open] summary {
+.more-info-details details[open] summary {
   border-bottom: 1px solid #341407;
     background-color: #FDFDFD;
   margin-bottom: 0.5em;
 }
 
 
-#route-details h3 {
+.more-info-details h3 {
     margin-top: 25px;
     margin-bottom: 10px;
+}
+
+#route-details details {
+    margin-bottom: 80px;
 }
 
 

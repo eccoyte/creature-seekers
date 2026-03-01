@@ -15,10 +15,11 @@
 
 <body>
 
-<!-- Top Header with title left, burger right -->
-<header class="floating-header">
-    <a href="homepage.html" class="site-title">Creature Seekers: BS6</a>
-    <button type="button" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
+<!-- top banner with icon, page title and burger menu -->
+<header class="floating-header" id="floating-header">
+    <a href="homepage.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/favicon-sign.svg" alt="" width="36" height="36"> </a>
+    <h2 class="page-title">Quiz time!</h2>
+    <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
         &#9776;
     </button>
 </header>
@@ -26,14 +27,14 @@
 <!-- Pull-out menu -->
 <nav id="dropdown-menu" aria-label="burger-menu">
     <ul>
-        <li><a href="about-trail.html">About the trail</a></li>
-        <li><a href="about-site.html">About the site</a></li>
-        <li><a href="faqs.html">FAQs</a></li>
-        <li><a href="feedback.html">Give feedback</a></li>
+        <li><a href="help-how-to-use.html">Help: how to use</a></li>
+        <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
+        <li><a href="feedback.html">Give feedback!</a></li>
         <li><a href="issue-report.html">Report an issue</a></li>
         <li><a href="settings.html">Settings</a></li>
     </ul>
 </nav>
+
 
 
 <!-- Bottom Navigation Bar -->
@@ -67,13 +68,11 @@
 <main>
 
 <!-- Page content -->
-<div class="title-block">
-<h1>Quiz time!</h1>
-</div>
 
-    <div class="quiz-box" id="quiz-box">
-        <!-- Message will be inserted here -->
-    </div>
+
+<div class="quiz-box" id="quiz-box">
+    <!-- Message will be inserted here -->
+</div>
 
 <div class="quiz-app" id="quiz-app">
 
