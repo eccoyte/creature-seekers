@@ -283,6 +283,93 @@ function updateProfilesContent() {
 
 
 
+// Homepage messages depending on how many codewords have been found
+
+function getHomepageHeaderMessage() {
+    
+    // Determine message
+    if (foundCount === 0) {
+        return "Welcome to Creature Seekers!";
+    } else if (foundCount < keyvalues.length) {
+        return `You're on the way!`;
+    } else {
+        return "Trail complete!";
+    }
+}
+
+function getHomepageTextMessages() {
+    
+    // Determine message
+    if (foundCount === 0) {
+        return {
+            header: "Welcome to Creature Seekers!",
+            paragraph: "There are six Creature Seeker stations in St Andrew's Park in Bristol this summer. Find them all and get to know some lovely little locals!"
+        };
+    } else if (foundCount < keyvalues.length) {
+        return {
+            header: "You're on the way!",
+            paragraph: `You have found ${foundCount} of ${keyvalues.length} Creature Seeker codewords so far. Keep it up!`
+        };
+    } else {
+        return {
+            header: "Trail complete!",
+            paragraph: "Well done - you've found every creature on the trail! Next, check out the quiz, and please give your thoughts on how you found Creature Seekers."
+        };
+    }
+}
+
+// update homepage text and buttons based on number of found codewords 
+document.addEventListener("DOMContentLoaded", () => {
+    loadProgress();
+    updateDisplay();
+    updateProfilesContent();
+
+    const headerText = document.getElementById('homepage-header-text');
+    const paragraphText = document.getElementById('homepage-paragraph-text');
+
+    const codeQuizButton = document.getElementById('homepage-codeword-quiz-btn');
+    const helpFbkButton = document.getElementById('homepage-help-fbk-btn');
+
+    // check for presence of the variable i.e. are you on the homescreen
+    if (headerText && paragraphText) {
+        const messages = getHomepageTextMessages();
+
+        headerText.textContent = messages.header;
+        paragraphText.textContent = messages.paragraph;
+}
+
+    if (helpFbkButton && codeQuizButton) {
+
+        if (foundCount === 0) {
+            // show codeword and help button
+            codeQuizButton.style.display = "inline-block";
+            codeQuizButton.textContent = "Enter a codeword";
+            codeQuizButton.href = "codeword.html";
+
+            helpFbkButton.style.display = "inline-block";
+            helpFbkButton.textContent = "How does this work?";
+            helpFbkButton.href = "help-how-to-use.html";
+
+        } else if (foundCount < keyvalues.length) {
+            // Hide help button completely
+            helpFbkButton.style.display = "none";
+
+        } else {
+            // show codeword and help button
+            codeQuizButton.style.display = "inline-block";
+            codeQuizButton.textContent = "Take the quiz";
+            codeQuizButton.href = "quiz.html";
+
+            // show quiz and feedback button
+            helpFbkButton.style.display = "inline-block";
+            helpFbkButton.textContent = "Give feedback";
+            helpFbkButton.href = "feedback.html";
+        }
+}
+
+});
+
+
 
 //QUIZ SETTINGS
 
