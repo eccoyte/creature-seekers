@@ -29,7 +29,6 @@ body h1 {
     margin: 0.8rem;
 }
 
-
 /* --- Password section - to be removed for release! --- */
 
 
@@ -45,6 +44,11 @@ body h1 {
     border: 2px solid #008081;
     border-radius: 6px;
     font-size: 1rem;
+}
+
+#password-container button {
+    min-height: 48px;     /* recommended mobile tap height */
+    width: 100%;          /* full width when stacked */
 }
 
 
@@ -72,10 +76,12 @@ body h1 {
 .header-link {
     display: flex;
     align-items: center;
+
+    background: none;
     
     border: none;
     cursor: pointer;
-    padding: 8px 14px;
+    padding: 6px 12px;
     border-radius: 6px;
     text-decoration: none;
     transition: background-color 0.2s ease;
@@ -92,16 +98,17 @@ body h1 {
 }
 
 #burger {
-    font-size: 1.6em;
+    font-size: 1.8em;
     color: #341407;
 }
 
 
-.page-title {
+.site-title {
     font-family: 'Nunito', 'Lato', Arial, sans-serif;
     font-size: 1.4em;
     font-weight: bold;
     color: #341407;
+    margin: 0.2rem;
 }
 
 
@@ -165,12 +172,13 @@ body h1 {
     transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-/* Smooth hover, no layout shift */
+
 #dropdown-menu ul li a:hover {
     border-color: #FFFBF4;
     background-color: rgba(255,255,255,0.15);
 }
 
+/*  X button, now deprecated? */
 #close-dropdown-menu {
     position: absolute;
     top: 10px;
@@ -194,7 +202,7 @@ body h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.5); /* semi-transparent black */
     z-index: 900; /* under the menu but above page */
 }
 
@@ -288,7 +296,7 @@ body h1 {
 }
 
 /* Container for input + button */
-.input-row {
+.input-container {
     display: flex;
     align-items: stretch;
     gap: 10px;        /* space between input and button */
@@ -494,6 +502,11 @@ button {
 #codeword-info-box {
         padding: 5px 20px 5px;
 }
+
+#password-info-box {
+        padding: 5px 20px 20px;
+}
+
 
 .profiles-container {
     max-width: 600px;
@@ -820,6 +833,11 @@ p[data-field="sciname"] {
 
 /* Responsiveness */
 @media (max-width: 500px) {
+
+    .input-container {
+        flex-direction: column;   /* stack vertically */
+        gap: 12px;                /* slightly bigger tap spacing */
+    }
 
     .info-box-btn-container {
         flex-direction: column; /* stack vertically */
