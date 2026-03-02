@@ -311,6 +311,7 @@ body h1 {
     border: 2px solid #008081;
     border-radius: 6px;
     font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* --- Feedback Messages (Correct / Error) --- */
@@ -361,17 +362,6 @@ button {
     padding: 15px;
     width: auto;
     color: #FFFFFF;
-}
-
-/* --- To be deprecated: Box showing found words --- */
-#foundWordBox {
-    width: auto;
-    margin: 10px 0px;
-    padding: 10px;
-    border: 2px solid #9C4E2C;   /* brown border */
-    border-radius: 5px;
-    background-color: #FFFFFF;   /* white to stand out */
-    min-height: 40px;
 }
 
 /* --- Bottom Navigation Bar --- */
@@ -486,7 +476,7 @@ button {
     background: #ffffff;
     border: 2px solid #34a853;
     max-width: 550px;
-    margin: 40px auto 10px;
+    margin: 30px auto 15px;
     border-radius: 10px;
     padding: 5px 10px 5px;
     text-align: center;
@@ -665,20 +655,6 @@ p[data-field="sciname"] {
     margin-bottom: 40px;
 }
 
-/* To maybe refactor into quiz app: pre-unlocking quiz info box */
-.quiz-box {
-    max-width: 550px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #FFFBF4;
-    border: 2px solid #D1DE7F;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #341407;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
 .quiz-app {
     background: #ffffff;
     border: 2px solid #34a853;
@@ -743,6 +719,31 @@ p[data-field="sciname"] {
     
 }
 
+.quiz-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 30px;
+}
+
+#quiz-feedback {
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#quiz-feedback.show {
+    opacity: 1;
+}
+
+#quiz-feedback.correct {
+    color: #2e7d32; 
+}
+
+#quiz-feedback.incorrect {
+    color: #c62828; 
+}
 
 #quiz-next-btn {
     background: #008081;
@@ -750,9 +751,8 @@ p[data-field="sciname"] {
     width: 150px;
     border: 0;
     padding: 10px;
-    margin: 20px auto 0;
     border-radius: 5px;
-    display: block;
+    
 }
 
 #quiz-next-btn:disabled {
@@ -833,6 +833,10 @@ p[data-field="sciname"] {
 
 /* Responsiveness */
 @media (max-width: 500px) {
+
+    .quiz-footer {
+    padding: 0 15px;
+}
 
     .input-container {
         flex-direction: column;   /* stack vertically */

@@ -70,12 +70,16 @@
 <!-- Page content -->
 
 
-<div class="quiz-box" id="quiz-box">
+<div class="info-box" id="quiz-box">
+    <h1 id="quiz-header-text">Creature Seeker Quiz</h1>
     <!-- Message will be inserted here -->
+    <p id="quiz-para-text"></p>
 </div>
 
-<div class="quiz-app" id="quiz-app">
 
+
+
+<div class="quiz-app" id="quiz-app">
 
  <div class="quiz">
     <div id="quiz-question-img"><img src="images/mystery-bug-animation-hex.svg" alt="Mystery bug hex"></div>
@@ -86,7 +90,11 @@
         <button type="button" class="quiz-option-btn">Answer 3</button>
         <button type="button" class="quiz-option-btn">Answer 4</button>
         </div>
-        <button type="button"  id="quiz-next-btn">Next</button>
+
+    <div class="quiz-footer">
+        <div id="quiz-feedback"></div>
+        <button type="button" id="quiz-next-btn">Next</button>
+    </div>
  </div>
 </div>
 

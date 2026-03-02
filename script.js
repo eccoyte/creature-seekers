@@ -45,10 +45,7 @@ burger.addEventListener("click", (e) => {
     }
 });
 
-// close via X button
-/* closeDropdownMenu.addEventListener("click", () => {
-    closeMenu();
-}); */
+
 
 // clicking the overlay closes the menu
 overlay.addEventListener("click", () => {
@@ -73,7 +70,7 @@ const keyvalues = [
 {category: "moth", congrats: "Awesome!",  prefix: "a", icon: "🦋", fullname: "Mint moth", sciname: "Pyrausta aurata", keyword: "herb", tagline: "Make some thyme to provide for this lovely little herb-ivore!", order: "Lepidoptera, the butterflies and moths", intro: "The mint moth is also called the ‘small purple and gold’, which is pretty descriptive in terms of visuals! With a wingspan under 2 cm, they are very little, but their majestic colour scheme makes them a bit easier to spot!", lifecycle: "The caterpillars start out small and green with black spots, turning more purple like the adults as they mature. They spend their time munching on herbs in the mint family, including thyme, sage, rosemary and of course mint! The adults are nectar-drinking pollinators, and often seen resting on the herbs during the day.", howtohelp: "Treat yourself to more herbs! Many of these are quite straightforward to grow and can be kept in pots, so you don’t need much space, just some sunshine. The caterpillars are only little and don’t take much, there’ll be plenty for your culinary needs!", imgsrc: "images/mint-moth-animation-hex.svg", unfoundimgsrc: "images/moth-mystery-hex.svg", found: false},
 ]
 
-const defaultvalues = {category: "default", congrats: "Great!",  prefix: "a", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", tagline: "Find my artwork in BS6 to unlock info about me.", order: "One of the insects, who knows!", intro: "Get to know this insect more later!", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this insect to find out!", imgsrc: "images/mystery-bug-animation-hex.svg", unfoundimgsrc: "images/mystery-bug-animation-hex.svg", found: false}
+const defaultvalues = {category: "default", congrats: "Great!",  prefix: "a", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", tagline: "Find my artwork to unlock info about me.", order: "One of the insects, who knows!", intro: "Get to know this insect more later!", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this insect to find out!", imgsrc: "images/mystery-bug-animation-hex.svg", unfoundimgsrc: "images/mystery-bug-animation-hex.svg", found: false}
 
 // load progress from localStorage
 function loadProgress() {
@@ -146,15 +143,14 @@ if (keywordInput) {
 
 
 
-// finds matching hex link using its category and replaces the ? with relevant emoji
-// also updates the foundWordBox - will be phased out but handy for now
+// finds matching hex link using its category and replaces the ? with relevant insect image
 function updateDisplay() {
 
     // Update hex icons  
     keyvalues.forEach(item => {
         const hex = document.getElementById(`${item.category}-hex`);
         if (hex) {
-            //hex.textContent = item.found ? item.icon : "?";
+
             if (item && item.found) {
             hex.innerHTML = `<img src="${item.imgsrc}" alt="${item.fullname}">`;
         } else {
@@ -163,16 +159,6 @@ function updateDisplay() {
 
         }
     });
-
-    // Update foundWordBox (only if it exists on this page)
-    const container = document.getElementById("foundWordBox");
-    if (container) {
-        const foundList = keyvalues
-            .filter(item => item.found)
-            .map(item => item.keyword);
-
-        container.innerHTML = foundList.join(", ");
-    }
 }
 
 
@@ -285,18 +271,6 @@ function updateProfilesContent() {
 
 // Homepage messages depending on how many codewords have been found
 
-function getHomepageHeaderMessage() {
-    
-    // Determine message
-    if (foundCount === 0) {
-        return "Welcome to Creature Seekers!";
-    } else if (foundCount < keyvalues.length) {
-        return `You're on the way!`;
-    } else {
-        return "Trail complete!";
-    }
-}
-
 function getHomepageTextMessages() {
     
     // Determine message
@@ -379,7 +353,7 @@ function getQuizMessage() {
     if (foundCount === 0) {
         return "Complete the trail to unlock the quiz!";
     } else if (foundCount < keyvalues.length) {
-        return `Complete the trail to unlock the quiz! You have found ${foundCount} of ${keyvalues.length} codewords so far - keep it up!`;
+        return `<p>Complete the trail to unlock the quiz!</p><p>You have found ${foundCount} of ${keyvalues.length} codewords so far - keep it up!</p>`;
     } else {
         return "Quiz unlocked!";
     }
@@ -392,13 +366,14 @@ document.addEventListener("DOMContentLoaded", () => {
     updateProfilesContent();
         // Update quiz box
     const quizBox = document.getElementById('quiz-box');
+    const quizBoxText = document.getElementById('quiz-para-text');
     const quizApp = document.getElementById('quiz-app');
 
     if (quizBox && quizApp) {
-        quizBox.textContent = getQuizMessage();
+        quizBoxText.innerHTML = getQuizMessage();
 
     // hide box when all found
-    if (foundCount >= 6) {
+    if (foundCount >= keyvalues.length) {
         quizBox.style.display = "none";   
         quizApp.style.display = "block";   
     } else {

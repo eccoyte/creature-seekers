@@ -9,7 +9,8 @@ const questions = [
             {text: "Spring e.g. March to May", correct: false},
             {text: "Summer e.g. June to August", correct: false},
             {text: "Winter e.g. December to February", correct: false}
-        ]
+        ],
+        feedback: {correct: "Bee-autiful!", incorrect: "Incorrect"}
     },
     {
         imgsrc: "images/lesser-stag-beetle-animation-hex.svg",
@@ -19,7 +20,8 @@ const questions = [
             {text: "Loamy soil", correct: false},
             {text: "Food scraps", correct: false},
             {text: "Deer droppings", correct: false}
-        ]
+        ],
+        feedback: {correct: "Nice work!", incorrect: "That's not right"}
     },
     {
         imgsrc: "images/green-shield-bug-animation-hex.svg",
@@ -29,7 +31,8 @@ const questions = [
             {text: "Deep underground", correct: false},
             {text: "Near fresh water", correct: false},
             {text: "In medieval armour", correct: false}
-        ]
+        ],
+        feedback: {correct: "Egg-cellent!", incorrect: "Not this one"}
     },
     {
         imgsrc: "images/darter-dragonfly-animation-hex.svg",
@@ -39,7 +42,8 @@ const questions = [
             {text: "Griffins", correct: false},
             {text: "Wyverns", correct: false},
             {text: "Pixies", correct: false}
-        ]
+        ],
+        feedback: {correct: "Awesome!", incorrect: "Sadly not"}
     },
     {
         imgsrc: "images/marmalade-hoverfly-animation-hex.svg",
@@ -49,7 +53,8 @@ const questions = [
             {text: "Compost", correct: false},
             {text: "Jam", correct: false},
             {text: "Ants", correct: false}
-        ]
+        ],
+        feedback: {correct: "Sweet!", incorrect: "Sadly not"}
     },
     {
         imgsrc: "images/mint-moth-animation-hex.svg",
@@ -59,7 +64,8 @@ const questions = [
             {text: "Because the adults create a minty smell when disturbed", correct: false},
             {text: "Because the adults occasionally steal breath mints", correct: false},
             {text: "Because the caterpillars are a bright minty green colour", correct: false}
-        ]
+        ],
+        feedback: {correct: "You got it!", incorrect: "Unfortunately not"}
     }
 ];
 
@@ -84,6 +90,8 @@ const answerOrders = [
     [1, 2, 0, 3], [2, 1, 0, 3], [1, 3, 0, 2],
     [1, 2, 3, 0], [1, 2, 3, 0], [3, 2, 1, 0]
 ];
+
+const feedbackElement = document.getElementById("quiz-feedback");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -150,7 +158,14 @@ function resetState() {
     while(answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild)
     }
+    // hide feedback and remove classes
+    feedbackElement.textContent = "";
+    feedbackElement.classList.remove("correct", "incorrect", "show");
 }
+
+
+
+
 
 function selectAnswer(e) {
     const selectedBtn = e.target;
@@ -164,6 +179,24 @@ function selectAnswer(e) {
         selectedBtn.classList.add("quiz-incorrect");
     }
     
+    // add the relevant feedback
+    let currentQuestion = questions[selectedQuestionOrder[currentQuestionIndex]];
+
+    feedbackElement.classList.remove("correct", "incorrect", "show");
+
+    if (isCorrect) {
+        feedbackElement.textContent = currentQuestion.feedback.correct;
+        feedbackElement.classList.add("correct");
+    } else {
+        feedbackElement.textContent = currentQuestion.feedback.incorrect;
+        feedbackElement.classList.add("incorrect");
+    }
+
+    // fade in
+    requestAnimationFrame(() => {
+        feedbackElement.classList.add("show");
+    });
+
     // automatically mark the correct options after answering
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true") {
@@ -175,6 +208,8 @@ function selectAnswer(e) {
         // enable Next button
     nextButton.disabled = false;
 }
+
+
 
 // display either the question, or the score
 function handleNextButton() {
