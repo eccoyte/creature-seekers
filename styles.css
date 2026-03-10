@@ -380,25 +380,26 @@ button {
     border-top-right-radius: 6px;
 
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     z-index: 998;
 
     font-weight: bold;
     box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
 
-/* Each item still takes equal width */
+
 .nav-item {
     flex: 1;
+    min-height: 44px;
     text-align: center;
     text-decoration: none;
     color: #341407;
-    font-size: 0.875rem;
+    font-size: 0.95rem;
 
-    /* shrink clickable area */
-    padding: 2px 4px;       /* reduce inner size */
+
+    padding: 2px 4px 4px;       
     margin: 6px;            /* ensures spacing around each button */
-    border-radius: 4px;     /* soften edges */
+    border-radius: 4px;     
 
     transition: background-color 0.2s ease;
 }
@@ -418,35 +419,42 @@ button {
     background-color: #87CF6A;
 }
 
-/* Icons */
-.nav-item .icon {
-    font-size: 2rem;
-    line-height: 1.5;
+.nav-icon img {
+    width: 45px;
+    height: 45px;
+}
+
+/* when tapping on mobile, feels more satisfying */
+.nav-icon:active {
+    transform: scale(0.9);
 }
 
 .nav-item .label {
     display: block;
-    line-height: 1.2;
+    line-height: 1;
 }
 
+
+
+
 .hex-grid {
+    --hex-size: clamp(140px, 45vw, 190px);
+
     display: grid;
-    grid-template-columns: repeat(3, 120px);
-    grid-auto-rows: 120px;
-    row-gap: 40px; 
-    column-gap: 30px; 
+    grid-template-columns: repeat(2, var(--hex-size));
     justify-content: center;
-    align-items: center;
-    margin: 30px auto;
-    padding-bottom: 20px;
+    gap: 15px 20px;
+    margin: 10px auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
 }
 
 /* Hexagon shape */
 .hex {
-    position: relative;
-    width: 140px; /* must match the hex-grid sizes */
-    height: 140px; 
-    background-size: contain; /* keeps exact image proportions */
+    width: var(--hex-size);
+    aspect-ratio: 1 / 1;
+
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
@@ -460,7 +468,6 @@ button {
     text-decoration: none;
 }
 
-
 .hex-home {
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -470,7 +477,10 @@ button {
     transform: scale(1.1);
 }
 
-
+/* when tapping on mobile, feels more satisfying */
+.hex-home:active {
+    transform: scale(0.95);
+}
 
 .info-box {
     background: #ffffff;
@@ -832,6 +842,16 @@ p[data-field="sciname"] {
 
 
 /* Responsiveness */
+
+
+@media (min-width: 600px) {
+
+    .hex-grid {
+        grid-template-columns: repeat(3, var(--hex-size));
+        gap: 40px 30px;
+    }
+
+}
 @media (max-width: 500px) {
 
     .quiz-footer {
@@ -849,10 +869,7 @@ p[data-field="sciname"] {
         align-items: center; /* center horizontally */
     }
 
-    .hex-grid {
-        grid-template-columns: repeat(2, 120px); /* 2 per row on mobile */
-        padding-bottom: 60px; /* slightly more for mobile nav */
-    }
+
     .profile {
         flex-direction: column;
         align-items: center;
