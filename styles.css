@@ -879,33 +879,4 @@ p[data-field="sciname"] {
         align-items: center; /* center horizontally */
     }
 
-
-    .profile {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    /* Stack hex + title + subtitle vertically */
-    .profile-head {
-        flex-direction: column;   /* instead of row */
-        align-items: center;      /* center everything */
-        text-align: center;
-    }
-
-    .profile-head .hex {
-        flex: none;
-        margin-bottom: 10px;      /* spacing between hex + title */
-    }
-
-    .profile-head-text {
-        align-items: center;      /* center title & subtitle */
-        width: 100%;
-    }
-
-    .profile-head-text h2,
-    .profile-head-text p[data-field="subtitle"] {
-        text-align: center;
-        width: 100%;
-    }
 }
