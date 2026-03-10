@@ -239,13 +239,19 @@ body h1 {
     cursor: pointer;
 
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
 }
 
 .codeword-link-btn:hover {
     background-color: #d1de7f;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* TO DO - make this happen to all buttons - have global class, but beware some are <a> links */
+/* makes clicking / tapping satisfying */
+.codeword-link-btn:active {
+    transform: scale(0.96);
 }
 
 
@@ -388,7 +394,7 @@ button {
 }
 
 
-.nav-item {
+.nav-option {
     flex: 1;
     min-height: 44px;
     text-align: center;
@@ -400,23 +406,28 @@ button {
     padding: 2px 4px 4px;       
     margin: 6px;            /* ensures spacing around each button */
     border-radius: 4px;     
-
+    
+    -webkit-tap-highlight-color: transparent;
     transition: background-color 0.2s ease;
 }
 
-/* Active page */
-.nav-item.active {
+/* current page */
+.nav-option.current {
     background-color: #87CF6A;
 }
 
 /* Hover for non-active links only */
-.nav-item:not(.active):hover {
+.nav-option:not(.current):hover {
     background-color: rgba(209, 222, 127, 0.6);
 }
 
 /* Prevent active hover override */
-.nav-item.active:hover {
+.nav-option.current:hover {
     background-color: #87CF6A;
+}
+
+.nav-icon {
+        transition: transform 0.08s ease;
 }
 
 .nav-icon img {
@@ -426,10 +437,10 @@ button {
 
 /* when tapping on mobile, feels more satisfying */
 .nav-icon:active {
-    transform: scale(0.9);
+    transform: scale(0.94);
 }
 
-.nav-item .label {
+.nav-option .label {
     display: block;
     line-height: 1;
 }
@@ -438,12 +449,12 @@ button {
 
 
 .hex-grid {
-    --hex-size: clamp(140px, 45vw, 190px);
+    --hex-size: clamp(130px, 42vw, 190px);
 
     display: grid;
     grid-template-columns: repeat(2, var(--hex-size));
     justify-content: center;
-    gap: 15px 20px;
+    gap: 15px 15px;
     margin: 10px auto;
     padding-top: 20px;
     padding-bottom: 50px;
@@ -466,11 +477,12 @@ button {
     font-weight: bold;
     color: #341407;
     text-decoration: none;
+    
 }
 
 .hex-home {
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.15s ease;
 }
 
 .hex-home:hover {
@@ -848,7 +860,7 @@ p[data-field="sciname"] {
 
     .hex-grid {
         grid-template-columns: repeat(3, var(--hex-size));
-        gap: 40px 30px;
+        gap: 35px 25px;
     }
 
 }
