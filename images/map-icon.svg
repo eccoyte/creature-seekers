@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g id="profile-icon">
+    </g>
+    <g id="quiz-icon" serif:id="quiz icon">
+    </g>
+    <g id="codeword-icon" serif:id="codeword icon">
+    </g>
+    <g id="map-icon" serif:id="map icon">
+    </g>
+    <g id="home-icon">
+        <rect x="0" y="0" width="60" height="60" style="fill:none;"/>
+        <path d="M21.925,5.97L21.896,45.099L6.175,49.986L6.179,10.931L21.925,5.97Z" style="fill:rgb(209,222,127);stroke:rgb(52,20,7);stroke-width:2px;"/>
+        <path d="M22.267,5.987L22.296,45.116L38.017,50.003L38.014,10.948L22.267,5.987Z" style="fill:rgb(209,222,127);stroke:rgb(52,20,7);stroke-width:2px;"/>
+        <path d="M53.655,5.896L53.626,45.025L37.905,49.912L37.908,10.857L53.655,5.896Z" style="fill:rgb(209,222,127);stroke:rgb(52,20,7);stroke-width:2px;"/>
+        <path id="sign-hex" serif:id="sign hex" d="M28.184,33.674L24.141,26.673C23.93,26.307 23.93,25.856 24.141,25.49L28.23,18.408C28.441,18.042 28.832,17.817 29.255,17.817L37.432,17.817C37.855,17.817 38.245,18.042 38.457,18.408L42.545,25.49C42.757,25.856 42.757,26.307 42.545,26.673L39.417,32.092L33.395,43.867L28.184,33.674Z" style="fill:rgb(0,128,129);stroke:rgb(52,20,7);stroke-width:1.6px;"/>
+        <path id="sign-hex1" serif:id="sign hex" d="M37.735,25.709C37.824,25.864 37.824,26.055 37.735,26.209C37.324,26.921 36.151,28.952 35.74,29.664C35.651,29.819 35.486,29.914 35.307,29.914C34.486,29.914 32.14,29.914 31.318,29.914C31.139,29.914 30.974,29.819 30.885,29.664C30.474,28.952 29.301,26.921 28.89,26.209C28.801,26.055 28.801,25.864 28.89,25.709C29.301,24.998 30.474,22.966 30.885,22.255C30.974,22.1 31.139,22.005 31.318,22.005C32.14,22.005 34.486,22.005 35.307,22.005C35.486,22.005 35.651,22.1 35.74,22.255C36.151,22.966 37.324,24.998 37.735,25.709Z" style="fill:rgb(255,251,244);stroke:rgb(52,20,7);stroke-width:1.6px;"/>
+    </g>
+</svg>
