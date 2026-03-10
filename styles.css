@@ -617,6 +617,38 @@ p[data-field="sciname"] {
 }
 
 
+/* === Profile tabs for more interactivity === */
+
+.profile-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0 15px 0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #D1DE7F;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tab-btn.active {
+    background: #D1DE7F;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
+
 
 /* === Modal Overlay === */
 .modal-overlay {

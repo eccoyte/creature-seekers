@@ -72,6 +72,13 @@ const keyvalues = [
 
 const defaultvalues = {category: "default", congrats: "Great!",  prefix: "a", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", tagline: "Find my artwork to unlock info about me.", order: "One of the insects, who knows!", intro: "Get to know this insect more later!", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this insect to find out!", imgsrc: "images/mystery-bug-animation-hex.svg", unfoundimgsrc: "images/mystery-bug-animation-hex.svg", found: false}
 
+// helper function for protecting data fields when populating, so it skips over them if something is missing rather than crashing
+function setField(profile, field, value) {
+    const el = profile.querySelector(`[data-field="${field}"]`);
+    if (el) el.textContent = value;
+}
+
+
 // load progress from localStorage
 function loadProgress() {
   keyvalues.forEach(item => {
@@ -191,19 +198,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function showRewardModal(item) {
     const overlay = document.getElementById("reward-modal-overlay");
-    const emoji = document.getElementById("modal-emoji");
     const image = document.getElementById("modal-image");
     const textBox = document.getElementById("modal-text");
     const profileBtn = document.getElementById("go-to-profile-btn");
 
-    //emoji.textContent = item.icon;
+    // if statement is protective in case the structure changes so there isn't an image
+    if (image) {
     image.innerHTML = `<img src="${item.imgsrc}" alt="${item.fullname}">`;
+        }
+
 
     // dynamic text with the codeword they entered
-    textBox.innerHTML = `
+    if (textBox) {textBox.innerHTML = `
         <p>${item.congrats} You've found ${item.prefix} <strong>${item.fullname.toLowerCase()}</strong>!</p>
 
-        <p>Let's learn a little more about them.</p>`;
+        <p>Let's learn a little more about them.</p>`;}
 
     // show modal
     overlay.classList.remove("hidden");
@@ -248,15 +257,15 @@ function updateProfilesContent() {
     document.querySelectorAll(".profile").forEach(profile => {
         const category = profile.id.replace("-box", "");  // e.g., "fruit"
         const item = keyvalues.find(k => k.category === category);
-        const data = item && item.found ? item : defaultvalues;
+        const data = (item && item.found) ? item : defaultvalues;
 
         // populate fields
-        profile.querySelector('[data-field="fullname"]').textContent = item.found ? item.fullname : defaultvalues.fullname;
-        profile.querySelector('[data-field="tagline"]').textContent = item.found ? item.tagline : defaultvalues.tagline;
-        profile.querySelector('[data-field="sciname"]').textContent = item.found ? item.sciname : defaultvalues.sciname;
-        profile.querySelector('[data-field="intro"]').textContent = item.found ? item.intro : defaultvalues.intro;
-        profile.querySelector('[data-field="lifecycle"]').textContent = item.found ? item.lifecycle : defaultvalues.lifecycle;
-        profile.querySelector('[data-field="howtohelp"]').textContent = item.found ? item.howtohelp : defaultvalues.howtohelp;
+        setField(profile, "fullname", data.fullname);
+        setField(profile, "tagline", data.tagline);
+        setField(profile, "sciname", data.sciname);
+        setField(profile, "intro", data.intro);
+        setField(profile, "lifecycle", data.lifecycle);
+        setField(profile, "howtohelp", data.howtohelp);
 
         // Add/remove the "found" class dynamically
         if (item && item.found) {
@@ -267,6 +276,26 @@ function updateProfilesContent() {
     });
 }
 
+// Profiles tab functionality
+document.addEventListener("click", function(e) {
+
+    if (!e.target.classList.contains("tab-btn")) return;
+
+    const btn = e.target;
+    const profile = btn.closest(".profile");
+    const tab = btn.dataset.tab;
+
+    // deactivate buttons
+    profile.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    // hide all sections
+    profile.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+
+    // show selected section
+    profile.querySelector(`.tab-content[data-content="${tab}"]`).classList.add("active");
+
+});
 
 
 // Homepage messages depending on how many codewords have been found
@@ -340,6 +369,16 @@ document.addEventListener("DOMContentLoaded", () => {
             helpFbkButton.href = "feedback.html";
         }
 }
+
+document.querySelectorAll(".profile").forEach(profile => {
+
+    const firstBtn = profile.querySelector(".tab-btn");
+    const firstContent = profile.querySelector(".tab-content");
+
+    if (firstBtn) firstBtn.classList.add("active");
+    if (firstContent) firstContent.classList.add("active");
+
+});
 
 });
 
