@@ -1,82 +1,26 @@
 let foundCount = 0;   // how many creatures have been found
 
-// nav menu behaviour
-const burger = document.getElementById("burger");
-const dropdownMenu = document.getElementById("dropdown-menu");
-
-const overlay = document.getElementById("menu-overlay");
-const dropdownLinks = dropdownMenu.querySelectorAll("a");
-
-// const closeDropdownMenu = document.getElementById("close-dropdown-menu");
 
 // --- helper functions ---
-
-function openMenu() {
-    // always appears just below the header banner, dynamically calcs it
-    const header = document.getElementById("floating-header");
-    const headerHeight = header.offsetHeight;
-
-    dropdownMenu.style.top = headerHeight + "px";
-
-    dropdownMenu.classList.add("open");
-    overlay.classList.remove("hidden");
-    burger.setAttribute("aria-expanded", "true");
-    burger.innerHTML = "✖";
-}
-
-function closeMenu() {
-    dropdownMenu.classList.remove("open");
-    overlay.classList.add("hidden");
-    burger.setAttribute("aria-expanded", "false");
-    burger.innerHTML = "&#9776;";
-}
-
-
-// event listeners
-
-// open menu
-burger.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent triggering outside-click closes
-
-    if (dropdownMenu.classList.contains("open")) {
-        closeMenu();
-    } else {
-        openMenu();
-    }
-});
-
-
-
-// clicking the overlay closes the menu
-overlay.addEventListener("click", () => {
-    closeMenu();
-});
-
-// clicking any dropdown link closes the menu
-dropdownLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        closeMenu();
-    });
-});
-
-
-// keywords and associated data
-const keyvalues = [
-{category: "bee", congrats: "Wonderful!", prefix: "an", icon: "🐝",  fullname: "Ivy bee", sciname: "Colletes hederae", keyword: "autumn", tagline: "Come join the insect ivy league with this newcomer bee!", order: "Hymenoptera, the bees, wasps, ants and sawflies", intro: "The ivy bee was first recorded in the UK in 2001 and has been expanding its range ever since. Ivy bees look similar to honey bees, but with paler, more defined stripes and without such neat pollen baskets.", lifecycle: "Ivy bees don’t live in hives, like honey bees. Instead ivy bees live in tunnels in warm, sandy soil, often close to other ivy bees. Adults emerge in autumn when ivy is in flower. They lay their eggs and provide for their young with ivy pollen in these tunnels.", howtohelp: "Let some ivy grow wild if you can! Ivy is a wonderful plant that offers autumn flowers and berries, offering a much needed burst of food for ivy bees and dozens of other species as the cool weather approaches. It doesn’t damage the trees it climbs, and provides shelter for all kinds of creatures too.", imgsrc: "images/ivy-bee-animation-hex.svg", unfoundimgsrc: "images/bee-mystery-hex.svg", found: false},
-{category: "beetle", congrats: "Amazing!", prefix: "a", icon: "🪲",  fullname: "Lesser stag beetle", sciname: "Dorcus parallelipipedus", keyword: "wood", tagline: "Wood-n’t you give this fantastic beetle a helping hand?", order: "Coleoptera, the beetles ", intro: "These awesome beetles may not quite have the body or “antler” size of their more famous relatives, the greater stag beetle, they’re still pretty impressive! Adults usually come out at night during the summer", lifecycle: "Lesser stag beetles lay their eggs inside decaying deadwood, and that’s where they spend most of their quite long lives. The larvae eat the deadwood and help break it down, whereas the adults prefer tree sap. They spend 1-2 years as larvae, and 2-3 more years as adults!", howtohelp: "Providing untreated dead wood is the key to helping these lovely large beetles. Consider making a pile of logs or woodchip, ideally in contact with soil to help speed up the decay process. If you have old tree stumps, leave them to break down naturally rather than removing them - the beetle larvae will do the work for you!", imgsrc: "images/lesser-stag-beetle-animation-hex.svg", unfoundimgsrc: "images/beetle-mystery-hex.svg", found: false},
-{category: "bug", congrats: "Terrific!",  prefix: "a", icon: "🛡️", fullname: "Green shield bug", sciname: "Palomena prasina", keyword: "sap", tagline: "Will you let this sturdy bug through your defences, and go green for them?", order: "Hemiptera, the true bugs", intro: "Shield bugs are actually named for their shape, rather than any particular defensive capabilities, so be gentle with them! They are also green by name and green by nature, but only for some of the year. Their summer green outfit turns more brown or bronze coloured in the late autumn, rather like the leaves they live on!", lifecycle: "Green shield bugs lay their eggs on the undersides of leaves, which hatch in late spring, The juveniles are more rounded than the adults, and commonly patterned with black markings. After 5 stages, they reach their adult form, sucking up the sap of various plants before hibernating in the winter.", howtohelp: "Green shield bugs are quite easy to please, so providing a range of trees, shrubs and herbaceous plants will suit them well. Also, leave some places for them to shelter over winter, such as leaf piles. These are a lifeline for all sorts of little creatures during the cold months.", imgsrc: "images/green-shield-bug-animation-hex.svg", unfoundimgsrc: "images/bug-mystery-hex.svg", found: false},
-{category: "dragonfly", congrats: "Superb!", prefix: "a", icon: "🐉", fullname: "Common darter dragonfly", sciname: "Sympetrum striolatum", keyword: "nymph", tagline: "Are you red-dy to help this striped scarlet striker soar?", order: "Odonata, the dragonflies and damselflies", intro: "Only the males are bright red, though - females and young adults are more golden-brown. Both the larvae (called nymphs) and the adults are fierce and accurate predators, but in different domains!", lifecycle: "These dragonflies spend much of their life underwater, as juveniles called nymphs. They catch smaller creatures with extendable jaws! When they are ready, they crawl out of the water and shed their skin, into their new adult form. After a short rest, they take to the air and resume their hunting in the air above!", howtohelp: "Provide freshwater sources wherever you can. A pond is best, but it can be as small as a partially submerged sink or other container. Be sure to provide exit ramps for other wildlife! If you don’t have the option to do this, providing a range of native wildflowers will support the small insects dragonflies feed on, helping them too!", imgsrc: "images/darter-dragonfly-animation-hex.svg", unfoundimgsrc: "images/dragonfly-mystery-hex.svg", found: false},
-{category: "hoverfly", congrats: "Marvellous!", prefix: "a", icon: "🪰", fullname: "Marmalade hoverfly", sciname: "Episyrphus balteatus", keyword: "aphid", tagline: "Come and jam with this agile pollinator!", order: "Dipetra, the flies", intro: "The wasp-like stripes help trick birds and other potential predators into leaving them well alone, even though they don’t have any sting! You can tell them apart from a wasp or bee by looking for their huge eyes, and the hovering flight they are named for.", lifecycle: "Marmalade hoverflies lay their eggs on plants with aphids on them. When the larvae hatch, they feast on these aphids continually as they grow. As adults, they become agile pollinators, flying from flower to flower, using their big eyes to scope out food and avoid danger.", howtohelp: "Hoverflies don’t have long tongues like bees, so they especially love open flowers rather than tube-shaped ones. Their favourites include cow parsley, tansy, asters, knapweed, apple blossom and more. They’ll thank you by helping take care of aphid pests for you!", imgsrc: "images/marmalade-hoverfly-animation-hex.svg", unfoundimgsrc: "images/hoverfly-mystery-hex.svg", found: false},
-{category: "moth", congrats: "Awesome!",  prefix: "a", icon: "🦋", fullname: "Mint moth", sciname: "Pyrausta aurata", keyword: "herb", tagline: "Make some thyme to provide for this lovely little herb-ivore!", order: "Lepidoptera, the butterflies and moths", intro: "The mint moth is also called the ‘small purple and gold’, which is pretty descriptive in terms of visuals! With a wingspan under 2 cm, they are very little, but their majestic colour scheme makes them a bit easier to spot!", lifecycle: "The caterpillars start out small and green with black spots, turning more purple like the adults as they mature. They spend their time munching on herbs in the mint family, including thyme, sage, rosemary and of course mint! The adults are nectar-drinking pollinators, and often seen resting on the herbs during the day.", howtohelp: "Treat yourself to more herbs! Many of these are quite straightforward to grow and can be kept in pots, so you don’t need much space, just some sunshine. The caterpillars are only little and don’t take much, there’ll be plenty for your culinary needs!", imgsrc: "images/mint-moth-animation-hex.svg", unfoundimgsrc: "images/moth-mystery-hex.svg", found: false},
-]
-
-const defaultvalues = {category: "default", congrats: "Great!",  prefix: "a", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", tagline: "Find my artwork to unlock info about me.", order: "One of the insects, who knows!", intro: "Get to know this insect more later!", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this insect to find out!", imgsrc: "images/mystery-bug-animation-hex.svg", unfoundimgsrc: "images/mystery-bug-animation-hex.svg", found: false}
 
 // helper function for protecting data fields when populating, so it skips over them if something is missing rather than crashing
 function setField(profile, field, value) {
     const el = profile.querySelector(`[data-field="${field}"]`);
-    if (el) el.textContent = value;
+    if (el) el.innerHTML = value;
 }
+
+
+// keywords and associated data
+const keyvalues = [
+{category: "bee", congrats: "Wonderful!", prefix: "an", icon: "🐝",  fullname: "Ivy bee", sciname: "Colletes hederae", keyword: "autumn", tagline: "Come join the insect ivy league with this newcomer bee!", order: "Hymenoptera, the bees, wasps, ants and sawflies", intro: "<p>The ivy bee was first recorded in the UK in 2001 and has been expanding its range ever since.</p><p>Ivy bees look similar to honey bees, but with paler, more defined stripes and without such neat pollen baskets.</p>", lifecycle: "<p>Ivy bees don’t live in hives, like honey bees. Instead ivy bees live in tunnels in warm, sandy soil, often close to other ivy bees.</p><p>Adults emerge in autumn when ivy is in flower. They lay their eggs and provide for their young with ivy pollen in these tunnels.</p>", howtohelp: "<p>Let some ivy grow wild if you can! Ivy is a wonderful plant that offers autumn flowers and berries, offering a much needed burst of food for ivy bees and dozens of other species as the cool weather approaches.</p><p>It doesn’t damage the trees it climbs, and provides shelter for all kinds of creatures too.</p>", imgsrc: "images/ivy-bee-animation-hex.svg", unfoundimgsrc: "images/bee-mystery-hex.svg", found: false},
+{category: "beetle", congrats: "Amazing!", prefix: "a", icon: "🪲",  fullname: "Lesser stag beetle", sciname: "Dorcus parallelipipedus", keyword: "wood", tagline: "Wood-n’t you give this fantastic beetle a helping hand?", order: "Coleoptera, the beetles ", intro: "<p>These awesome beetles may not quite have the body or “antler” size of their more famous relative, the greater stag beetle, they’re still pretty impressive!</p><p>Adults usually come out at night during the summer, sheltering in deadwood during the day.</p>", lifecycle: "<p>Lesser stag beetles lay their eggs inside decaying deadwood, and that’s where they spend most of their quite long lives.</p><p>The larvae eat the deadwood and help break it down, whereas the adults prefer tree sap. They spend 1-2 years as larvae, and 2-3 more years as adults!</p>", howtohelp: "<p>Providing untreated dead wood is the key to helping these lovely large beetles. Consider making a pile of logs or woodchip, ideally in contact with soil to help speed up the decay process.</p><p>If you have old tree stumps, leave them to break down naturally rather than removing them - the beetle larvae will do the work for you!</p>", imgsrc: "images/lesser-stag-beetle-animation-hex.svg", unfoundimgsrc: "images/beetle-mystery-hex.svg", found: false},
+{category: "bug", congrats: "Terrific!",  prefix: "a", icon: "🛡️", fullname: "Green shield bug", sciname: "Palomena prasina", keyword: "sap", tagline: "Will you let this sturdy bug through your defences, and go green for them?", order: "Hemiptera, the true bugs", intro: "<p>Shield bugs are actually named for their shape, rather than any particular defensive capabilities, so be gentle with them! They are also green by name and green by nature, but only for some of the year.</p><p>Their summer green outfit turns more brown or bronze coloured in the late autumn, rather like the leaves they live on!</p>", lifecycle: "<p>Green shield bugs lay their eggs on the undersides of leaves, which hatch in late spring. The juveniles are more rounded than the adults, and commonly patterned with black markings.</p><p>After 5 stages, they reach their adult form, sucking up the sap of various plants before hibernating in the winter.</p>", howtohelp: "<p>Green shield bugs are quite easy to please, so providing a range of trees, shrubs and herbaceous plants will suit them well.</p><p>Also, leave some places for them to shelter over winter, such as leaf piles. These are a lifeline for all sorts of little creatures during the cold months.</p>", imgsrc: "images/green-shield-bug-animation-hex.svg", unfoundimgsrc: "images/bug-mystery-hex.svg", found: false},
+{category: "dragonfly", congrats: "Superb!", prefix: "a", icon: "🐉", fullname: "Common darter dragonfly", sciname: "Sympetrum striolatum", keyword: "nymph", tagline: "Are you red-dy to help this striped scarlet striker soar?", order: "Odonata, the dragonflies and damselflies", intro: "<p>Like other dragonflies, common darter dragonflies are fierce, accurate predators, first on water and then in the air.</p><p>Only the males of this species are bright red, females and young adults are more golden-brown.</p>", lifecycle: "<p>These dragonflies spend much of their life underwater, as juveniles called nymphs. They catch smaller creatures with extendable jaws! </p><p>When they are ready, they crawl out of the water and shed their skin, into their new adult form. After a short rest, they take to the air and resume their hunting in the air above!</p>", howtohelp: "<p>Provide freshwater sources wherever you can. A pond is best, but it can be as small as a partially submerged sink or other container. Be sure to provide exit ramps for other wildlife!</p><p>If you don’t have the option to do this, providing a range of native wildflowers will support the small insects dragonflies feed on, helping them too!</p>", imgsrc: "images/darter-dragonfly-animation-hex.svg", unfoundimgsrc: "images/dragonfly-mystery-hex.svg", found: false},
+{category: "hoverfly", congrats: "Marvellous!", prefix: "a", icon: "🪰", fullname: "Marmalade hoverfly", sciname: "Episyrphus balteatus", keyword: "aphid", tagline: "Come and jam with this agile pollinator!", order: "Dipetra, the flies", intro: "<p>The wasp-like stripes help trick birds and other potential predators into leaving them well alone, even though they don’t have any sting!</p><p>You can tell them apart from a wasp or bee by looking for their huge eyes, and the hovering flight they are named for.</p>", lifecycle: "<p>Marmalade hoverflies lay their eggs on plants with aphids on them. When the larvae hatch, they feast on these aphids continually as they grow.</p><p>As adults, they become agile pollinators, flying from flower to flower, using their big eyes to scope out food and avoid danger.</p>", howtohelp: "<p>Hoverflies don’t have long tongues like bees, so they especially love open flowers rather than tube-shaped ones. Their favourites include cow parsley, tansy, asters, knapweed, apple blossom and more.</p><p>They’ll thank you by helping take care of aphid pests for you!</p>", imgsrc: "images/marmalade-hoverfly-animation-hex.svg", unfoundimgsrc: "images/hoverfly-mystery-hex.svg", found: false},
+{category: "moth", congrats: "Awesome!",  prefix: "a", icon: "🦋", fullname: "Mint moth", sciname: "Pyrausta aurata", keyword: "herb", tagline: "Make some thyme to provide for this lovely little herb-ivore!", order: "Lepidoptera, the butterflies and moths", intro: "<p>The mint moth is also called the ‘small purple and gold’, which is pretty descriptive in terms of visuals!</p><p>With a wingspan under 2 cm, they are very little, but their majestic colour scheme makes them a bit easier to spot!</p>", lifecycle: "<p>The caterpillars start out small and green with black spots, turning more purple like the adults as they mature. They spend their time munching on herbs in the mint family, including thyme, sage, rosemary and of course mint!</p><p>The adults are nectar-drinking pollinators, and often seen resting on the herbs during the day.</p>", howtohelp: "<p>Treat yourself to more herbs! Many of these are quite straightforward to grow and can be kept in pots, so you don’t need much space, just some sunshine.</p><p>The caterpillars are only little and don’t take much, there’ll be plenty for your culinary needs!</p>", imgsrc: "images/mint-moth-animation-hex.svg", unfoundimgsrc: "images/moth-mystery-hex.svg", found: false},
+]
+
+const defaultvalues = {category: "default", congrats: "Great!",  prefix: "a", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", tagline: "Find my artwork to unlock info about me.", order: "One of the insects, who knows!", intro: "Get to know this insect more later!", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this insect to find out!", imgsrc: "images/mystery-bug-animation-hex.svg", unfoundimgsrc: "images/mystery-bug-animation-hex.svg", found: false}
 
 
 // load progress from localStorage
@@ -177,25 +121,6 @@ function handleReset() {
 }
 
 
-
-// guarantees that the hexes exist before the JavaScript tries to update them.
-document.addEventListener("DOMContentLoaded", () => {
-    const profileHexes = document.querySelectorAll(".hex-profile");
-
-    profileHexes.forEach(hex => {
-        const category = hex.dataset.category;
-        const item = keyvalues.find(k => k.category === category);
-        const found = localStorage.getItem(category) === "true";
-
-        // hex.textContent = found ? item.icon : "?";
-        if (item && item.found) {
-    hex.innerHTML = `<img src="${item.imgsrc}" alt="${item.fullname}">`;
-        } else {
-            hex.innerHTML = `<img src="${item.unfoundimgsrc}" alt="${item.category}">`;
-        }
-    });
-});
-
 function showRewardModal(item) {
     const overlay = document.getElementById("reward-modal-overlay");
     const image = document.getElementById("modal-image");
@@ -255,7 +180,7 @@ function showRewardModal(item) {
 
 function updateProfilesContent() {
     document.querySelectorAll(".profile").forEach(profile => {
-        const category = profile.id.replace("-box", "");  // e.g., "fruit"
+        const category = profile.id.replace("-box", "");  // e.g., "bee"
         const item = keyvalues.find(k => k.category === category);
         const data = (item && item.found) ? item : defaultvalues;
 
@@ -321,67 +246,6 @@ function getHomepageTextMessages() {
     }
 }
 
-// update homepage text and buttons based on number of found codewords 
-document.addEventListener("DOMContentLoaded", () => {
-    loadProgress();
-    updateDisplay();
-    updateProfilesContent();
-
-    const headerText = document.getElementById('homepage-header-text');
-    const paragraphText = document.getElementById('homepage-paragraph-text');
-
-    const codeQuizButton = document.getElementById('homepage-codeword-quiz-btn');
-    const helpFbkButton = document.getElementById('homepage-help-fbk-btn');
-
-    // check for presence of the variable i.e. are you on the homescreen
-    if (headerText && paragraphText) {
-        const messages = getHomepageTextMessages();
-
-        headerText.textContent = messages.header;
-        paragraphText.textContent = messages.paragraph;
-}
-
-    if (helpFbkButton && codeQuizButton) {
-
-        if (foundCount === 0) {
-            // show codeword and help button
-            codeQuizButton.style.display = "inline-block";
-            codeQuizButton.textContent = "Enter a codeword";
-            codeQuizButton.href = "codeword.html";
-
-            helpFbkButton.style.display = "inline-block";
-            helpFbkButton.textContent = "How does this work?";
-            helpFbkButton.href = "help-how-to-use.html";
-
-        } else if (foundCount < keyvalues.length) {
-            // Hide help button completely
-            helpFbkButton.style.display = "none";
-
-        } else {
-            // show codeword and help button
-            codeQuizButton.style.display = "inline-block";
-            codeQuizButton.textContent = "Take the quiz";
-            codeQuizButton.href = "quiz.html";
-
-            // show quiz and feedback button
-            helpFbkButton.style.display = "inline-block";
-            helpFbkButton.textContent = "Give feedback";
-            helpFbkButton.href = "feedback.html";
-        }
-}
-
-document.querySelectorAll(".profile").forEach(profile => {
-
-    const firstBtn = profile.querySelector(".tab-btn");
-    const firstContent = profile.querySelector(".tab-content");
-
-    if (firstBtn) firstBtn.classList.add("active");
-    if (firstContent) firstContent.classList.add("active");
-
-});
-
-});
-
 
 
 //QUIZ SETTINGS
@@ -399,26 +263,166 @@ function getQuizMessage() {
 }
 
 
-document.addEventListener("DOMContentLoaded", () => {
+
+
+
+
+// INITIALISATION FUNCTIONS
+
+// progress and hex display
+function initCore() {
     loadProgress();
     updateDisplay();
+}
+
+
+
+// menus initialisation
+function initMenu() {
+
+    const burger = document.getElementById("burger");
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const overlay = document.getElementById("menu-overlay");
+
+    if (!burger || !dropdownMenu || !overlay) return;
+
+    const dropdownLinks = dropdownMenu.querySelectorAll("a");
+
+    function openMenu() {
+        // always appears just below the header banner, dynamically calcs it
+        const header = document.getElementById("floating-header");
+        const headerHeight = header.offsetHeight;
+
+        dropdownMenu.style.top = headerHeight + "px";
+
+        dropdownMenu.classList.add("open");
+        overlay.classList.remove("hidden");
+        burger.setAttribute("aria-expanded", "true");
+        burger.innerHTML = "✖";
+    }
+
+    function closeMenu() {
+        dropdownMenu.classList.remove("open");
+        overlay.classList.add("hidden");
+        burger.setAttribute("aria-expanded", "false");
+        burger.innerHTML = "&#9776;";
+    }
+
+    burger.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        if (dropdownMenu.classList.contains("open")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    overlay.addEventListener("click", closeMenu);
+
+    dropdownLinks.forEach(link => {
+        link.addEventListener("click", closeMenu);
+    });
+
+}
+
+// profile cards initialisation
+function initProfiles() {
+
     updateProfilesContent();
-        // Update quiz box
+
+    // ensure first tab active in each profile
+    document.querySelectorAll(".profile").forEach(profile => {
+
+        const firstBtn = profile.querySelector(".tab-btn");
+        const firstContent = profile.querySelector(".tab-content");
+
+        if (firstBtn) firstBtn.classList.add("active");
+        if (firstContent) firstContent.classList.add("active");
+
+    });
+}
+
+// homepage text and buttons initialisation
+function initHomepage() {
+
+    const headerText = document.getElementById('homepage-header-text');
+    const paragraphText = document.getElementById('homepage-paragraph-text');
+
+    const codeQuizButton = document.getElementById('homepage-codeword-quiz-btn');
+    const helpFbkButton = document.getElementById('homepage-help-fbk-btn');
+
+    if (!headerText || !paragraphText) return;
+
+    const messages = getHomepageTextMessages();
+
+    headerText.textContent = messages.header;
+    paragraphText.textContent = messages.paragraph;
+
+    if (!helpFbkButton || !codeQuizButton) return;
+
+    if (foundCount === 0) {
+
+        codeQuizButton.style.display = "inline-block";
+        codeQuizButton.textContent = "Enter a codeword";
+        codeQuizButton.href = "codeword.html";
+
+        helpFbkButton.style.display = "inline-block";
+        helpFbkButton.textContent = "How does this work?";
+        helpFbkButton.href = "help-how-to-use.html";
+
+    } else if (foundCount < keyvalues.length) {
+
+        helpFbkButton.style.display = "none";
+
+    } else {
+
+        codeQuizButton.style.display = "inline-block";
+        codeQuizButton.textContent = "Take the quiz";
+        codeQuizButton.href = "quiz.html";
+
+        helpFbkButton.style.display = "inline-block";
+        helpFbkButton.textContent = "Give feedback";
+        helpFbkButton.href = "feedback.html";
+    }
+}
+
+// quiz setting initialisation
+function initQuiz() {
+
     const quizBox = document.getElementById('quiz-box');
     const quizBoxText = document.getElementById('quiz-para-text');
     const quizApp = document.getElementById('quiz-app');
 
-    if (quizBox && quizApp) {
-        quizBoxText.innerHTML = getQuizMessage();
+    if (!quizBox || !quizApp) return;
 
-    // hide box when all found
+    quizBoxText.innerHTML = getQuizMessage();
+
     if (foundCount >= keyvalues.length) {
-        quizBox.style.display = "none";   
-        quizApp.style.display = "block";   
+        quizBox.style.display = "none";
+        quizApp.style.display = "block";
     } else {
         quizBox.style.display = "block";
-        quizApp.style.display = "none";  
-    }  
+        quizApp.style.display = "none";
     }
+}
+
+// one event listener at the bottom
+document.addEventListener("DOMContentLoaded", () => {
+
+    // progress and hex display initialisation
+    initCore();
+
+    // menus initialisation
+    initMenu();
+
+    // profile cards initialisation
+    initProfiles();
+
+    // homepage text and buttons initialisation
+    initHomepage();
+
+    // quiz setting initialisation
+    initQuiz();
 
 });

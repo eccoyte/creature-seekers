@@ -562,12 +562,13 @@ button {
 
 p[data-field="tagline"] {
     font-style: italic;
-    opacity: 0.8;
     margin-top: 0.5rem;
 }
 
 p[data-field="sciname"] {
     font-style: italic;
+    
+    opacity: 0.8;
 }
 
 /* Highlight profiles that have been found */
@@ -582,6 +583,8 @@ p[data-field="sciname"] {
     background-color: #e1e1e1;  /* Light gray background for unfound profiles */
     opacity: 0.5;  /* Slightly transparent */
 }
+
+
 
 .profile-head {
     display: flex;
