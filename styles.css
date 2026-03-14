@@ -34,9 +34,12 @@ body h1 {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* --- remove focus outlines (also causing blue colour) without affecting keyboard focus on desktop --- */
 :focus:not(:focus-visible) {
     outline: none;
 }
+
+
 
 /* --- Password section - to be removed for release! --- */
 
@@ -500,6 +503,8 @@ button {
     transform: scale(0.95);
 }
 
+
+
 .info-box {
     background: #ffffff;
     border: 2px solid #34a853;
@@ -513,8 +518,48 @@ button {
 }
 
 .info-box p {
-        line-height: 1.7rem;    
-        margin: 1rem;
+    line-height: 1.7rem;    
+    margin: 1rem;
+}
+
+#hexie-help {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;             /* space between box and Hexie */
+    flex-wrap: wrap;        /* mobile-friendly, allows stacking on narrow screens */
+}
+
+#profile-info-box {
+    background: #008081;
+    font-family: 'DynaPuff','Nunito', 'Lato', Arial, sans-serif;
+    color: #fffbf4;
+    border: none;
+    max-width: 550px;
+    margin: 15px auto 15px;
+    border-radius: 25px;
+    padding: 0.3rem 0.5rem 0.3rem;
+    text-align: center;
+    font-size: 0.9rem;
+
+    flex: 1 1 100px;       /* grows, shrinks, min-width 100px */
+    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+#profile-info-box p {
+    margin: 0.5rem 0;
+    line-height: 1.3rem;
+    letter-spacing: 0.3px;
+}
+
+.hexie-hint {
+    flex: 0 0 auto; /* keeps natural size */
+}
+
+.hexie-hint img {
+    width: 70px;
+    height: auto;
 }
 
 #codeword-info-box {
@@ -524,6 +569,13 @@ button {
 #password-info-box {
         padding: 5px 20px 20px;
 }
+
+
+#profile-info-box {
+    overflow: auto; /* keeps container height correct */
+}
+
+
 
 
 .profiles-container {
@@ -541,7 +593,7 @@ button {
     background-color: #FFFBF4;
     border: 2px solid #D1DE7F;
     border-radius: 12px;
-    padding: 15px;
+    padding: 15px 15px 5px;
     gap: 15px;
     scroll-margin-top: 35px; /* ensures the top doesn't get cut off */    
 }
@@ -746,7 +798,7 @@ p[data-field="sciname"] {
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 15px;
+    gap: 5px;
 }
 
 #answer-buttons {
@@ -771,7 +823,7 @@ p[data-field="sciname"] {
 
 #quiz-question-img img {
     display: block;
-    height: 6rem;
+    height: 7rem;
     width: auto;
     margin: 0 auto;
 }
@@ -779,7 +831,7 @@ p[data-field="sciname"] {
 
 .quiz-option-btn {
     min-height: 4.5rem;
-    font-size: 0.9rem;
+    font-size: 1.0rem;
     background: #ffffff;
     color: #341407;
     width: 100%;
