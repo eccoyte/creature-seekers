@@ -34,7 +34,9 @@ body h1 {
     -webkit-tap-highlight-color: transparent;
 }
 
-
+:focus:not(:focus-visible) {
+    outline: none;
+}
 
 /* --- Password section - to be removed for release! --- */
 
