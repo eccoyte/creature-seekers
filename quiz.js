@@ -14,7 +14,7 @@ const questions = [
     },
     {
         imgsrc: "images/lesser-stag-beetle-animation-hex.svg",
-        question: "A pile of which of the following would be the most help to <i>lesser stag beetles</i>?",
+        question: "Which of these piles would be the most help to <i>lesser stag beetles</i>?",
         answers: [
             {text: "Untreated wood", correct: true},
             {text: "Loamy soil", correct: false},
@@ -28,15 +28,15 @@ const questions = [
         question: "Where do <i>green shield bugs</i> like to lay their eggs?",
         answers: [
             {text: "On the underside of leaves", correct: true},
-            {text: "Deep underground", correct: false},
-            {text: "Near fresh water", correct: false},
-            {text: "In medieval armour", correct: false}
+            {text: "Deep under the ground", correct: false},
+            {text: "Near shallow fresh water", correct: false},
+            {text: "Inside medieval armour", correct: false}
         ],
         feedback: {correct: "Egg-cellent!", incorrect: "Not this one"}
     },
     {
         imgsrc: "images/darter-dragonfly-animation-hex.svg",
-        question: "What are juveniles of dragonflies like the <i>common darter dragonfly</i> called?",
+        question: "What are juveniles of the <i>common darter dragonfly</i> called?",
         answers: [
             {text: "Nymphs", correct: true},
             {text: "Griffins", correct: false},
@@ -60,10 +60,10 @@ const questions = [
         imgsrc: "images/mint-moth-animation-hex.svg",
         question: "Why do <i>mint moths</i> have this name?",
         answers: [
-            {text: "Because the caterpillars feeds on herbs including mint", correct: true},
-            {text: "Because the adults create a minty smell when disturbed", correct: false},
-            {text: "Because the adults occasionally steal breath mints", correct: false},
-            {text: "Because the caterpillars are a bright minty green colour", correct: false}
+            {text: "The caterpillars feeds on herbs including mint", correct: true},
+            {text: "The adults create a minty smell when disturbed", correct: false},
+            {text: "The adults sometimes steal breath mints", correct: false},
+            {text: "The caterpillars are a minty green colour", correct: false}
         ],
         feedback: {correct: "You got it!", incorrect: "Unfortunately not"}
     }

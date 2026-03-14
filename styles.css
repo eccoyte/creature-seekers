@@ -523,7 +523,7 @@ button {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 40px; /* spacing between profiles */
+    gap: 30px; /* spacing between profiles */
 }
 
 .profile {
@@ -557,12 +557,12 @@ button {
     margin: 0 0 8px 0;
     color: #341407;
     line-height: 1.4;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 p[data-field="tagline"] {
     font-style: italic;
-    margin-top: 0.5rem;
+    text-align: center;
 }
 
 p[data-field="sciname"] {
@@ -576,6 +576,7 @@ p[data-field="sciname"] {
     border-color: #87CF6A; /* green border */
     box-shadow: 0 4px 10px rgba(52, 168, 83, 0.3); /* subtle glow */
     transition: all 0.3s ease-in-out;
+    background-color: #FFFFFF;
 }
 
 /* Grayed-out (unfound) profiles */
@@ -604,6 +605,7 @@ p[data-field="sciname"] {
     display: flex;
     flex-direction: column; /* stack vertically */
     width: 100%;            /* take full width */
+    text-align: center;
 }
 
 .profile-head-text h2 {
@@ -617,6 +619,11 @@ p[data-field="sciname"] {
     font-style: italic;
     width: 100%;            /* forces subtitle onto its own line */
     display: block;
+}
+
+
+.profile.last {
+    margin-bottom: 2.8rem;
 }
 
 
@@ -713,10 +720,10 @@ p[data-field="sciname"] {
 .quiz-app {
     background: #ffffff;
     border: 2px solid #34a853;
-    max-width: 550px;
-    margin: 50px auto 60px;
+    max-width: 560px;
+    margin: 15px auto 60px;
     border-radius: 10px;
-    padding: 10px 20px 30px;
+    padding: 5px 20px 20px;
 
     
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -727,9 +734,23 @@ p[data-field="sciname"] {
     padding-bottom: 20px;
 }
 
+#quiz-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+#answer-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 20px auto;
+}
+
 #quiz-question {
     padding: 3px 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center;
 }
 
@@ -749,13 +770,13 @@ p[data-field="sciname"] {
 
 
 .quiz-option-btn {
-    font-size: 1rem;
+    min-height: 4.5rem;
+    font-size: 0.9rem;
     background: #ffffff;
     color: #341407;
     width: 100%;
     border: 2px solid #341407;
     padding: 0.6rem;
-    margin: 0.5rem 0;
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
@@ -803,9 +824,8 @@ p[data-field="sciname"] {
 #quiz-next-btn {
     background: #008081;
     color: #ffffff; 
-    width: 150px;
     border: 0;
-    padding: 10px;
+    padding: 10px 35px;
     border-radius: 5px;
     
 }
