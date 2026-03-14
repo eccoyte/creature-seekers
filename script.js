@@ -69,12 +69,14 @@ function handleKeywordGuess() {
     foundCount += 1;
     guessMsg.textContent = "Correct!";
     guessMsg.className = "correct";
-    
 
+    // remove focus if correct, ensuring the modal is shown
+    input.blur();
+    
     saveProgress();
     updateDisplay();
 
-    // Show the popup modal
+    // Show the popup modal on the matched insect
     showRewardModal(match);
   }
 }
