@@ -452,6 +452,7 @@ button {
 .nav-option .label {
     display: block;
     line-height: 1;
+    font-family: 'Nunito', 'Lato', Arial, sans-serif;
 }
 
 
@@ -543,7 +544,7 @@ button {
 
     flex: 1 1 100px;       /* grows, shrinks, min-width 100px */
     
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 
@@ -553,11 +554,11 @@ button {
     letter-spacing: 0.3px;
 }
 
-.hexie-hint {
+.hexie-chatting {
     flex: 0 0 auto; /* keeps natural size */
 }
 
-.hexie-hint img {
+.hexie-chatting img {
     width: 70px;
     height: auto;
 }
