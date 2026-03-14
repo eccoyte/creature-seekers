@@ -29,8 +29,14 @@ body h1 {
     margin: 0.8rem;
 }
 
-/* --- Password section - to be removed for release! --- */
+/* --- remove the blue highlight when interacting seen on mobile --- */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
 
+
+
+/* --- Password section - to be removed for release! --- */
 
 .pwd-access-container {
         padding: 20px;
