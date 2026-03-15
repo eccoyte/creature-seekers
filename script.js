@@ -233,7 +233,7 @@ function getHomepageTextMessages() {
     if (foundCount === 0) {
         return {
             header: "Welcome to Creature Seekers!",
-            paragraph: "There are six Creature Seeker stations in St Andrew's Park in Bristol this summer. Find them all and get to know some lovely little locals!"
+            paragraph: "Find all six Creature Seeker stations in St Andrew's Park, and get to know some lovely little local insects!"
         };
     } else if (foundCount < keyvalues.length) {
         return {
@@ -243,7 +243,7 @@ function getHomepageTextMessages() {
     } else {
         return {
             header: "Trail complete!",
-            paragraph: "Well done - you've found every creature on the trail! Next, check out the quiz, and please give your thoughts on how you found Creature Seekers."
+            paragraph: "You've found every creature on the trail! Next, check out the quiz, and please tell us your thoughts about Creature Seekers."
         };
     }
 }
@@ -256,11 +256,11 @@ function getQuizMessage() {
     
     // Determine message
     if (foundCount === 0) {
-        return "Complete the trail to unlock the quiz!";
+        return "Complete the trail to unlock the Creature Seeker quiz!";
     } else if (foundCount < keyvalues.length) {
         return `<p>Complete the trail to unlock the quiz!</p><p>You have found ${foundCount} of ${keyvalues.length} codewords so far - keep it up!</p>`;
     } else {
-        return "Quiz unlocked!";
+        return "Quiz unlocked! Check out the creature profile information and see how you do!";
     }
 }
 

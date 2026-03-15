@@ -113,7 +113,7 @@ function startQuiz() {
 
     if (quizState === "front") {
         // show front page message
-        questionElement.innerHTML = "<p>Well done - you have completed the Creature Seekers trail!</p><p>Now you can start the quiz on all the insects you found.</p>";
+        questionElement.innerHTML = "<p>Well done - you have completed the Creature Seekers trail!</p><p>You can now start the quiz on all the insects you found.</p>";
         
         resetState(); 
         nextButton.disabled = false; 
@@ -242,7 +242,19 @@ function handleNextButton() {
 
 function showScore() {
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`
+    scoreMessage = `<p>Your quiz score: ${score} out of ${questions.length}</p>`
+
+    if (score == 0) {
+        scoreMessage += "<p>Check out the creature profiles page to see what you missed, and try again!</p>"; 
+    } else if (score < questions.length - 1) {
+        scoreMessage += "<p>Partly right! Check out the creature profiles page to see what you missed, and try again!</p>"; 
+    } else if (score = questions.length - 1) {
+        scoreMessage += "<p>Nearly there! Check out the creature profiles page to see what you missed, and try again!</p>";
+    } else {
+        scoreMessage += "<p>Amazing, top score! Now go and see what creatures you can seek out and help in your local area. Good luck!</p>";
+    }
+
+    questionElement.innerHTML = scoreMessage;
     nextButton.innerHTML = "Play again";
 
     // reset image back to mystery hex
