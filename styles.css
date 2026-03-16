@@ -534,7 +534,7 @@ button {
     letter-spacing: 0.3px;
 }
 
-#hexie-help {
+.hexie-help {
     display: flex;
     align-items: center;
     gap: 0.6rem;             /* space between box and Hexie */
@@ -769,6 +769,10 @@ p[data-field="sciname"] {
     margin-bottom: 40px;
 }
 
+
+
+
+
 .quiz-app {
     background: #ffffff;
     border: 2px solid #34a853;
@@ -777,7 +781,6 @@ p[data-field="sciname"] {
     border-radius: 10px;
     padding: 5px 20px 20px;
 
-    
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
@@ -796,7 +799,7 @@ p[data-field="sciname"] {
 #answer-buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 15px;
   margin: 20px auto;
 }
 
@@ -827,7 +830,7 @@ p[data-field="sciname"] {
     background: #ffffff;
     color: #341407;
     width: 100%;
-    border: 2px solid #341407;
+    border: 2px solid #008081;
     padding: 0.6rem;
     text-align: center;
     border-radius: 5px;
@@ -890,11 +893,83 @@ p[data-field="sciname"] {
 
 .quiz-correct {
     background: #87CF6A;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.quiz-correct.pulse {
+    box-shadow: 0 0 12px #008081cc;
+    transform: scale(1.05); /* small pop effect upon getting correct*/
+}
+
+.quiz-incorrect {
+    background: #D07E80; 
+    
+    border-color: #8b8b8b;
+}
+
+/* buttons that were not selected get slightly greyed out */
+.quiz-option-btn.dimmed {
+    background-color: #f0f0f0;  
+    border-color: #8b8b8b;
+    
 }
 
 
-.quiz-incorrect {
-    background: #D07E80;
+/* Quiz state management */
+/* FRONT PAGE STATE */
+
+.quiz-front #quiz-header,
+.quiz-front #answer-buttons,
+.quiz-front #quiz-feedback {
+    display: none;
+}
+
+/* hide mystery hex on front */
+.quiz-front #quiz-question-img img {
+    display: none;
+}
+
+
+/* ACTIVE QUIZ STATE */
+
+.quiz-active #quiz-hexie-help {
+    display: none;
+}
+
+/* QUIZ END STATE */
+
+.quiz-end #quiz-header,
+.quiz-end #answer-buttons,
+.quiz-end #quiz-feedback {
+    display: none;
+}
+
+.quiz-end #quiz-question-img img {
+    display: none;
+}
+
+.quiz-end #quiz-hexie-help {
+    display: flex;
+}
+
+
+/* centre and recolors the Next button on intro and end screens */
+.quiz-front .quiz-footer,
+.quiz-end .quiz-footer {
+    justify-content: center;
+}
+
+.quiz-front #quiz-next-btn,
+.quiz-end #quiz-next-btn {
+    background-color: #87CF6A;
+    color: #341407
+};
+
+/* hide feedback area in intro and end screens so it doesn't affect centering */
+.quiz-front #quiz-feedback,
+.quiz-end #quiz-feedback {
+    display: none;
 }
 
 

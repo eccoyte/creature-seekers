@@ -69,13 +69,16 @@ const questions = [
     }
 ];
 
+// DOM selectors
 const questionElement = document.getElementById("quiz-question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("quiz-next-btn");
+const quizApp = document.getElementById("quiz-app");
+const feedbackElement = document.getElementById("quiz-feedback");
+const hexieText = document.querySelector("#quiz-hexie-help .hexie-text");
 
 
-
-// this is suboptimal but good enough for this purpose. 12 possible combinations, to pick between. Unlikely to get same twice!
+// 12 possible answer combinations to pick between randomly.
 const questionOrders = [
     [2, 0, 5, 1, 4, 3], [4, 1, 3, 5, 0, 2], [1, 5, 0, 4, 3, 2], [3, 2, 1, 0, 5, 4], 
     [5, 4, 2, 3, 1, 0], [0, 3, 4, 2, 5, 1], [1, 0, 5, 3, 4, 2], [4, 2, 0, 1, 3, 5], 
@@ -83,7 +86,7 @@ const questionOrders = [
 ];
 
 
-//12 possible different combinations, 3 where 1 is first, 3 where 1 is second and so on. 1 is always correct here, so it's evenly balanced
+// 12 possible different combinations, 3 where 1 is first, 3 where 1 is second and so on. 1 is always correct here, so it's evenly balanced
 const answerOrders = [
     [0, 1, 2, 3], [0, 1, 3, 2], [0, 2, 1, 3],
     [3, 0, 2, 1], [2, 0, 1, 3], [3, 0, 1, 2],
@@ -91,7 +94,6 @@ const answerOrders = [
     [1, 2, 3, 0], [1, 2, 3, 0], [3, 2, 1, 0]
 ];
 
-const feedbackElement = document.getElementById("quiz-feedback");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -100,10 +102,6 @@ let score = 0;
 let selectedQuestionOrder = [];
 let selectedAnswerOrder = [];
 
-// TO-DO: Generate randomised question order within the quiz, and use that going forward
-// TO-DO: Generate randomised answer order within each question, and use that going forward.
-// possible randomisation: "options = choices[matrix(shuffle(1:size(choices)[1]))];" but this only works when it's a straight list, currently it's an object
-// could rework to answers: ["a", "b", "c", "d"], and correct is always the first one.
 
 let quizState = "front"; // "front" = front page, "inProgress" = quiz active
 
@@ -112,9 +110,8 @@ function startQuiz() {
     score = 0;
 
     if (quizState === "front") {
-        // show front page message
-        questionElement.innerHTML = "<p>Well done - you have completed the Creature Seekers trail!</p><p>You can now start the quiz on all the insects you found.</p>";
-        
+        hexieText.innerHTML = "<p>You have completed the Creature Seekers trail!</p><p>You can now start the quiz on all the insects you found.</p>";
+
         resetState(); 
         nextButton.disabled = false; 
         nextButton.innerHTML = "Start Quiz";
@@ -132,6 +129,7 @@ function showQuestion() {
 
         const quizImage = document.querySelector("#quiz-question-img img");
     quizImage.src = currentQuestion.imgsrc;
+    
 
     // generate the answer buttons
 // loop through answers in the selected random order
@@ -174,6 +172,7 @@ function selectAnswer(e) {
     // adds the coloration etc based on correctness
     if (isCorrect) {
         selectedBtn.classList.add("quiz-correct");
+        
         score += 1;
     } else {
         selectedBtn.classList.add("quiz-incorrect");
@@ -197,11 +196,16 @@ function selectAnswer(e) {
         feedbackElement.classList.add("show");
     });
 
-    // automatically mark the correct options after answering
+    // automatically mark and style the options after answering
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true") {
-            button.classList.add("quiz-correct");
+            button.classList.add("quiz-correct", "pulse");
+            setTimeout(() => button.classList.remove("pulse"), 500);
         }
+
+        if (button !== selectedBtn && !button.classList.contains("quiz-correct")) {
+        button.classList.add("dimmed"); // grey out unselected, incorrect buttons
+    }
         // stops further clicking on button
         button.disabled = true;
     });
@@ -214,6 +218,12 @@ function selectAnswer(e) {
 // display either the question, or the score
 function handleNextButton() {
     if (quizState === "front") {
+
+    // hide hexie intro
+    // show quiz elements when quiz begins
+    quizApp.classList.remove("quiz-front", "quiz-end");
+    quizApp.classList.add("quiz-active");
+
         // move from front page to quiz
         quizState = "inProgress";
         currentQuestionIndex = 0;
@@ -242,19 +252,24 @@ function handleNextButton() {
 
 function showScore() {
     resetState();
-    scoreMessage = `<p>Your quiz score: ${score} out of ${questions.length}</p>`
+    // change quiz state
+    quizApp.classList.remove("quiz-active");
+    quizApp.classList.add("quiz-end");
+
+    scoreMessage = `<p>You scored:</p><h2>${score} out of ${questions.length}</h2></p>`
 
     if (score == 0) {
         scoreMessage += "<p>Check out the creature profiles page to see what you missed, and try again!</p>"; 
     } else if (score < questions.length - 1) {
         scoreMessage += "<p>Partly right! Check out the creature profiles page to see what you missed, and try again!</p>"; 
-    } else if (score = questions.length - 1) {
+    } else if (score === questions.length - 1) {
         scoreMessage += "<p>Nearly there! Check out the creature profiles page to see what you missed, and try again!</p>";
     } else {
         scoreMessage += "<p>Amazing, top score! Now go and see what creatures you can seek out and help in your local area. Good luck!</p>";
     }
 
-    questionElement.innerHTML = scoreMessage;
+    // update what Hexie says, and the button
+    hexieText.innerHTML = scoreMessage;
     nextButton.innerHTML = "Play again";
 
     // reset image back to mystery hex
