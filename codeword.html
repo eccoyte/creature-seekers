@@ -5,6 +5,7 @@
     <title>Creature Seekers: Enter codeword</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wdth@98&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="images/svg" href="images/hexie-favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +36,7 @@
 
 <!-- Bottom Navigation Bar -->
 <nav class="bottom-nav" aria-label="main menu">
-    <a href="homepage.html" class="nav-option current">
+    <a href="homepage.html" class="nav-option">
         <div class="nav-icon"><img src="images/home-icon.svg" alt="" > </div>
         <div class="label">Home</div>
     </a>
@@ -64,12 +65,19 @@
 <main>
 
 
+<div class="hexie-help">
+<div class="hexie-info-box" id="codeword-info-box">
+        <div class="hexie-speech">
+    <h2>Found a codeword?</h2>
+<p>Great! Enter it here to reveal the creature, and find out more about them!</p>
+        </div>
+</div>
+        <div class="hexie-chatting">
+        <img src="images/hexie-happy.svg" alt="hexie happy">
+    </div>
+</div>
 
 
-
-<div class="info-box" id="codeword-info-box">
-    <h1>Found a codeword? Great!</h1>
-<p>Enter it here to reveal the creature, and find out more about them!</p>
 <section title="Codeword entry">
 
 <div class="input-container">
@@ -79,8 +87,6 @@
 <p id="guess-msg"></p>
 </section>
 
-
-</div>
 
 
 <!-- Modal Overlay -->
