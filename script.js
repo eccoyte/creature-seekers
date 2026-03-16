@@ -232,18 +232,15 @@ function getHomepageTextMessages() {
     // Determine message
     if (foundCount === 0) {
         return {
-            header: "Welcome to Creature Seekers!",
-            paragraph: "Find all six Creature Seeker stations in St Andrew's Park, and get to know some lovely little local insects!"
+            message: "<h2>Welcome to Creature Seekers!</h2><p>Find all six Creature Seeker stations in St Andrew's Park, and get to know some lovely little local insects!</p>",
         };
     } else if (foundCount < keyvalues.length) {
         return {
-            header: "You're on the way!",
-            paragraph: `You have found ${foundCount} of ${keyvalues.length} Creature Seeker codewords so far. Keep it up!`
+            message:  `<p>You're on the way!</p><p>You have found ${foundCount} of ${keyvalues.length} codewords so far - keep it up!</p>`,
         };
     } else {
         return {
-            header: "Trail complete!",
-            paragraph: "You've found every creature on the trail! Next, check out the quiz, and please tell us your thoughts about Creature Seekers."
+         message: "<p>Hooray! You've found every creature on the trail!</p><p>Next, check out the quiz, and please tell us your thoughts about Creature Seekers.</p>",
         };
     }
 }
@@ -348,18 +345,16 @@ function initProfiles() {
 // homepage text and buttons initialisation
 function initHomepage() {
 
-    const headerText = document.getElementById('homepage-header-text');
-    const paragraphText = document.getElementById('homepage-paragraph-text');
+    const homepageHexieText = document.getElementById('homepage-hexie-speech');
 
     const codeQuizButton = document.getElementById('homepage-codeword-quiz-btn');
     const helpFbkButton = document.getElementById('homepage-help-fbk-btn');
 
-    if (!headerText || !paragraphText) return;
+    if (!homepageHexieText) return;
 
-    const messages = getHomepageTextMessages();
+    const homepageMessage = getHomepageTextMessages();
 
-    headerText.textContent = messages.header;
-    paragraphText.textContent = messages.paragraph;
+    homepageHexieText.innerHTML = homepageMessage.message;
 
     if (!helpFbkButton || !codeQuizButton) return;
 
