@@ -60,8 +60,8 @@ const questions = [
         imgsrc: "images/mint-moth-animation-hex.svg",
         question: "Why do <i>mint moths</i> have this name?",
         answers: [
-            {text: "The caterpillars feeds on herbs including mint", correct: true},
-            {text: "The adults create a minty smell when disturbed", correct: false},
+            {text: "The caterpillars feed on herbs including mint", correct: true},
+            {text: "The adults make a minty smell when disturbed", correct: false},
             {text: "The adults sometimes steal breath mints", correct: false},
             {text: "The caterpillars are a minty green colour", correct: false}
         ],
