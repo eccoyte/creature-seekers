@@ -206,21 +206,21 @@ function updateProfilesContent() {
 // Profiles tab functionality
 document.addEventListener("click", function(e) {
 
-    if (!e.target.classList.contains("tab-btn")) return;
+    if (!e.target.classList.contains("profile-tab-btn")) return;
 
     const btn = e.target;
     const profile = btn.closest(".profile");
     const tab = btn.dataset.tab;
 
     // deactivate buttons
-    profile.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    profile.querySelectorAll(".profile-tab-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 
     // hide all sections
-    profile.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+    profile.querySelectorAll(".profile-tab-content").forEach(c => c.classList.remove("active"));
 
     // show selected section
-    profile.querySelector(`.tab-content[data-content="${tab}"]`).classList.add("active");
+    profile.querySelector(`.profile-tab-content[data-content="${tab}"]`).classList.add("active");
 
 });
 
@@ -333,8 +333,8 @@ function initProfiles() {
     // ensure first tab active in each profile
     document.querySelectorAll(".profile").forEach(profile => {
 
-        const firstBtn = profile.querySelector(".tab-btn");
-        const firstContent = profile.querySelector(".tab-content");
+        const firstBtn = profile.querySelector(".profile-tab-btn");
+        const firstContent = profile.querySelector(".profile-tab-content");
 
         if (firstBtn) firstBtn.classList.add("active");
         if (firstContent) firstContent.classList.add("active");

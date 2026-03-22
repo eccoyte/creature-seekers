@@ -7,10 +7,44 @@
 /* TO-DO: Change page titles away from h2 to something more semantic*/
 
 /* --- Overall Page Layout --- */
+:root {
+  /* Backgrounds */
+    --colour-floral-off-white: #FFFBF4; 
+    --colour-almost-white: #FDFDFD;
+    --colour-black-bean: #341407;
+
+    --colour-teal-primary: #008081;
+    --colour-teal-light: #18A1A2;
+    
+    --colour-mantis-primary: #87CF6A;
+    --colour-mantis-light: #D1DE7F;
+
+    --forest-primary: #75b85d;
+    --success-colour-darker: #2e7d32;
+
+
+    --colour-grey-1: #f0f0f0;
+    --colour-grey-2: #d3d3d3;
+    --colour-grey-3: #8b8b8b;
+    --colour-grey-4: #444444;
+
+
+    --error-colour-strong: #c62828;
+    --error-colour-lighter: #D07E80;  /* Old rose */
+
+
+    /* Special surfaces */
+    --surface-colour-highlight: #D7E5A8;
+
+    /* Shadows */
+    --shadow-soft: rgba(0,0,0,0.1);
+    --shadow-medium: rgba(0,0,0,0.2);
+    --shadow-strong: rgba(0,0,0,0.5);
+}
 
 body {
-    background-color: #FFFBF4;   /* soft cream background */
-    color: #341407;              /* dark brown text */
+    background-color: var(--colour-floral-off-white);  
+    color: var(--colour-black-bean);              
     font-family: 'Lato', Arial, sans-serif;
     font-size: 1rem;
     padding-top: 60px;
@@ -28,6 +62,15 @@ body h1 {
     font-weight: bold;
     margin: 0.8rem;
 }
+
+/* Gentle linear gradient I might consider in the future. Add class to body box
+.background-box {
+    min-height: 100vh;
+    background-image: linear-gradient(#fffbf4, #dcf0cc);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    */
 
 /* --- remove the blue highlight when interacting seen on mobile --- */
 * {
@@ -52,7 +95,7 @@ body h1 {
 #password-input {
     flex: 4;                 /* input grows to fill extra space */
     padding: 14px;           /* taller input */
-    border: 2px solid #008081;
+    border: 2px solid var(--colour-teal-primary);
     border-radius: 6px;
     font-size: 1rem;
 }
@@ -73,10 +116,10 @@ body h1 {
     width: 100%;
     max-width: 600px;
     padding: 0 20px;
-    background-color: #FFFFFF;
-    border-bottom: 3px solid #008081;
+    background-color: var(--colour-almost-white);
+    border-bottom: 3px solid var(--colour-teal-primary);
     display: flex;
-    justify-content: space-between; /* left + right */
+    justify-content: space-between;
     align-items: center;
     z-index: 999;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -111,7 +154,7 @@ body h1 {
 
 #burger {
     font-size: 1.8em;
-    color: #341407;
+    color: var(--colour-black-bean);
 }
 
 
@@ -119,7 +162,7 @@ body h1 {
     font-family: 'Nunito', 'Lato', Arial, sans-serif;
     font-size: 1.4em;
     font-weight: bold;
-    color: #341407;
+    color: var(--colour-black-bean);
     margin: 0.2rem;
 }
 
@@ -139,8 +182,8 @@ body h1 {
     width: 100%;
     max-width: 600px;
 
-    background-color: #008081;
-    color: #FFFBF4;
+    background-color: var(--colour-teal-primary);
+    color: var(--colour-almost-white);
 
     padding: 5px 20px;  /* comfy padding */
     box-sizing: border-box; /* Make it so padding doesn't add to it */
@@ -174,7 +217,7 @@ body h1 {
 #dropdown-menu ul li a {
     display: block;
     padding: 8px 12px;
-    color: #FFFBF4;
+    color: var(--colour-floral-off-white);
     text-decoration: none;
     font-size: 1.125rem;
     line-height: 1.4;
@@ -186,7 +229,7 @@ body h1 {
 
 
 #dropdown-menu ul li a:hover {
-    border-color: #FFFBF4;
+    border-color: var(--colour-floral-off-white);
     background-color: rgba(255,255,255,0.15);
 }
 
@@ -197,7 +240,7 @@ body h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5); /* semi-transparent black */
+    background: var(--shadow-strong);
     z-index: 900; /* under the menu but above page */
 }
 
@@ -221,8 +264,8 @@ body h1 {
     width: fit-content;      /* shrink to the button's content */
     margin: 0 auto;          /* centers horizontally */
     
-    background-color: #87CF6A;
-    color: #341407;
+    background-color: var(--colour-mantis-primary);
+    color: var(--colour-black-bean);
     
     font-family: 'Lato', Arial, sans-serif;
     font-size: 1.2em;
@@ -233,13 +276,13 @@ body h1 {
     text-decoration: none;
     cursor: pointer;
 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--shadow-soft);
     transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
 }
 
 .codeword-link-btn:hover {
-    background-color: #d1de7f;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: var(--colour-mantis-light);
+    box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
 /* TO DO - make this happen to all buttons - have global class, but beware some are <a> links */
@@ -254,8 +297,8 @@ body h1 {
     width: fit-content;      /* shrink to the button's content */
     margin: 0 auto;          /* centers horizontally */
     
-    background-color: #008081;
-    color: #ffffff;
+    background-color: var(--colour-teal-primary);
+    color: var(--colour-almost-white);
     
     font-family: 'Lato', Arial, sans-serif;
     font-size: 1.2em;
@@ -270,8 +313,8 @@ body h1 {
 }
 
 .help-link-btn:hover {
-    background-color: #18A1A2;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: var(--colour-teal-light);
+    box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
 
@@ -279,24 +322,6 @@ body h1 {
     margin-bottom: 2.5rem;
 }
 
-
-/* brown block, being deprecated but kept in case of some formatting info to reference */
-.title-block {
-    background-color: #341407;
-    color: #FFFFFF;
-    text-align: center;       /* center the text horizontally */
-    align-content: center;
-    padding: 20px 0;          /* add vertical space, makes it taller */
-    font-family: 'Lato', Arial, sans-serif; 
-    font-weight: bold;
-}
-
-.title-block h1 {
-    font-family: 'Rammetto One', 'Lato', Arial, sans-serif; 
-    margin: 0;                /* remove default margin so padding works cleanly */
-    font-size: 1.8em;         
-    line-height: 1.2;
-}
 
 /* Container for input + button */
 .input-container {
@@ -311,15 +336,15 @@ body h1 {
 #keyword-input {
     flex: 4;                 /* input grows to fill extra space */
     padding: 14px;           /* taller input */
-    border: 2px solid #008081;
+    border: 2px solid var(--colour-teal-primary);
     border-radius: 6px;
     font-size: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--shadow-soft);
 }
 
 /* --- Feedback Messages (Correct / Error) --- */
 .correct {
-    color: #008081;             
+    color: var(--colour-teal-primary);             
     font-weight: bold;
 }
 
@@ -337,42 +362,42 @@ button {
     font-family: 'Lato', Arial, sans-serif;    
     font-weight: bold;   
     font-size: 1.2rem;  
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--shadow-soft);
     
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 #button:hover {
-    background-color: #D1DE7F; 
+    background-color: var(--colour-mantis-light); 
     
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
 /* Button styling */
 #submit-btn {
     flex: 1;
-    padding: 14px 20px;      /* taller and wider */
-    background-color: #87CF6A;
-    color: #341407;
+    padding: 14px 20px;   
+    background-color: var(--colour-mantis-primary);
+    color: var(--colour-black-bean);
     border: none;
     cursor: pointer;
     white-space: nowrap;     /* keeps text on one line */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--shadow-soft);
     
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 
 #submit-btn:hover {
-    background-color: #D1DE7F; 
+    background-color: var(--colour-mantis-light); 
     
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
 #reset-btn {
-    background-color: #008081; 
+    background-color: var(--colour-teal-primary); 
     padding: 15px;
     width: auto;
-    color: #FFFFFF;
+    color: var(--colour-almost-white);
 }
 
 /* --- Bottom Navigation Bar --- */
@@ -384,8 +409,8 @@ button {
     width: 100%;
     max-width: 600px;
 
-    background-color: #FFFFFF;
-    border: 3px solid #008081;       
+    background-color: var(--colour-almost-white);
+    border: 3px solid var(--colour-teal-primary);       
     border-bottom-width: 0;           
     border-top-left-radius: 6px;     
     border-top-right-radius: 6px;
@@ -395,7 +420,7 @@ button {
     z-index: 998;
 
     font-weight: bold;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 -2px 5px var(--shadow-medium);
 }
 
 
@@ -404,7 +429,7 @@ button {
     min-height: 44px;
     text-align: center;
     text-decoration: none;
-    color: #341407;
+    color: var(--colour-black-bean);
     font-size: 0.95rem;
 
 
@@ -417,7 +442,7 @@ button {
 
 /* current page */
 .nav-option.current {
-    background-color: #87CF6A;
+    background-color: var(--colour-mantis-primary);
 }
 
 /* Hover for non-active links only */
@@ -427,7 +452,7 @@ button {
 
 /* Prevent active hover override */
 .nav-option.current:hover {
-    background-color: #87CF6A;
+    background-color: var(--colour-mantis-primary);
 }
 
 .nav-icon {
@@ -480,7 +505,7 @@ button {
 
     font-size: 2rem;
     font-weight: bold;
-    color: #341407;
+    color: var(--colour-black-bean);
     text-decoration: none;
     
 }
@@ -502,19 +527,9 @@ button {
 
 
 .hexie-info-box {
-    background: #ffffff;
-    border: 2px solid #34a853;
-    max-width: 550px;
-    margin: 30px auto 15px;
-    border-radius: 10px;
-    padding: 5px 10px 5px;
-    text-align: center;
-    
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
-    background: #008081;
+    background: var(--colour-teal-primary);
     font-family: 'DynaPuff','Nunito', 'Lato', Arial, sans-serif;
-    color: #fffbf4;
+    color: var(--colour-floral-off-white);
     border: none;
     max-width: 550px;
     margin: 15px auto 15px;
@@ -525,7 +540,7 @@ button {
 
     flex: 1 1 100px;       /* grows, shrinks, min-width 100px */
     
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px var(--shadow-soft);
 }
 
 
@@ -583,8 +598,8 @@ button {
     display: flex;
     flex-wrap: wrap; /* mobile-friendly */
     align-items: flex-start;
-    background-color: #FFFBF4;
-    border: 2px solid #D1DE7F;
+    background-color: var(--colour-floral-off-white);
+    border: 2px solid var(--colour-mantis-light);
     border-radius: 12px;
     padding: 15px 15px 5px;
     gap: 15px;
@@ -598,17 +613,17 @@ button {
 
 .profile-content h2 {
     margin: 0 0 10px 0;
-    color: #341407;
+    color: var(--colour-black-bean);
 }
 
 .profile-content h3 {
     margin: 10px 0 5px 0;
-    color: #008081;
+    color: var(--colour-teal-primary);
 }
 
 .profile-content p {
     margin: 0 0 8px 0;
-    color: #341407;
+    color: var(--colour-black-bean);
     line-height: 1.4;
     margin-bottom: 1rem;
 }
@@ -626,7 +641,7 @@ p[data-field="sciname"] {
 
 /* Highlight profiles that have been found */
 .profile.found {
-    border-color: #87CF6A; /* green border */
+    border-color: var( --colour-mantis-primary); /* green border */
     box-shadow: 0 4px 10px rgba(52, 168, 83, 0.3); /* subtle glow */
     transition: all 0.3s ease-in-out;
     background-color: #FFFFFF;
@@ -688,25 +703,25 @@ p[data-field="sciname"] {
     margin: 10px 0 15px 0;
 }
 
-.tab-btn {
+.profile-tab-btn {
     flex: 1;
     padding: 6px 10px;
     border-radius: 6px;
-    border: 1px solid #D1DE7F;
+    border: 1px solid var(--colour-mantis-light);
     background: #fff;
     cursor: pointer;
     font-weight: 600;
 }
 
-.tab-btn.active {
-    background: #D1DE7F;
+.profile-tab-btn.active {
+    background: var(--colour-mantis-light);
 }
 
-.tab-content {
+.profile-tab-content {
     display: none;
 }
 
-.tab-content.active {
+.profile-tab-content.active {
     display: block;
 }
 
@@ -720,7 +735,7 @@ p[data-field="sciname"] {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: var(--shadow-strong);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -734,8 +749,8 @@ p[data-field="sciname"] {
 /* === Codework page, found insect modal setting === */
 
 .modal-box {
-    background: #FFFBF4;
-    border: 4px solid #87CF6A;
+    background: var(--colour-floral-off-white);
+    border: 4px solid var( --colour-mantis-primary);
     border-radius: 20px;
     padding: 30px 40px;
     position: relative;
@@ -750,43 +765,23 @@ p[data-field="sciname"] {
     line-height: 1.4;
 }
 
-/* profile buttons */
-.profile-btn {
-    background: #87CF6A;
-    color: #000;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.profile-btn:hover {
-    background: #75b85d;
-}
-
-/* bit of extra padding for bottom of the codeword button in profile */
-#profile-btm-btn {
-    margin-bottom: 40px;
-}
-
 
 
 
 
 .quiz-app {
-    background: #ffffff;
-    border: 2px solid #34a853;
+    background: var(--colour-almost-white);
+    border: 2px solid var(--colour-mantis-primary);
     max-width: 560px;
     margin: 10px auto 60px;
     border-radius: 10px;
     padding: 5px 15px 20px;
 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px var(--shadow-soft);
 }
 
 .quiz-app h1 {
-    border-bottom: 1px solid #341407;
+    border-bottom: 1px solid var(--colour-black-bean);
     padding-bottom: 20px;
 }
 
@@ -828,10 +823,10 @@ p[data-field="sciname"] {
 .quiz-option-btn {
     min-height: 4.5rem;
     font-size: 0.95rem;
-    background: #ffffff;
-    color: #341407;
+    background: var(--colour-almost-white);
+    color: var(--colour-black-bean);
     width: 100%;
-    border: 2px solid #008081;
+    border: 2px solid var(--colour-teal-primary);
     padding: 1.0rem 0.5rem;
     text-align: center;
     border-radius: 5px;
@@ -841,8 +836,8 @@ p[data-field="sciname"] {
 
 
 .quiz-option-btn:hover:not([disabled]) {
-    background: #008081;
-    color: #ffffff;
+    background: var(--colour-teal-primary);
+    color: var(--colour-almost-white);
     
 }
 
@@ -856,30 +851,30 @@ p[data-field="sciname"] {
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
-    padding: 0 30px;
+    padding: 0;
 }
 
-#quiz-feedback {
+#quiz-feedback-text {
     font-weight: bold;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-#quiz-feedback.show {
+#quiz-feedback-text.show {
     opacity: 1;
 }
 
-#quiz-feedback.correct {
-    color: #2e7d32; 
+#quiz-feedback-text.correct {
+    color: var(--success-colour-darker); 
 }
 
-#quiz-feedback.incorrect {
-    color: #c62828; 
+#quiz-feedback-text.incorrect {
+    color: var(--error-colour-strong); 
 }
 
 #quiz-next-btn {
-    background: #008081;
-    color: #ffffff; 
+    background: var(--colour-teal-primary);
+    color: var(--colour-almost-white); 
     border: 0;
     padding: 10px 35px;
     border-radius: 5px;
@@ -887,13 +882,13 @@ p[data-field="sciname"] {
 }
 
 #quiz-next-btn:disabled {
-    background: #d3d3d3; 
-    color: #8b8b8b;
+    background: var(--colour-grey-1); 
+    color: var(--colour-grey-3);
     cursor: not-allowed;
 }
 
 .quiz-correct {
-    background: #87CF6A;
+    background: var( --colour-mantis-primary);
     box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     position: relative;
@@ -901,7 +896,7 @@ p[data-field="sciname"] {
 
 .quiz-correct::after {
     content: "✔";
-    color: #fffbf4;
+    color: var(--colour-floral-off-white);
     position: absolute;
 
     top: 0px;
@@ -917,17 +912,17 @@ p[data-field="sciname"] {
 
 .quiz-incorrect {
     background: #D07E80; 
-    border-color: #8b8b8b;
+    border-color: var(--colour-grey-3);
     position: relative;
-    color: #444444
+    color: var(--colour-grey-4);
 }
 
 
 /* buttons that were not selected get slightly greyed out */
 .quiz-option-btn.dimmed {
-    background-color: #f0f0f0;  
-    border-color: #8b8b8b;
-    color: #444444
+    background-color: var(--colour-grey-1);  
+    border-color: var(--colour-grey-3);
+    color: var(--colour-grey-4);
     
 }
 
@@ -937,7 +932,7 @@ p[data-field="sciname"] {
 
 .quiz-front #quiz-header,
 .quiz-front #answer-buttons,
-.quiz-front #quiz-feedback {
+.quiz-front #quiz-feedback-text {
     display: none;
 }
 
@@ -957,7 +952,7 @@ p[data-field="sciname"] {
 
 .quiz-end #quiz-header,
 .quiz-end #answer-buttons,
-.quiz-end #quiz-feedback {
+.quiz-end #quiz-feedback-text {
     display: none;
 }
 
@@ -978,13 +973,13 @@ p[data-field="sciname"] {
 
 .quiz-front #quiz-next-btn,
 .quiz-end #quiz-next-btn {
-    background-color: #87CF6A;
-    color: #341407
+    background-color: var(--colour-mantis-primary);
+    color: var(--colour-black-bean)
 };
 
 /* hide feedback area in intro and end screens so it doesn't affect centering */
-.quiz-front #quiz-feedback,
-.quiz-end #quiz-feedback {
+.quiz-front #quiz-feedback-text,
+.quiz-end #quiz-feedback-text {
     display: none;
 }
 
@@ -1001,9 +996,9 @@ p[data-field="sciname"] {
 }
 
 .more-info-details details {
-  border: 2px solid #341407;
-  background-color: #D7E5A8;
-  color: #341407;
+  border: 2px solid var(--colour-black-bean);
+  background-color: var(--colour-mantis-light);
+  color: var(--colour-black-bean);
   border-radius: 6px;
   padding: 0.5em 0.5em 0;
   margin-top: 40px;
@@ -1019,14 +1014,14 @@ p[data-field="sciname"] {
 
 .more-info-details details[open] {
   padding: 0.5em;
-      background-color: #FDFDFD;
+      background-color: var(--colour-almost-white);
 
 }
 
 
 .more-info-details details[open] summary {
-  border-bottom: 1px solid #341407;
-    background-color: #FDFDFD;
+  border-bottom: 1px solid var(--colour-black-bean);
+    background-color: var(--colour-almost-white);
   margin-bottom: 0.5em;
 }
 
@@ -1059,12 +1054,13 @@ p[data-field="sciname"] {
         gap: 35px 25px;
     }
 
+    .quiz-footer {
+    padding: 0 25px;
+}
+
 }
 @media (max-width: 500px) {
 
-    .quiz-footer {
-    padding: 0 15px;
-}
 
     .input-container {
         flex-direction: column;   /* stack vertically */
