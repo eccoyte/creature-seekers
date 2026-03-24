@@ -15,7 +15,7 @@
 
 <!-- top banner with icon, page title and burger menu -->
 <header class="floating-header" id="floating-header">
-    <a href="homepage.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg" alt="" width="36" height="36"> </a>
+    <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg" alt="" width="36" height="36"> </a>
     <h2 class="site-title">Creature Seekers</h2>
     <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
         &#9776;
@@ -37,7 +37,7 @@
 
 <!-- Bottom Navigation Bar -->
 <nav class="bottom-nav" aria-label="main menu">
-    <a href="homepage.html" class="nav-option">
+    <a href="index.html" class="nav-option">
         <div class="nav-icon"><img src="images/home-icon.svg" alt="" > </div>
         <div class="label">Home</div>
     </a>
@@ -66,15 +66,16 @@
 <main>
 
 
-<h1>Settings</h1>
 
-<h2>Dark mode on</h2>
+<h2>Dark mode </h2>
 
-<p>This setting is not available yet but hope it will be soon.</p>
+<p>Use this to change some colour setting to make it darker or brighter.</p>
+
+<button type="button" id="darkmode-btn" onclick="toggleDarkmode()">Turn dark mode on/off</button>
 
 <h2>Reset progress</h2>
 
-<p>This will remove all found keywords, and cannot be undone.</p>
+<p>CAUTION: This will remove all found keywords, and cannot be undone. There will not be a second confirmation message.</p>
 
 <button type="button" id="reset-btn" onclick="handleReset()">Reset found words</button>
 

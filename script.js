@@ -1,5 +1,22 @@
-let foundCount = 0;   // how many creatures have been found
+// authentication - to be removed upon release
+const ENABLE_AUTH = true;
 
+// if on, "care about authentication"
+if (ENABLE_AUTH) {
+  const publicPages = ["/login.html"];
+  const currentPage = window.location.pathname;
+
+  // this value is set in the other script
+  const isAuthenticated = sessionStorage.getItem("authenticated") === "true";
+
+  if (!isAuthenticated && !publicPages.includes(currentPage)) {
+    window.location.href = "/login.html";
+  }
+}
+
+// start of the core functionality
+
+let foundCount = 0;   // how many creatures have been found
 
 // --- helper functions ---
 
@@ -263,7 +280,24 @@ function getQuizMessage() {
 
 
 
+// darkmode settings
 
+function toggleDarkmode() {
+    // toggle the class in the body
+    document.body.classList.toggle("darkmode");
+
+    // Save preference in localStorage
+    const isDark = document.body.classList.contains("darkmode");
+    localStorage.setItem("darkmode", isDark ? "true" : "false");
+    }
+
+    // when page loads, check and apply saved preference
+    document.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("darkmode") === "true") {
+            document.body.classList.add("darkmode");
+        }
+    }
+);
 
 
 // INITIALISATION FUNCTIONS

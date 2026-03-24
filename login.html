@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creature Seekers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="images/svg" href="images/hexie-favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+
+
+<main>
+
+<div class="hexie-help">
+<div class="hexie-info-box" id="password-info-box">
+        <div class="hexie-speech">
+    <h2>Welcomet to Creature Seekers!</h2>
+    <p>The creatures are currently running around looking for the best hiding places, so aren't ready to be found yet! Please come back later!</p>
+    <p>However, if you have been asked to help with testing, type in the password and press Submit.</p>
+        </div>
+</div>
+        <div class="hexie-chatting">
+        <img src="images/hexie-happy.svg" alt="hexie happy">
+    </div>
+</div>
+
+
+<!-- password input form -->
+<div class="input-container" id="password-container">
+
+    <input type="text" id="password-input" placeholder="Enter password" size="35">
+    <button type="button" class="help-link-btn" onclick="checkPassword()">Submit</button>
+</div>
+<p id="error-message" class="error" style="display:none;">Incorrect password. Try again.</p>
+
+<!-- button to access homepage (hidden initially) -->
+<div id="pwd-access-container" style="display:none;">
+    <button type="button" class="help-link-btn" onclick="window.location.href='index.html';">Go to Homepage</button>
+</div>
+
+
+
+
+
+<div id="menu-overlay" class="menu-overlay hidden"></div>
+
+<script src="pwd.js"></script>
+</main>
+
+
+</body>
+</html>

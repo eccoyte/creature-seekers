@@ -1,6 +1,6 @@
 // this whole page will be removed when the site is live
 
-const pwdCorrect = "scorched carpet"; // global password for accessing the site
+const pwdCorrect = "mothra5678"; // if you're seeing this - enjoy perusing the code but please don't do anything mean!
 
 
 
@@ -15,6 +15,11 @@ function checkPassword() {
     errorMessage.style.display = "none"; 
 
     if (pwdInput === pwdCorrect) {
+
+        // store session auth
+        sessionStorage.setItem("authenticated", "true");
+
+        // change what appears on the screen
         passwordContainer.style.display = "none"; 
         accessContainer.style.display = "block"; 
     } else {
@@ -26,7 +31,7 @@ function checkPassword() {
 const passwordInput = document.getElementById("password-input");
 
 if (passwordInput) {
-    passwordInput.addEventListener("keypress", (e) => {
+    passwordInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
             checkPassword();
         }

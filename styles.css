@@ -12,6 +12,7 @@
     --colour-floral-off-white: #FFFBF4; 
     --colour-almost-white: #FDFDFD;
     --colour-black-bean: #341407;
+    --colour-dark-walnut: #5A3117;
 
     --colour-teal-primary: #008081;
     --colour-teal-light: #18A1A2;
@@ -22,25 +23,21 @@
     --forest-primary: #75b85d;
     --success-colour-darker: #2e7d32;
 
-
     --colour-grey-1: #f0f0f0;
     --colour-grey-2: #d3d3d3;
     --colour-grey-3: #8b8b8b;
     --colour-grey-4: #444444;
 
-
     --error-colour-strong: #c62828;
     --error-colour-lighter: #D07E80;  /* Old rose */
 
-
-    /* Special surfaces */
-    --surface-colour-highlight: #D7E5A8;
 
     /* Shadows */
     --shadow-soft: rgba(0,0,0,0.1);
     --shadow-medium: rgba(0,0,0,0.2);
     --shadow-strong: rgba(0,0,0,0.5);
 }
+
 
 body {
     background-color: var(--colour-floral-off-white);  
@@ -63,6 +60,15 @@ body h1 {
     margin: 0.8rem;
 }
 
+body.darkmode {
+    background-color: var(--colour-black-bean);
+    color: var(--colour-floral-off-white);
+}
+
+body.darkmode .profile {
+    background-color: var(--colour-dark-walnut);
+}
+
 /* Gentle linear gradient I might consider in the future. Add class to body box
 .background-box {
     min-height: 100vh;
@@ -70,7 +76,7 @@ body h1 {
     background-repeat: no-repeat;
     background-size: cover;
 }
-    */
+ */
 
 /* --- remove the blue highlight when interacting seen on mobile --- */
 * {
@@ -393,12 +399,6 @@ button {
     box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
-#reset-btn {
-    background-color: var(--colour-teal-primary); 
-    padding: 15px;
-    width: auto;
-    color: var(--colour-almost-white);
-}
 
 /* --- Bottom Navigation Bar --- */
 .bottom-nav {
