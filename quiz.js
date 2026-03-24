@@ -74,7 +74,7 @@ const questionElement = document.getElementById("quiz-question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("quiz-next-btn");
 const quizApp = document.getElementById("quiz-app");
-const feedbackElement = document.getElementById("quiz-feedback");
+const feedbackElement = document.getElementById("quiz-feedback-text");
 const hexieText = document.querySelector("#quiz-hexie-help .hexie-text");
 
 
@@ -132,7 +132,7 @@ function showQuestion() {
     
 
     // generate the answer buttons
-// loop through answers in the selected random order
+    // loop through answers in the selected random order
     selectedAnswerOrder.forEach(i => {
         let answer = currentQuestion.answers[i]; 
         const button = document.createElement("button");
@@ -143,8 +143,14 @@ function showQuestion() {
             button.dataset.correct = answer.correct;
         }
         button.addEventListener("click", selectAnswer);
-        
     })
+
+    // Update Next button text
+    if (currentQuestionIndex === questions.length - 1) {
+        nextButton.innerHTML = "Finish!";
+    } else {
+        nextButton.innerHTML = "Next";
+    }
 }
 
 // removes other questions
