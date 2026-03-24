@@ -15,7 +15,7 @@
     --colour-dark-walnut: #5A3117;
 
     --colour-teal-primary: #008081;
-    --colour-teal-light: #18A1A2;
+    --colour-teal-light: #1fb3b3;
     
     --colour-mantis-primary: #87CF6A;
     --colour-mantis-light: #D1DE7F;
@@ -36,6 +36,10 @@
     --shadow-soft: rgba(0,0,0,0.1);
     --shadow-medium: rgba(0,0,0,0.2);
     --shadow-strong: rgba(0,0,0,0.5);
+
+    --profile-tab-indicator-size: 0.75rem;
+    --profile-tab-indicator-gap: 0.4rem;
+    --profile-tab-line-thickness: 0.15rem;
 }
 
 
@@ -54,20 +58,33 @@ body {
 }
 
 body h1 {
-    font-family: 'Dynapuff' 'Nunito', 'Lato', Arial, sans-serif;
+    font-family: 'Dynapuff', 'Nunito', 'Lato', Arial, sans-serif;
     font-size: 1.6rem;
     font-weight: bold;
     margin: 0.8rem;
 }
+
 
 body.darkmode {
     background-color: var(--colour-black-bean);
     color: var(--colour-floral-off-white);
 }
 
-body.darkmode .profile {
+body.darkmode .pop-box {
     background-color: var(--colour-dark-walnut);
+    color: var(--colour-almost-white);
 }
+
+
+body.darkmode .pop-box h3 {
+    color: var(--colour-teal-light);
+}
+
+body.darkmode .more-info-details details[open] {
+    background-color: var(--colour-dark-walnut);
+
+}
+
 
 /* Gentle linear gradient I might consider in the future. Add class to body box
 .background-box {
@@ -529,7 +546,7 @@ button {
 .hexie-info-box {
     background: var(--colour-teal-primary);
     font-family: 'DynaPuff','Nunito', 'Lato', Arial, sans-serif;
-    color: var(--colour-floral-off-white);
+    color: var(--colour-almost-white);
     border: none;
     max-width: 550px;
     margin: 15px auto 15px;
@@ -580,7 +597,6 @@ button {
     overflow: auto; /* keeps container height correct */
 }
 
-
 #homepage-header-text {
     margin-top: 0.5rem;
 }
@@ -613,7 +629,6 @@ button {
 
 .profile-content h2 {
     margin: 0 0 10px 0;
-    color: var(--colour-black-bean);
 }
 
 .profile-content h3 {
@@ -623,20 +638,27 @@ button {
 
 .profile-content p {
     margin: 0 0 8px 0;
-    color: var(--colour-black-bean);
     line-height: 1.4;
     margin-bottom: 1rem;
 }
 
+
+.profile-tagline {
+    width: 100%;
+}
+
+
 p[data-field="tagline"] {
+    font-family: 'Dynapuff', 'Nunito', 'Lato', Arial, sans-serif;
+    margin: 0;
     font-style: italic;
     text-align: center;
+    font-size: 1rem;
 }
 
 p[data-field="sciname"] {
     font-style: italic;
-    
-    opacity: 0.8;
+    margin-top: 0.3rem;
 }
 
 /* Highlight profiles that have been found */
@@ -701,6 +723,10 @@ p[data-field="sciname"] {
     display: flex;
     gap: 8px;
     margin: 10px 0 15px 0;
+
+    position: relative; /* needed when have a ::after element */
+    border-bottom: var(--profile-tab-line-thickness) solid var(--colour-mantis-light);
+    padding-bottom: calc(var(--profile-tab-indicator-size) + var(--profile-tab-indicator-gap));
 }
 
 .profile-tab-btn {
@@ -711,10 +737,30 @@ p[data-field="sciname"] {
     background: #fff;
     cursor: pointer;
     font-weight: 600;
+    position: relative;
 }
 
 .profile-tab-btn.active {
     background: var(--colour-mantis-light);
+}
+
+/* the triangle indicator element */
+.profile-tab-btn.active::after {
+    content: "";
+    position: absolute;
+
+    /* aligns to the bottom of the line */
+    bottom: calc(-1 * (var(--profile-tab-indicator-size) + var(--profile-tab-indicator-gap)) - (var(--profile-tab-line-thickness)/2));
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: var(--profile-tab-indicator-size) solid transparent;
+    border-right: var(--profile-tab-indicator-size) solid transparent;
+    border-bottom: var(--profile-tab-indicator-size) solid var(--colour-mantis-light); /* makes it point up, if border-top it would point down */
 }
 
 .profile-tab-content {
@@ -998,13 +1044,13 @@ p[data-field="sciname"] {
 .more-info-details details {
   border: 2px solid var(--colour-black-bean);
   background-color: var(--colour-mantis-light);
-  color: var(--colour-black-bean);
+
   border-radius: 6px;
   padding: 0.5em 0.5em 0;
-  margin-top: 40px;
 }
 
 .more-info-details summary {
+      color: var(--colour-black-bean);
   font-weight: bold;
   margin: -0.5em -0.5em 0;
   padding: 0.5em;
@@ -1032,6 +1078,8 @@ p[data-field="sciname"] {
 }
 
 #route-details details {
+    
+    margin-top: 30px;
     margin-bottom: 80px;
 }
 
@@ -1042,6 +1090,8 @@ p[data-field="sciname"] {
 .external-form-wrapper {
     margin-bottom: 60px;
 }
+
+
 
 
 /* Responsiveness */
