@@ -43,7 +43,7 @@ const questions = [
             {text: "Wyverns", correct: false},
             {text: "Pixies", correct: false}
         ],
-        feedback: {correct: "Awesome!", incorrect: "Sadly not"}
+        feedback: {correct: "Awesome!", incorrect: "Alas, no"}
     },
     {
         imgsrc: "images/marmalade-hoverfly-animation-hex.svg",
@@ -54,7 +54,7 @@ const questions = [
             {text: "Jam", correct: false},
             {text: "Ants", correct: false}
         ],
-        feedback: {correct: "Sweet!", incorrect: "Sadly not"}
+        feedback: {correct: "Sweet!", incorrect: "Not quite"}
     },
     {
         imgsrc: "images/mint-moth-animation-hex.svg",
@@ -65,7 +65,7 @@ const questions = [
             {text: "The adults sometimes steal breath mints", correct: false},
             {text: "The caterpillars are a minty green colour", correct: false}
         ],
-        feedback: {correct: "You got it!", incorrect: "Unfortunately not"}
+        feedback: {correct: "You got it!", incorrect: "Sadly not"}
     }
 ];
 
@@ -155,6 +155,7 @@ function showQuestion() {
 
 // removes other questions
 function resetState() {
+    const hexieFace = document.getElementById("quiz-feedback-hexie")
     
     // keep Next button always visible but disabled
     nextButton.disabled = true;
@@ -165,6 +166,8 @@ function resetState() {
     // hide feedback and remove classes
     feedbackElement.textContent = "";
     feedbackElement.classList.remove("correct", "incorrect", "show");
+
+    hexieFace.innerHTML = "<img src='images/quiz-hexie-neutral.svg' alt='' width='42' height='42'>";
 }
 
 
@@ -174,6 +177,7 @@ function resetState() {
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
+    const hexieFace = document.getElementById("quiz-feedback-hexie");
     
     // adds the coloration etc based on correctness
     if (isCorrect) {
@@ -192,9 +196,11 @@ function selectAnswer(e) {
     if (isCorrect) {
         feedbackElement.textContent = currentQuestion.feedback.correct;
         feedbackElement.classList.add("correct");
+        hexieFace.innerHTML = "<img src='images/quiz-hexie-correct.svg' alt='' width='42' height='42'>";
     } else {
         feedbackElement.textContent = currentQuestion.feedback.incorrect;
         feedbackElement.classList.add("incorrect");
+        hexieFace.innerHTML = "<img src='images/quiz-hexie-incorrect.svg' alt='' width='42' height='42'>";
     }
 
     // fade in

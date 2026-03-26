@@ -20,16 +20,18 @@
     --colour-mantis-primary: #87CF6A;
     --colour-mantis-light: #D1DE7F;
 
-    --forest-primary: #75b85d;
-    --success-colour-darker: #2e7d32;
+
+    --colour-error-darker: #7c1b17;
+    --colour-error-lighter: #D07E80;  /* Old rose */
+
+    --colour-success-darker: #2e7d32;
+    --colour-success-lighter: #73d478;
 
     --colour-grey-1: #f0f0f0;
     --colour-grey-2: #d3d3d3;
     --colour-grey-3: #8b8b8b;
     --colour-grey-4: #444444;
 
-    --error-colour-strong: #c62828;
-    --error-colour-lighter: #D07E80;  /* Old rose */
 
 
     /* Shadows */
@@ -85,6 +87,13 @@ body.darkmode .more-info-details details[open] {
 
 }
 
+body.darkmode #quiz-feedback-text.correct {
+    color: var(--colour-success-lighter); 
+}
+
+body.darkmode #quiz-feedback-text.incorrect {
+    color: var(--colour-error-lighter); 
+}
 
 /* Gentle linear gradient I might consider in the future. Add class to body box
 .background-box {
@@ -902,8 +911,9 @@ p[data-field="sciname"] {
 
 #quiz-feedback-text {
     font-weight: bold;
+    
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
 }
 
 #quiz-feedback-text.show {
@@ -911,11 +921,11 @@ p[data-field="sciname"] {
 }
 
 #quiz-feedback-text.correct {
-    color: var(--success-colour-darker); 
+    color: var(--colour-success-darker); 
 }
 
 #quiz-feedback-text.incorrect {
-    color: var(--error-colour-strong); 
+    color: var(--colour-error-darker); 
 }
 
 #quiz-next-btn {
@@ -931,6 +941,13 @@ p[data-field="sciname"] {
     background: var(--colour-grey-1); 
     color: var(--colour-grey-3);
     cursor: not-allowed;
+}
+
+#quiz-feedback {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .quiz-correct {
@@ -978,7 +995,7 @@ p[data-field="sciname"] {
 
 .quiz-front #quiz-header,
 .quiz-front #answer-buttons,
-.quiz-front #quiz-feedback-text {
+.quiz-front #quiz-feedback {
     display: none;
 }
 
@@ -998,7 +1015,7 @@ p[data-field="sciname"] {
 
 .quiz-end #quiz-header,
 .quiz-end #answer-buttons,
-.quiz-end #quiz-feedback-text {
+.quiz-end #quiz-feedback {
     display: none;
 }
 
