@@ -14,7 +14,7 @@
     --colour-mantis-light: #D1DE7F;
 
 
-    --colour-error-darker: #720f0f;
+    --colour-error-darker: #971111;
     --colour-error-lighter: #D07E80;  /* Old rose */
 
     --colour-success-darker: #2e7d32;
@@ -74,6 +74,10 @@ body.darkmode .pop-box {
 
 body.darkmode .pop-box h3 {
     color: var(--colour-teal-light);
+}
+
+body.darkmode .glow {
+    background: radial-gradient(circle, rgba(204, 202, 61, 0.6) 0%, rgba(255, 255, 200, 0) 70%);
 }
 
 body.darkmode .more-info-details details[open] {
@@ -551,7 +555,7 @@ button {
     max-width: 550px;
     margin: 15px auto 15px;
     border-radius: 25px;
-    padding: 0.3rem 0.5rem 0.3rem;
+    padding: 0.3rem 0.6rem 0.3rem;
     text-align: center;
     font-size: 0.9rem;
 
@@ -666,12 +670,12 @@ p[data-field="sciname"] {
     border-color: var( --colour-mantis-primary); /* green border */
     box-shadow: 0 4px 10px rgba(52, 168, 83, 0.3); /* subtle glow */
     transition: all 0.3s ease-in-out;
-    background-color: #FFFFFF;
+    background-color: var(--colour-almost-white);
 }
 
 /* Grayed-out (unfound) profiles */
 .profile:not(.found) {
-    background-color: #e1e1e1;  /* Light gray background for unfound profiles */
+    background-color: var(--colour-grey-2);
     opacity: 0.5;  /* Slightly transparent */
 }
 
@@ -824,9 +828,8 @@ p[data-field="sciname"] {
     height: auto;
     width: auto;
     transition: opacity 0.4s ease;
+    z-index:2
 }
-
-
 /* states for images (different from other, visibility based hiddens)*/
 .img-visible {
     opacity: 1;
@@ -835,6 +838,126 @@ p[data-field="sciname"] {
 .img-hidden {
     opacity: 0;
 }
+
+
+
+
+/* --- REWARD MODAL ANIMATIONS --- */
+
+.glow {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 130%;
+    height: 140%;
+    background: radial-gradient(circle, rgba(15, 87, 116, 0.6) 0%, rgba(255, 255, 200, 0) 70%);
+    filter: blur(25px);
+    transform: translate(-50%, -50%) scale(1);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1; /* behind the hex image */
+}
+
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 5;
+}
+
+/* Hex shape using clip-path */
+.confetti {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    clip-path: polygon(
+        25% 5%, 75% 5%,
+        100% 50%,
+        75% 95%, 25% 95%,
+        0% 50%
+    );
+}
+
+/* Outline wrapper should be above glow while visible */
+.outline-wrapper {
+  display: inline-block;
+  transform-origin: 50% 50%;
+  z-index: 2; /* higher than glow */
+  position: relative;
+}
+
+/* Burst animation */
+@keyframes confettiBurst {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translate(0, 0) scale(0.6) rotate(0deg);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translate(var(--x), var(--y)) scale(1) rotate(360deg);
+    }
+}
+
+/* Outline pulls back */
+@keyframes pullBack {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.80); opacity: 0.75; }
+}
+
+.animate-outline {
+    animation: pullBack 0.85s ease forwards;
+}
+
+
+/* Short back-and-forth rotation for outline */
+@keyframes jiggle {
+    0%   { opacity: 0.75; transform: scale(0.8) rotate(0deg); }
+    20%  { opacity: 0.75; transform: scale(0.8) rotate(6deg); }
+    40%  { opacity: 0.75; transform: scale(0.8) rotate(-6deg); }
+    60%  { opacity: 0.75; transform: scale(0.8) rotate(6deg); }
+    80%  { opacity: 0.75; transform: scale(0.8) rotate(-6deg); }
+    100% { opacity: 0.75; transform: scale(0.8) rotate(0deg); }
+}
+
+.animate-jiggle {
+    animation: jiggle 0.4s ease-in-out forwards;
+}
+
+
+/* Full image pop with overshoot */
+@keyframes popIn {
+    0%   { transform: scale(0.8); opacity: 0; }
+    50%  { transform: scale(1.12); opacity: 1; }
+    75%  { transform: scale(0.97); }
+    100% { transform: scale(1); }
+}
+
+.animate-full {
+    animation: popIn 0.9s cubic-bezier(0.2, 1.4, 0.4, 1) forwards;
+}
+
+
+/* ongoing subtle animations after the main "pop" reward event */
+
+@keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+.reward-img.full.animate-float {
+    animation: float 2s ease-in-out infinite;
+}
+
 
 
 

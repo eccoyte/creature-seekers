@@ -140,6 +140,60 @@ function handleReset() {
 }
 
 
+function triggerConfetti() {
+    const container = document.querySelector(".confetti-container");
+    if (!container) return;
+
+    const CONFETTI_COLOURS = [
+        "#78e7be",
+        "#d3f0a4",
+        "#fab88c",
+        "#f7918c",
+        "#D5AAFF",
+        "#A0C4FF"
+    ];
+
+    const count = 24; // keep low for performance
+
+    for (let i = 0; i < count; i++) {
+        const piece = document.createElement("div");
+        piece.classList.add("confetti");
+
+        // random pastel colour
+        piece.style.background = CONFETTI_COLOURS[
+            Math.floor(Math.random() * CONFETTI_COLOURS.length)
+        ];
+
+        // random direction and distance travelled
+const angle = (Math.random() - 0.5) * Math.PI; 
+// 👆 limits spread to a half-circle (left ↔ right, but mostly upward)
+
+const distance = 120 + Math.random() * 90;
+
+const x = Math.sin(angle) * distance * 0.8 + "px";
+const y = -(Math.cos(angle) * distance * 1.4 + 60) + "px";
+
+        piece.style.setProperty("--x", x);
+        piece.style.setProperty("--y", y);
+
+        // random duration
+        const duration = 700 + Math.random() * 400;
+        piece.style.animation = `confettiBurst ${duration}ms ease-out forwards`;
+
+        // start point
+        piece.style.left = "50%";
+        piece.style.top = "70%";
+
+        container.appendChild(piece);
+
+        // cleanup
+        setTimeout(() => {
+            piece.remove();
+        }, duration);
+    }
+}
+
+
 function showRewardModal(item) {
     const overlay = document.getElementById("reward-modal-overlay");
     const outlineImg = document.getElementById("modal-image");
@@ -194,20 +248,52 @@ if (outlineImg) {
 
     // --- UNLOCK BUTTON LOGIC ---
     unlockBtn.onclick = () => {
-        // fade out outline
-        outline.classList.remove("img-visible");
+
+    // animation step 1: outline pulls back
+    outline.classList.add("animate-outline");
+
+
+    // aniation step 2: after pullback, jiggle outline img and swap images
+    setTimeout(() => {
+        outline.classList.add("animate-jiggle");
+
+  // when jiggle ends, swap to full image
+    outline.addEventListener("animationend", () => {
         outline.classList.add("img-hidden");
 
-        // fade in full
         full.classList.remove("img-hidden");
         full.classList.add("img-visible");
 
-        // toggle buttons
+        // trigger animations
+        full.classList.add("animate-full");
+
+        triggerConfetti();
+    }, { once: true });
+
+    }, 900);
+
+    // animation step 3: finish + buttons
+    setTimeout(() => {
         unlockBtn.style.display = "none";
         profileBtn.style.display = "inline-block";
+        isUnlocked = true;
+    }, 1800);
 
-        // affects what "enter button does"
-         isUnlocked = true;
+
+    // start gentle looping motion **after popIn finishes**
+    setTimeout(() => {
+        full.classList.add("animate-float");
+    }, 1900); // slightly after popIn ends
+
+
+    // additional: toggle buttons
+    unlockBtn.style.display = "none";
+    profileBtn.style.display = "inline-block";
+
+    // affects what "enter button does"
+        isUnlocked = true;
+
+
     };
 
 
@@ -246,6 +332,8 @@ if (outlineImg) {
 
     document.addEventListener("keydown", handleModalKey);
 }
+
+
 
 
 function updateProfilesContent() {
@@ -321,7 +409,7 @@ function getQuizMessage() {
     
     // Determine message
     if (foundCount === 0) {
-        return "Complete the trail to unlock the Creature Seeker quiz!";
+        return "<h2>Come back later!</h2><p>Complete the trail and find all the creatures to unlock the Creature Seeker quiz!</p>";
     } else if (foundCount < keyvalues.length) {
         return `<p>Complete the trail to unlock the quiz!</p><p>You have found ${foundCount} of ${keyvalues.length} codewords so far - keep it up!</p>`;
     } else {
