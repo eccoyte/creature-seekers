@@ -2,7 +2,7 @@
 
 const questions = [
     {
-        imgsrc: "images/ivy-bee-animation-hex.svg",
+        fullimgsrc: "images/ivy-bee-fullcolour-hex.svg",
         question: "In which season does ivy produce the most flowers, loved by <i>ivy bees</i>?",
         answers: [
             {text: "Autumn e.g. September to November", correct: true},
@@ -13,7 +13,7 @@ const questions = [
         feedback: {correct: "Bee-autiful!", incorrect: "Incorrect"}
     },
     {
-        imgsrc: "images/lesser-stag-beetle-animation-hex.svg",
+        fullimgsrc: "images/lesser-stag-beetle-fullcolour-hex.svg",
         question: "Which of these piles would be the most help to <i>lesser stag beetles</i>?",
         answers: [
             {text: "Untreated wood", correct: true},
@@ -24,7 +24,7 @@ const questions = [
         feedback: {correct: "Nice work!", incorrect: "That's not right"}
     },
     {
-        imgsrc: "images/green-shield-bug-animation-hex.svg",
+        fullimgsrc: "images/green-shield-bug-fullcolour-hex.svg",
         question: "Where do <i>green shield bugs</i> like to lay their eggs?",
         answers: [
             {text: "On the underside of leaves", correct: true},
@@ -35,7 +35,7 @@ const questions = [
         feedback: {correct: "Egg-cellent!", incorrect: "Not this one"}
     },
     {
-        imgsrc: "images/darter-dragonfly-animation-hex.svg",
+        fullimgsrc: "images/darter-dragonfly-fullcolour-hex.svg",
         question: "What are juveniles of the <i>common darter dragonfly</i> called?",
         answers: [
             {text: "Nymphs", correct: true},
@@ -46,7 +46,7 @@ const questions = [
         feedback: {correct: "Awesome!", incorrect: "Alas, no"}
     },
     {
-        imgsrc: "images/marmalade-hoverfly-animation-hex.svg",
+        fullimgsrc: "images/marmalade-hoverfly-fullcolour-hex.svg",
         question: "What is the favourite food of <i>marmalade hoverfly</i> larvae?",
         answers: [
             {text: "Aphids", correct: true},
@@ -57,7 +57,7 @@ const questions = [
         feedback: {correct: "Sweet!", incorrect: "Not quite"}
     },
     {
-        imgsrc: "images/mint-moth-animation-hex.svg",
+        fullimgsrc: "images/mint-moth-fullcolour-hex.svg",
         question: "Why do <i>mint moths</i> have this name?",
         answers: [
             {text: "The caterpillars feed on herbs including mint", correct: true},
@@ -128,7 +128,7 @@ function showQuestion() {
     questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
         const quizImage = document.querySelector("#quiz-question-img img");
-    quizImage.src = currentQuestion.imgsrc;
+    quizImage.src = currentQuestion.fullimgsrc;
     
 
     // generate the answer buttons
