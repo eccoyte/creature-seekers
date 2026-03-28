@@ -29,15 +29,15 @@ function setField(profile, field, value) {
 
 // keywords and associated data
 const keyvalues = [
-{category: "bee", congrats: "Wonderful!", prefix: "an", icon: "🐝",  fullname: "Ivy bee", sciname: "Colletes hederae", keyword: "autumn", tagline: "&quot;Come join the insect ivy league with this newcomer bee!&quot;", order: "Hymenoptera, the bees, wasps, ants and sawflies", intro: "<p>The ivy bee was first recorded in the UK in 2001 and has been expanding its range ever since.</p><p>Ivy bees look similar to honey bees, but with paler, more defined stripes and without such neat pollen baskets.</p>", lifecycle: "<p>Ivy bees don’t live in hives, like honey bees. Instead ivy bees live in tunnels in warm, sandy soil, often close to other ivy bees.</p><p>Adults emerge in autumn when ivy is in flower. They lay their eggs and provide for their young with ivy pollen in these tunnels.</p>", howtohelp: "<p>Let some ivy grow wild if you can! Ivy is a wonderful plant that offers autumn flowers and berries, offering a much needed burst of food for ivy bees and dozens of other species as the cool weather approaches.</p><p>It doesn’t damage the trees it climbs, and provides shelter for all kinds of creatures too.</p>", imgsrc: "images/ivy-bee-animation-hex.svg", unfoundimgsrc: "images/bee-mystery-hex.svg", found: false},
-{category: "beetle", congrats: "Amazing!", prefix: "a", icon: "🪲",  fullname: "Lesser stag beetle", sciname: "Dorcus parallelipipedus", keyword: "wood", tagline: "&quot;Wood-n’t you give this fantastic beetle a helping hand?&quot;", order: "Coleoptera, the beetles ", intro: "<p>These awesome beetles may not quite have the body or “antler” size of their more famous relative, the greater stag beetle, they’re still pretty impressive!</p><p>Adults usually come out at night during the summer, sheltering in deadwood during the day.</p>", lifecycle: "<p>Lesser stag beetles lay their eggs inside decaying deadwood, and that’s where they spend most of their quite long lives.</p><p>The larvae eat the deadwood and help break it down, whereas the adults prefer tree sap. They spend 1-2 years as larvae, and 2-3 more years as adults!</p>", howtohelp: "<p>Providing untreated dead wood is the key to helping these lovely large beetles. Consider making a pile of logs or woodchip, ideally in contact with soil to help speed up the decay process.</p><p>If you have old tree stumps, leave them to break down naturally rather than removing them - the beetle larvae will do the work for you!</p>", imgsrc: "images/lesser-stag-beetle-animation-hex.svg", unfoundimgsrc: "images/beetle-mystery-hex.svg", found: false},
-{category: "bug", congrats: "Terrific!",  prefix: "a", icon: "🛡️", fullname: "Green shield bug", sciname: "Palomena prasina", keyword: "sap", tagline: "&quot;Will you let this sturdy bug through your defences, and go green for them?&quot;", order: "Hemiptera, the true bugs", intro: "<p>Shield bugs are actually named for their shape, rather than any particular defensive capabilities, so be gentle with them! They are also green by name and green by nature, but only for some of the year.</p><p>Their summer green outfit turns more brown or bronze coloured in the late autumn, rather like the leaves they live on!</p>", lifecycle: "<p>Green shield bugs lay their eggs on the undersides of leaves, which hatch in late spring. The juveniles are more rounded than the adults, and commonly patterned with black markings.</p><p>After 5 stages, they reach their adult form, sucking up the sap of various plants before hibernating in the winter.</p>", howtohelp: "<p>Green shield bugs are quite easy to please, so providing a range of trees, shrubs and herbaceous plants will suit them well.</p><p>Also, leave some places for them to shelter over winter, such as leaf piles. These are a lifeline for all sorts of little creatures during the cold months.</p>", imgsrc: "images/green-shield-bug-animation-hex.svg", unfoundimgsrc: "images/bug-mystery-hex.svg", found: false},
-{category: "dragonfly", congrats: "Superb!", prefix: "a", icon: "🐉", fullname: "Common darter dragonfly", sciname: "Sympetrum striolatum", keyword: "nymph", tagline: "&quot;Are you red-dy to help this striped scarlet striker soar?&quot;", order: "Odonata, the dragonflies and damselflies", intro: "<p>Like other dragonflies, common darter dragonflies are fierce, accurate predators, first on water and then in the air.</p><p>Only the males of this species are bright red, females and young adults are more golden-brown.</p>", lifecycle: "<p>These dragonflies spend much of their life underwater, as juveniles called nymphs. They catch smaller creatures with extendable jaws! </p><p>When they are ready, they crawl out of the water and shed their skin, into their new adult form. After a short rest, they take to the air and resume their hunting in the air above!</p>", howtohelp: "<p>Provide freshwater sources wherever you can. A pond is best, but it can be as small as a partially submerged sink or other container. Be sure to provide exit ramps for other wildlife!</p><p>If you don’t have the option to do this, providing a range of native wildflowers will support the small insects dragonflies feed on, helping them too!</p>", imgsrc: "images/darter-dragonfly-animation-hex.svg", unfoundimgsrc: "images/dragonfly-mystery-hex.svg", found: false},
-{category: "hoverfly", congrats: "Marvellous!", prefix: "a", icon: "🪰", fullname: "Marmalade hoverfly", sciname: "Episyrphus balteatus", keyword: "aphid", tagline: "&quot;Come and jam with this agile pollinator!&quot;", order: "Dipetra, the flies", intro: "<p>The wasp-like stripes help trick birds and other potential predators into leaving them well alone, even though they don’t have any sting!</p><p>You can tell them apart from a wasp or bee by looking for their huge eyes, and the hovering flight they are named for.</p>", lifecycle: "<p>Marmalade hoverflies lay their eggs on plants with aphids on them. When the larvae hatch, they feast on these aphids continually as they grow.</p><p>As adults, they become agile pollinators, flying from flower to flower, using their big eyes to scope out food and avoid danger.</p>", howtohelp: "<p>Hoverflies don’t have long tongues like bees, so they especially love open flowers rather than tube-shaped ones. Their favourites include cow parsley, tansy, asters, knapweed, apple blossom and more.</p><p>They’ll thank you by helping take care of aphid pests for you!</p>", imgsrc: "images/marmalade-hoverfly-animation-hex.svg", unfoundimgsrc: "images/hoverfly-mystery-hex.svg", found: false},
-{category: "moth", congrats: "Awesome!",  prefix: "a", icon: "🦋", fullname: "Mint moth", sciname: "Pyrausta aurata", keyword: "herb", tagline: "&quot;Make some thyme to provide for this lovely little herb-ivore!&quot;", order: "Lepidoptera, the butterflies and moths", intro: "<p>The mint moth is also called the ‘small purple and gold’, which is pretty descriptive in terms of visuals!</p><p>With a wingspan under 2 cm, they are very little, but their majestic colour scheme makes them a bit easier to spot!</p>", lifecycle: "<p>The caterpillars start out small and green with black spots, turning more purple like the adults as they mature. They spend their time munching on herbs in the mint family, including thyme, sage, rosemary and of course mint!</p><p>The adults are nectar-drinking pollinators, and often seen resting on the herbs during the day.</p>", howtohelp: "<p>Treat yourself to more herbs! Many of these are quite straightforward to grow and can be kept in pots, so you don’t need much space, just some sunshine.</p><p>The caterpillars are only little and don’t take much, there’ll be plenty for your culinary needs!</p>", imgsrc: "images/mint-moth-animation-hex.svg", unfoundimgsrc: "images/moth-mystery-hex.svg", found: false},
+{category: "bee", congrats: "Wonderful!", prefix: "an", icon: "🐝",  fullname: "Ivy bee", sciname: "Colletes hederae", keyword: "autumn", tagline: "&quot;Come join the insect ivy league with this newcomer bee!&quot;", order: "Hymenoptera, the bees, wasps, ants and sawflies", intro: "<p>The ivy bee was first recorded in the UK in 2001 and has been expanding its range ever since.</p><p>Ivy bees look similar to honey bees, but with paler, more defined stripes and without such neat pollen baskets.</p>", lifecycle: "<p>Ivy bees don’t live in hives, like honey bees. Instead ivy bees live in tunnels in warm, sandy soil, often close to other ivy bees.</p><p>Adults emerge in autumn when ivy is in flower. They lay their eggs and provide for their young with ivy pollen in these tunnels.</p>", howtohelp: "<p>Let some ivy grow wild if you can! Ivy is a wonderful plant that offers autumn flowers and berries, offering a much needed burst of food for ivy bees and dozens of other species as the cool weather approaches.</p><p>It doesn’t damage the trees it climbs, and provides shelter for all kinds of creatures too.</p>", outlineimgsrc: "images/ivy-bee-outline-hex.svg", fullimgsrc: "images/ivy-bee-fullcolour-hex.svg", unfoundimgsrc: "images/bee-mystery-hex.svg", animationsrc: "images/bee-animation.svg", found: false},
+{category: "beetle", congrats: "Amazing!", prefix: "a", icon: "🪲",  fullname: "Lesser stag beetle", sciname: "Dorcus parallelipipedus", keyword: "wood", tagline: "&quot;Wood-n’t you give this fantastic beetle a helping hand?&quot;", order: "Coleoptera, the beetles ", intro: "<p>These awesome beetles may not quite have the body or “antler” size of their more famous relative, the greater stag beetle, they’re still pretty impressive!</p><p>Adults usually come out at night during the summer, sheltering in deadwood during the day.</p>", lifecycle: "<p>Lesser stag beetles lay their eggs inside decaying deadwood, and that’s where they spend most of their quite long lives.</p><p>The larvae eat the deadwood and help break it down, whereas the adults prefer tree sap. They spend 1-2 years as larvae, and 2-3 more years as adults!</p>", howtohelp: "<p>Providing untreated dead wood is the key to helping these lovely large beetles. Consider making a pile of logs or woodchip, ideally in contact with soil to help speed up the decay process.</p><p>If you have old tree stumps, leave them to break down naturally rather than removing them - the beetle larvae will do the work for you!</p>", outlineimgsrc: "images/lesser-stag-beetle-outline-hex.svg", fullimgsrc: "images/lesser-stag-beetle-fullcolour-hex.svg", unfoundimgsrc: "images/beetle-mystery-hex.svg", animationsrc: "images/beetle-animation.svg", found: false},
+{category: "bug", congrats: "Terrific!",  prefix: "a", icon: "🛡️", fullname: "Green shield bug", sciname: "Palomena prasina", keyword: "sap", tagline: "&quot;Will you let this sturdy bug through your defences, and go green for them?&quot;", order: "Hemiptera, the true bugs", intro: "<p>Shield bugs are actually named for their shape, rather than any particular defensive capabilities, so be gentle with them! They are also green by name and green by nature, but only for some of the year.</p><p>Their summer green outfit turns more brown or bronze coloured in the late autumn, rather like the leaves they live on!</p>", lifecycle: "<p>Green shield bugs lay their eggs on the undersides of leaves, which hatch in late spring. The juveniles are more rounded than the adults, and commonly patterned with black markings.</p><p>After 5 stages, they reach their adult form, sucking up the sap of various plants before hibernating in the winter.</p>", howtohelp: "<p>Green shield bugs are quite easy to please, so providing a range of trees, shrubs and herbaceous plants will suit them well.</p><p>Also, leave some places for them to shelter over winter, such as leaf piles. These are a lifeline for all sorts of little creatures during the cold months.</p>", outlineimgsrc: "images/green-shield-bug-outline-hex.svg", fullimgsrc: "images/green-shield-bug-fullcolour-hex.svg", unfoundimgsrc: "images/bug-mystery-hex.svg", animationsrc: "images/bug-animation.svg",  found: false},
+{category: "dragonfly", congrats: "Superb!", prefix: "a", icon: "🐉", fullname: "Common darter dragonfly", sciname: "Sympetrum striolatum", keyword: "nymph", tagline: "&quot;Are you red-dy to help this striped scarlet striker soar?&quot;", order: "Odonata, the dragonflies and damselflies", intro: "<p>Like other dragonflies, common darter dragonflies are fierce, accurate predators, first on water and then in the air.</p><p>Only the males of this species are bright red, females and young adults are more golden-brown.</p>", lifecycle: "<p>These dragonflies spend much of their life underwater, as juveniles called nymphs. They catch smaller creatures with extendable jaws! </p><p>When they are ready, they crawl out of the water and shed their skin, into their new adult form. After a short rest, they take to the air and resume their hunting in the air above!</p>", howtohelp: "<p>Provide freshwater sources wherever you can. A pond is best, but it can be as small as a partially submerged sink or other container. Be sure to provide exit ramps for other wildlife!</p><p>If you don’t have the option to do this, providing a range of native wildflowers will support the small insects dragonflies feed on, helping them too!</p>", outlineimgsrc: "images/darter-dragonfly-outline-hex.svg", fullimgsrc: "images/darter-dragonfly-fullcolour-hex.svg", unfoundimgsrc: "images/dragonfly-mystery-hex.svg", animationsrc: "images/dragonfly-animation.svg",  found: false},
+{category: "hoverfly", congrats: "Marvellous!", prefix: "a", icon: "🪰", fullname: "Marmalade hoverfly", sciname: "Episyrphus balteatus", keyword: "aphid", tagline: "&quot;Come and jam with this agile pollinator!&quot;", order: "Dipetra, the flies", intro: "<p>The wasp-like stripes help trick birds and other potential predators into leaving them well alone, even though they don’t have any sting!</p><p>You can tell them apart from a wasp or bee by looking for their huge eyes, and the hovering flight they are named for.</p>", lifecycle: "<p>Marmalade hoverflies lay their eggs on plants with aphids on them. When the larvae hatch, they feast on these aphids continually as they grow.</p><p>As adults, they become agile pollinators, flying from flower to flower, using their big eyes to scope out food and avoid danger.</p>", howtohelp: "<p>Hoverflies don’t have long tongues like bees, so they especially love open flowers rather than tube-shaped ones. Their favourites include cow parsley, tansy, asters, knapweed, apple blossom and more.</p><p>They’ll thank you by helping take care of aphid pests for you!</p>", outlineimgsrc: "images/marmalade-hoverfly-outline-hex.svg", fullimgsrc: "images/marmalade-hoverfly-fullcolour-hex.svg", unfoundimgsrc: "images/hoverfly-mystery-hex.svg", animationsrc: "images/hoverfly-animation.svg", found: false},
+{category: "moth", congrats: "Awesome!",  prefix: "a", icon: "🦋", fullname: "Mint moth", sciname: "Pyrausta aurata", keyword: "herb", tagline: "&quot;Make some thyme to provide for this lovely little herb-ivore!&quot;", order: "Lepidoptera, the butterflies and moths", intro: "<p>The mint moth is also called the ‘small purple and gold’, which is pretty descriptive in terms of visuals!</p><p>With a wingspan under 2 cm, they are very little, but their majestic colour scheme makes them a bit easier to spot!</p>", lifecycle: "<p>The caterpillars start out small and green with black spots, turning more purple like the adults as they mature. They spend their time munching on herbs in the mint family, including thyme, sage, rosemary and of course mint!</p><p>The adults are nectar-drinking pollinators, and often seen resting on the herbs during the day.</p>", howtohelp: "<p>Treat yourself to more herbs! Many of these are quite straightforward to grow and can be kept in pots, so you don’t need much space, just some sunshine.</p><p>The caterpillars are only little and don’t take much, there’ll be plenty for your culinary needs!</p>", outlineimgsrc: "images/mint-moth-outline-hex.svg", fullimgsrc: "images/mint-moth-fullcolour-hex.svg", unfoundimgsrc: "images/moth-mystery-hex.svg", animationsrc: "images/moth-animation.svg", found: false},
 ]
 
-const defaultvalues = {category: "default", congrats: "Great!",  prefix: "a", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", tagline: "Find my codeword to unlock info about me.", order: "One of the insects, who knows!", intro: "Get to know this creature more later!", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this creature to find out!", imgsrc: "images/mystery-bug-animation-hex.svg", unfoundimgsrc: "images/mystery-bug-animation-hex.svg", found: false}
+const defaultvalues = {category: "default", congrats: "Great!",  prefix: "a", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", tagline: "Find my codeword to unlock info about me.", order: "One of the insects, who knows!", intro: "Get to know this creature more later!", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this creature to find out!", fullimgsrc: "images/mystery-bug-fullcolour-hex.svg", unfoundimgsrc: "images/mystery-bug-fullcolour-hex.svg", found: false}
 
 
 // load progress from localStorage
@@ -122,7 +122,7 @@ function updateDisplay() {
         if (hex) {
 
             if (item && item.found) {
-            hex.innerHTML = `<img src="${item.imgsrc}" alt="${item.fullname}">`;
+            hex.innerHTML = `<img src="${item.fullimgsrc}" alt="${item.fullname}">`;
         } else {
             hex.innerHTML = `<img src="${item.unfoundimgsrc}" alt="${item.category}">`;
 }
@@ -142,15 +142,48 @@ function handleReset() {
 
 function showRewardModal(item) {
     const overlay = document.getElementById("reward-modal-overlay");
-    const image = document.getElementById("modal-image");
+    const outlineImg = document.getElementById("modal-image");
     const textBox = document.getElementById("modal-text");
     const profileBtn = document.getElementById("go-to-profile-btn");
+    const unlockBtn = document.getElementById("unlock-btn");
 
-    // if statement is protective in case the structure changes so there isn't an image
-    if (image) {
-    image.innerHTML = `<img src="${item.imgsrc}" alt="${item.fullname}">`;
+    let isUnlocked = false;
+
+    // show modal
+    overlay.classList.remove("hidden");
+
+    // hide profile button until unlocked
+    profileBtn.style.display = "none";
+
+    // show unlock button
+    unlockBtn.style.display = "inline-block";
+
+if (outlineImg) {
+    outlineImg.innerHTML = `
+        <img class="reward-img outline img-visible" src="${item.outlineimgsrc}" alt="${item.fullname}">
+        <img class="reward-img full img-hidden" src="${item.fullimgsrc}" alt="${item.fullname}">
+    `;
+}
+
+
+    const outline = document.querySelector(".reward-img.outline");
+    const full = document.querySelector(".reward-img.full");
+
+/* original image appearing code
+    // iprotective "if" statement, in case the structure changes so there isn't an image
+        if (image) {
+    image.innerHTML = `<img src="${item.fullimgsrc}" alt="${item.fullname}">`;
         }
+    */
 
+/* should I use animated svgs instead, this can be used
+    if (image) {
+  image.innerHTML = `
+    <object type="image/svg+xml" data="${item.animationsrc}">
+      <img src="${item.animationsrc}" alt="${item.fullname}">
+    </object>
+  `;
+}  */
 
     // dynamic text with the codeword they entered
     if (textBox) {textBox.innerHTML = `
@@ -158,15 +191,28 @@ function showRewardModal(item) {
 
         <p>Let's learn a little more about them.</p>`;}
 
-    // show modal
-    overlay.classList.remove("hidden");
 
-    // clicking anywhere on the modal overlay goes to the profile
-    overlay.onclick = () => {
-        window.location.href = `profiles.html#${item.category}-box`;
+    // --- UNLOCK BUTTON LOGIC ---
+    unlockBtn.onclick = () => {
+        // fade out outline
+        outline.classList.remove("img-visible");
+        outline.classList.add("img-hidden");
+
+        // fade in full
+        full.classList.remove("img-hidden");
+        full.classList.add("img-visible");
+
+        // toggle buttons
+        unlockBtn.style.display = "none";
+        profileBtn.style.display = "inline-block";
+
+        // affects what "enter button does"
+         isUnlocked = true;
     };
 
-    // clicking the button goes to profile
+
+
+    // profile button logic
         profileBtn.onclick = () => {
             window.location.href = `profiles.html#${item.category}-box`;
         };
@@ -182,7 +228,12 @@ function showRewardModal(item) {
     // Enter key takes user to profile as the button does, escape allows user to exit modal
     function handleModalKey(e) {
         if (e.key === "Enter") {
-            window.location.href = `profiles.html#${item.category}-box`;
+
+            if (!isUnlocked) {
+            unlockBtn.click(); // simulate button press
+        } else {
+            profileBtn.click(); // go to profile
+        }
         } else if (e.key === "Escape") {
             closeModal();
         }
