@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Creature Seekers: Map</title>
@@ -10,108 +11,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-
 <body>
+    <!-- top banner with icon, page title and burger menu -->
+    <header class="floating-header" id="floating-header">
+        <a href="index.html" class="header-link" id="logo-link" aria-label="Home">
+            <img src="images/hexie-favicon.svg" alt="" width="36" height="36">
+        </a>
+        <h2 class="site-title">Creature Seekers</h2>
+        <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
+            &#9776;
+        </button>
+    </header>
 
-<!-- top banner with icon, page title and burger menu -->
-<header class="floating-header" id="floating-header">
-    <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg" alt="" width="36" height="36"> </a>
-    <h2 class="site-title">Creature Seekers</h2>
-    <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
-        &#9776;
-    </button>
-</header>
+    <!-- Pull-out menu -->
+    <nav id="dropdown-menu" aria-label="burger-menu">
+        <ul>
+            <li><a href="help-how-to-use.html">Help: how to use</a></li>
+            <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
+            <li><a href="feedback.html">Give feedback!</a></li>
+            <li><a href="issue-report.html">Report an issue</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
 
-<!-- Pull-out menu -->
-<nav id="dropdown-menu" aria-label="burger-menu">
-    <ul>
-        <li><a href="help-how-to-use.html">Help: how to use</a></li>
-        <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
-        <li><a href="feedback.html">Give feedback!</a></li>
-        <li><a href="issue-report.html">Report an issue</a></li>
-        <li><a href="settings.html">Settings</a></li>
-    </ul>
-</nav>
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav" aria-label="main menu">
+        <a href="index.html" class="nav-option">
+            <div class="nav-icon"><img src="images/home-icon.svg" alt=""></div>
+            <div class="label">Home</div>
+        </a>
 
+        <a href="profiles.html" class="nav-option">
+            <div class="nav-icon"><img src="images/profile-icon.svg" alt=""></div>
+            <div class="label">Profiles</div>
+        </a>
+        <a href="codeword.html" class="nav-option">
+            <div class="nav-icon">
+                <img src="images/codeword-icon.svg" alt="">
+            </div>
+            <div class="label">Codeword</div>
+        </a>
 
-<!-- Bottom Navigation Bar -->
-<nav class="bottom-nav" aria-label="main menu">
-    <a href="index.html" class="nav-option">
-        <div class="nav-icon"><img src="images/home-icon.svg" alt="" > </div>
-        <div class="label">Home</div>
-    </a>
+        <a href="map.html" class="nav-option current">
+            <div class="nav-icon"><img src="images/map-icon.svg" alt=""></div>
+            <div class="label">Map</div>
+        </a>
 
-    <a href="profiles.html" class="nav-option">
-        <div class="nav-icon"><img src="images/profile-icon.svg" alt="" ></div>
-        <div class="label">Profiles</div>
-    </a>
-    <a href="codeword.html" class="nav-option ">
-        <div class="nav-icon"><img src="images/codeword-icon.svg" alt="" ></div>
-        <div class="label">Codeword</div>
-    </a>
+        <a href="quiz.html" class="nav-option">
+            <div class="nav-icon"><img src="images/quiz-icon.svg" alt=""></div>
+            <div class="label">Quiz</div>
+        </a>
+    </nav>
 
-    <a href="map.html" class="nav-option current">
-        <div class="nav-icon"><img src="images/map-icon.svg" alt="" ></div>
-        <div class="label">Map</div>
-    </a>
+    <main>
+        <!-- Page content -->
 
-    <a href="quiz.html" class="nav-option">
-        <div class="nav-icon"><img src="images/quiz-icon.svg" alt="" ></div>
-        <div class="label">Quiz</div>
-    </a>
-</nav>
+        <section id="map-box">
+            <img src="images/creature-seekers-st-andrews-park-map.png"
+                alt="Map of St Andrews Park and the Creature Seeker Trail">
+        </section>
 
+        <section class="more-info-details" id="route-details">
+            <details>
+                <summary>Show/hide trail route details</summary>
+                <h3><strong>Step 1</strong></h3>
+                <p>
+                    Enter the park from the main entrance on Effingham Road, between two
+                    large trees. Head straight ahead towards the centre of the park.
+                </p>
+                <p><i>Look for: </i>a tree with lots of ivy on it!</p>
 
-<main>
+                <h3><strong>Step 2</strong></h3>
+                <p>Turn left and follow the trail, just a short way.</p>
+                <p><i>Look for: </i>a very large log from a fallen tree!</p>
 
-<!-- Page content -->
+                <h3><strong>Step 3</strong></h3>
+                <p>
+                    Continue on the path, and when you come to a crossroads in the path,
+                    continue on straight. Follow on, then bear round to the right.
+                </p>
+                <p><i>Look for: </i>a wildlife pond - recently renovated!</p>
 
-<div id="map-box">
-<img src="images/creature-seekers-st-andrews-park-map.png" alt="Map of St Andrews Park and the Creature Seeker Trail">
-</div>
+                <h3><strong>Step 4</strong></h3>
+                <p>
+                    Head back the way you came, then when you get to the same crossroads
+                    in the path, take the left turn. If you pass by some toilets, you’re
+                    on the right track!
+                </p>
+                <p><i>Look for: </i>a pollinator-friendly flower patch!</p>
 
-<div class="more-info-details" id="route-details">
-<details>
-  <summary>Show/hide trail route details</summary>
-    <h3><strong>Step 1</strong></h3>
-        <p>Enter the park from the main entrance on Effingham Road, between two large trees. Head straight ahead towards the centre of the park.</p>
-        <p><i>Look for: </i>a tree with lots of ivy on it!</p>
+                <h3><strong>Step 5</strong></h3>
+                <p>
+                    Continue along this path, you will pass the Wellington memorial. Go
+                    through the gate into the dog-free area.
+                </p>
+                <p><i>Look for: </i>trees along the path!</p>
 
-    <h3><strong>Step 2</strong></h3>
-        <p>Turn left and follow the trail, just a short way.</p>
-        <p><i>Look for: </i>a very large log from a fallen tree!</p>
+                <h3><strong>Step 6</strong></h3>
+                <p>
+                    When you reach the corner of the park, turn right and then right
+                    again. At the fork, take the right path and continue along.
+                </p>
+                <p>
+                    <i>Look for: </i>a community growing garden! (e.g. raised beds and
+                    compost bins)
+                </p>
 
-    <h3><strong>Step 3</strong></h3>
-    <p>Continue on the path, and when you come to a crossroads in the path, continue on straight. Follow on, then bear round to the right.</p>
-<p><i>Look for: </i>a wildlife pond - recently renovated!</p>
+                <h3><strong>Done!</strong></h3>
+                <p>
+                    Well done, you have completed the trail! Go through the gate near
+                    the final sign and you will end up in the central area. Feel free to
+                    explore the rest of the park from there.
+                </p>
+                <p>
+                    <i>Look for: </i>a mobile cafe, open 8am-4pm Mon-Fri, 9am-4pm
+                    Sat-Sun, if you fancy some refreshments!
+                </p>
+            </details>
+        </section>
 
-    <h3><strong>Step 4</strong></h3>
-    <p>Head back the way you came, then when you get to the same crossroads in the path, take the left turn. If you pass by some toilets, you’re on the right track!</p>
-<p><i>Look for: </i>a pollinator-friendly flower patch!</p>
+        <div id="menu-overlay" class="menu-overlay hidden"></div>
 
-    <h3><strong>Step 5</strong></h3>
-    <p>Continue along this path, you will pass the Wellington memorial. Go through the gate into the dog-free area.</p>
-<p><i>Look for: </i>trees along the path!</p>
-
-    <h3><strong>Step 6</strong></h3>
-    <p>When you reach the corner of the park, turn right and then right again. At the fork, take the right path and continue along.</p>
-<p><i>Look for: </i>a community growing garden! (e.g. raised beds and compost bins)</p>
-
-
-    <h3><strong>Done!</strong></h3>
-    <p>Well done, you have completed the trail! Go through the gate near the final sign and you will end up in the central area. Feel free to explore the rest of the park from there.</p>
-<p><i>Look for: </i>a mobile cafe, open 8am-4pm Mon-Fri, 9am-4pm Sat-Sun, if you fancy some refreshments!</p>
-</details>
-</div>
-
-
-
-<div id="menu-overlay" class="menu-overlay hidden"></div>
-
-<script src="script.js"></script>
- </main>
-
-
-
+        <script src="script.js"></script>
+    </main>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Creature Seekers: reset</title>
@@ -13,88 +14,91 @@
 
 <body>
 
-<!-- top banner with icon, page title and burger menu -->
-<header class="floating-header" id="floating-header">
-    <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg" alt="" width="36" height="36"> </a>
-    <h2 class="site-title">Creature Seekers</h2>
-    <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
-        &#9776;
-    </button>
-</header>
+    <!-- top banner with icon, page title and burger menu -->
+    <header class="floating-header" id="floating-header">
+        <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg"
+                alt="" width="36" height="36"> </a>
+        <h2 class="site-title">Creature Seekers</h2>
+        <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
+            &#9776;
+        </button>
+    </header>
 
-<!-- Pull-out menu -->
-<nav id="dropdown-menu" aria-label="burger-menu">
-    <ul>
-        <li><a href="help-how-to-use.html">Help: how to use</a></li>
-        <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
-        <li><a href="feedback.html">Give feedback!</a></li>
-        <li><a href="issue-report.html">Report an issue</a></li>
-        <li><a href="settings.html">Settings</a></li>
-    </ul>
-</nav>
-
-
-
-<!-- Bottom Navigation Bar -->
-<nav class="bottom-nav" aria-label="main menu">
-    <a href="index.html" class="nav-option">
-        <div class="nav-icon"><img src="images/home-icon.svg" alt="" > </div>
-        <div class="label">Home</div>
-    </a>
-
-    <a href="profiles.html" class="nav-option">
-        <div class="nav-icon"><img src="images/profile-icon.svg" alt="" ></div>
-        <div class="label">Profiles</div>
-    </a>
-    <a href="codeword.html" class="nav-option">
-        <div class="nav-icon"><img src="images/codeword-icon.svg" alt="" ></div>
-        <div class="label">Codeword</div>
-    </a>
-
-    <a href="map.html" class="nav-option">
-        <div class="nav-icon"><img src="images/map-icon.svg" alt="" ></div>
-        <div class="label">Map</div>
-    </a>
-
-    <a href="quiz.html" class="nav-option">
-        <div class="nav-icon"><img src="images/quiz-icon.svg" alt="" ></div>
-        <div class="label">Quiz</div>
-    </a>
-</nav>
-
-
-<main>
+    <!-- Pull-out menu -->
+    <nav id="dropdown-menu" aria-label="burger-menu">
+        <ul>
+            <li><a href="help-how-to-use.html">Help: how to use</a></li>
+            <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
+            <li><a href="feedback.html">Give feedback!</a></li>
+            <li><a href="issue-report.html">Report an issue</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
 
 
 
-<h2>Dark mode </h2>
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav" aria-label="main menu">
+        <a href="index.html" class="nav-option">
+            <div class="nav-icon"><img src="images/home-icon.svg" alt=""> </div>
+            <div class="label">Home</div>
+        </a>
 
-<p>Use this to change some colour setting to make it darker or brighter.</p>
+        <a href="profiles.html" class="nav-option">
+            <div class="nav-icon"><img src="images/profile-icon.svg" alt=""></div>
+            <div class="label">Profiles</div>
+        </a>
+        <a href="codeword.html" class="nav-option">
+            <div class="nav-icon"><img src="images/codeword-icon.svg" alt=""></div>
+            <div class="label">Codeword</div>
+        </a>
 
-<button type="button" id="darkmode-btn" onclick="toggleDarkmode()">Turn dark mode on/off</button>
+        <a href="map.html" class="nav-option">
+            <div class="nav-icon"><img src="images/map-icon.svg" alt=""></div>
+            <div class="label">Map</div>
+        </a>
 
-<h2>Reset progress</h2>
-
-<p>CAUTION: This will remove all found keywords, and cannot be undone.</p>
-
-<div class="more-info-details" id="reset-details">
-<details>
-  <summary>Show/hide reset button</summary>
-    <p>Only click if you are sure. There will not be a second confirmation message.</p>
-
-<button type="button" id="reset-btn" onclick="handleReset()">Reset found words</button>
-</details>
-</div>
+        <a href="quiz.html" class="nav-option">
+            <div class="nav-icon"><img src="images/quiz-icon.svg" alt=""></div>
+            <div class="label">Quiz</div>
+        </a>
+    </nav>
 
 
+    <main>
 
 
-<div id="menu-overlay" class="menu-overlay hidden"></div>
+        <section>
+            <h2>Dark mode </h2>
 
-<script src="script.js"></script>
-</main>
+            <p>Use this to change some colour setting to make it darker or brighter.</p>
+
+            <button type="button" id="darkmode-btn" onclick="toggleDarkmode()">Turn dark mode on/off</button>
+        </section>
+        <section>
+            <h2>Reset progress</h2>
+
+            <p>CAUTION: This will remove all found keywords, and cannot be undone.</p>
+
+            <div class="more-info-details" id="reset-details">
+                <details>
+                    <summary>Show/hide reset button</summary>
+                    <p>Only click if you are sure. There will not be a second confirmation message.</p>
+
+                    <button type="button" id="reset-btn" onclick="handleReset()">Reset found words</button>
+                </details>
+            </div>
+        </section>
+
+
+
+        <div id="menu-overlay" class="menu-overlay hidden"></div>
+
+        <script src="script.js"></script>
+    </main>
 
 
 
 </body>
+
 </html>

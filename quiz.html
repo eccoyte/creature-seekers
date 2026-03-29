@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Creature Seekers: Map</title>
@@ -16,124 +17,128 @@
 
 <body>
 
-<!-- top banner with icon, page title and burger menu -->
-<header class="floating-header" id="floating-header">
-    <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg" alt="" width="36" height="36"> </a>
-    <h2 class="site-title">Creature Seekers</h2>
-    <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
-        &#9776;
-    </button>
-</header>
+    <!-- top banner with icon, page title and burger menu -->
+    <header class="floating-header" id="floating-header">
+        <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg"
+                alt="" width="36" height="36"> </a>
+        <h2 class="site-title">Creature Seekers</h2>
+        <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
+            &#9776;
+        </button>
+    </header>
 
-<!-- Pull-out menu -->
-<nav id="dropdown-menu" aria-label="burger-menu">
-    <ul>
-        <li><a href="help-how-to-use.html">Help: how to use</a></li>
-        <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
-        <li><a href="feedback.html">Give feedback!</a></li>
-        <li><a href="issue-report.html">Report an issue</a></li>
-        <li><a href="settings.html">Settings</a></li>
-    </ul>
-</nav>
-
-
-<!-- Bottom Navigation Bar -->
-<nav class="bottom-nav" aria-label="main menu">
-    <a href="index.html" class="nav-option">
-        <div class="nav-icon"><img src="images/home-icon.svg" alt="" > </div>
-        <div class="label">Home</div>
-    </a>
-
-    <a href="profiles.html" class="nav-option">
-        <div class="nav-icon"><img src="images/profile-icon.svg" alt="" ></div>
-        <div class="label">Profiles</div>
-    </a>
-    <a href="codeword.html" class="nav-option">
-        <div class="nav-icon"><img src="images/codeword-icon.svg" alt="" ></div>
-        <div class="label">Codeword</div>
-    </a>
-
-    <a href="map.html" class="nav-option">
-        <div class="nav-icon"><img src="images/map-icon.svg" alt="" ></div>
-        <div class="label">Map</div>
-    </a>
-
-    <a href="quiz.html" class="nav-option current">
-        <div class="nav-icon"><img src="images/quiz-icon.svg" alt="" ></div>
-        <div class="label">Quiz</div>
-    </a>
-</nav>
-
-<main>
-
-<!-- Page content -->
-
-<div id="quiz-box">
-<div class="hexie-help">
-<div class="hexie-info-box" >
-        <div class="hexie-speech">
-    <!-- Message will be inserted here -->
-    <p id="quiz-para-text"></p>
-        </div>
-</div>
-        <div class="hexie-chatting">
-        <img src="images/hexie-happy.svg" alt="hexie happy">
-    </div>
-</div>
-</div>
+    <!-- Pull-out menu -->
+    <nav id="dropdown-menu" aria-label="burger-menu">
+        <ul>
+            <li><a href="help-how-to-use.html">Help: how to use</a></li>
+            <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
+            <li><a href="feedback.html">Give feedback!</a></li>
+            <li><a href="issue-report.html">Report an issue</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
 
 
-<div class="pop-box quiz-app quiz-front" id="quiz-app">
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav" aria-label="main menu">
+        <a href="index.html" class="nav-option">
+            <div class="nav-icon"><img src="images/home-icon.svg" alt=""> </div>
+            <div class="label">Home</div>
+        </a>
 
-    <!-- Start and end Hexie messages -->
-<div class="hexie-help" id="quiz-hexie-help">
-<div class="hexie-info-box" id="hexie-quiz-info-box">
-        <div class="hexie-text">
-        <!-- Hexie message goes here-->
-        </div>
-</div>
-        <div class="hexie-chatting">
-        <img src="images/hexie-happy.svg" alt="hexie happy">
-    </div>
-</div>
+        <a href="profiles.html" class="nav-option">
+            <div class="nav-icon"><img src="images/profile-icon.svg" alt=""></div>
+            <div class="label">Profiles</div>
+        </a>
+        <a href="codeword.html" class="nav-option">
+            <div class="nav-icon"><img src="images/codeword-icon.svg" alt=""></div>
+            <div class="label">Codeword</div>
+        </a>
+
+        <a href="map.html" class="nav-option">
+            <div class="nav-icon"><img src="images/map-icon.svg" alt=""></div>
+            <div class="label">Map</div>
+        </a>
+
+        <a href="quiz.html" class="nav-option current">
+            <div class="nav-icon"><img src="images/quiz-icon.svg" alt=""></div>
+            <div class="label">Quiz</div>
+        </a>
+    </nav>
+
+    <main>
+
+        <!-- Page content -->
+
+        <section id="quiz-box">
+            <div class="hexie-help">
+                <div class="hexie-info-box">
+                    <div class="hexie-speech">
+                        <!-- Message will be inserted here -->
+                        <p id="quiz-para-text"></p>
+                    </div>
+                </div>
+                <div class="hexie-chatting">
+                    <img src="images/hexie-happy.svg" alt="hexie happy">
+                </div>
+            </div>
+        </section>
 
 
+        <section class="pop-box quiz-app quiz-front" id="quiz-app">
 
- <div class="quiz">
-    <div id="quiz-header">
-        <div id="quiz-question-img"><img src="images/mystery-bug-animation-hex.svg" alt="Mystery bug hex"></div>
-        <h3 id="quiz-question">Question goes here</h3>
-    </div>
-    <div id="answer-buttons">
-        <button type="button" class="quiz-option-btn">Answer 1</button>
-        <button type="button" class="quiz-option-btn">Answer 2</button>
-        <button type="button" class="quiz-option-btn">Answer 3</button>
-        <button type="button" class="quiz-option-btn">Answer 4</button>
-        </div>
-
-    <div class="quiz-footer">
-        <div id="quiz-feedback">
-            <div id="quiz-feedback-hexie"><img src="images/hexie-favicon.svg" alt="" width="36" height="36"></div>
-            <div id="quiz-feedback-text">
-        </div>
-        </div>
-        <button type="button" id="quiz-next-btn">Next</button>
-    </div>
- </div>
-</div>
+            <!-- Start and end Hexie messages -->
+            <div class="hexie-help" id="quiz-hexie-help">
+                <div class="hexie-info-box" id="hexie-quiz-info-box">
+                    <div class="hexie-text">
+                        <!-- Hexie message goes here-->
+                    </div>
+                </div>
+                <div class="hexie-chatting">
+                    <img src="images/hexie-happy.svg" alt="hexie happy">
+                </div>
+            </div>
 
 
 
-<div id="menu-overlay" class="menu-overlay hidden"></div>
+            <div class="quiz">
+                <div id="quiz-header">
+                    <div id="quiz-question-img"><img src="images/mystery-bug-animation-hex.svg" alt="Mystery bug hex">
+                    </div>
+                    <h3 id="quiz-question">Question goes here</h3>
+                </div>
+                <div id="answer-buttons">
+                    <button type="button" class="quiz-option-btn">Answer 1</button>
+                    <button type="button" class="quiz-option-btn">Answer 2</button>
+                    <button type="button" class="quiz-option-btn">Answer 3</button>
+                    <button type="button" class="quiz-option-btn">Answer 4</button>
+                </div>
+
+                <div class="quiz-footer">
+                    <div id="quiz-feedback">
+                        <div id="quiz-feedback-hexie"><img src="images/hexie-favicon.svg" alt="" width="36" height="36">
+                        </div>
+                        <div id="quiz-feedback-text">
+                        </div>
+                    </div>
+                    <button type="button" id="quiz-next-btn">Next</button>
+                </div>
+            </div>
+        </section>
 
 
-<script src="quiz.js"></script>
-<script src="script.js"></script>
+
+        <div id="menu-overlay" class="menu-overlay hidden"></div>
+
+
+        <script src="quiz.js"></script>
+        <script src="script.js"></script>
 
 
 
- </main>
+    </main>
 
 
 </body>
+
 </html>
