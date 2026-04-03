@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Creature Seekers: Profiles</title>
@@ -14,323 +15,325 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
+<body class="background-box">
 
-<!-- top banner with icon, page title and burger menu -->
-<header class="floating-header" id="floating-header">
-    <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg" alt="" width="36" height="36"> </a>
-    <h2 class="site-title">Creature Seekers</h2>
-    <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
-        &#9776;
-    </button>
-</header>
+    <!-- top banner with icon, page title and burger menu -->
+    <header class="floating-header" id="floating-header">
+        <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg"
+                alt="" width="36" height="36"> </a>
+        <h2 class="site-title">Creature Seekers</h2>
+        <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
+            &#9776;
+        </button>
+    </header>
 
-<!-- Pull-out menu -->
-<nav id="dropdown-menu" aria-label="burger-menu">
-    <ul>
-        <li><a href="help-how-to-use.html">Help: how to use</a></li>
-        <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
-        <li><a href="feedback.html">Give feedback!</a></li>
-        <li><a href="issue-report.html">Report an issue</a></li>
-        <li><a href="settings.html">Settings</a></li>
-    </ul>
-</nav>
-
-
-
-<!-- Bottom Navigation Bar -->
-<nav class="bottom-nav" aria-label="main menu">
-    <a href="index.html" class="nav-option">
-        <div class="nav-icon"><img src="images/home-icon.svg" alt="" > </div>
-        <div class="label">Home</div>
-    </a>
-
-    <a href="profiles.html" class="nav-option current">
-        <div class="nav-icon"><img src="images/profile-icon.svg" alt="" ></div>
-        <div class="label">Profiles</div>
-    </a>
-    <a href="codeword.html" class="nav-option">
-        <div class="nav-icon"><img src="images/codeword-icon.svg" alt="" ></div>
-        <div class="label">Codeword</div>
-    </a>
-
-    <a href="map.html" class="nav-option">
-        <div class="nav-icon"><img src="images/map-icon.svg" alt="" ></div>
-        <div class="label">Map</div>
-    </a>
-
-    <a href="quiz.html" class="nav-option">
-        <div class="nav-icon"><img src="images/quiz-icon.svg" alt="" ></div>
-        <div class="label">Quiz</div>
-    </a>
-</nav>
-
-<!-- Page content -->
-<main>
-
-<div class="hexie-help">
-<div class="hexie-info-box" id="profile-info-box">
-        <div class="hexie-speech">
-            <p>Here you can find profiles all about the creatures on the trail.</p>
-            <p>Their identities will remain secret until you've found their codewords!</p>
-        </div>
-</div>
-        <div class="hexie-chatting">
-        <img src="images/hexie-happy.svg" alt="hexie happy">
-    </div>
-</div>
+    <!-- Pull-out menu -->
+    <nav id="dropdown-menu" aria-label="burger-menu">
+        <ul>
+            <li><a href="help-how-to-use.html">Help: how to use</a></li>
+            <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
+            <li><a href="feedback.html">Give feedback!</a></li>
+            <li><a href="issue-report.html">Report an issue</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
 
 
-<div class="profiles-container">
 
-    <!-- 1. BEE -->
-    <section class="pop-box profile" id="bee-box">
-        <div class="profile-head">
-            <div class="hex hex-profile" id="bee-hex" data-category="bee">?</div>
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav" aria-label="main menu">
+        <a href="index.html" class="nav-option">
+            <div class="nav-icon"><img src="images/home-icon.svg" alt=""> </div>
+            <div class="label">Home</div>
+        </a>
 
-            <div class="profile-head-text">
-                <h2 data-field="fullname">Item 1</h2>
-                <p data-field="sciname">Scientific name here</p>
+        <a href="profiles.html" class="nav-option current">
+            <div class="nav-icon"><img src="images/profile-icon.svg" alt=""></div>
+            <div class="label">Profiles</div>
+        </a>
+        <a href="codeword.html" class="nav-option">
+            <div class="nav-icon"><img src="images/codeword-icon.svg" alt=""></div>
+            <div class="label">Codeword</div>
+        </a>
+
+        <a href="map.html" class="nav-option">
+            <div class="nav-icon"><img src="images/map-icon.svg" alt=""></div>
+            <div class="label">Map</div>
+        </a>
+
+        <a href="quiz.html" class="nav-option">
+            <div class="nav-icon"><img src="images/quiz-icon.svg" alt=""></div>
+            <div class="label">Quiz</div>
+        </a>
+    </nav>
+
+    <!-- Page content -->
+    <main>
+
+        <div class="hexie-help">
+            <div class="hexie-info-box" id="profile-info-box">
+                <div class="hexie-speech">
+                    <p>Here you can find profiles all about the creatures on the trail.</p>
+                    <p>Their identities will remain secret until you've found their codewords!</p>
+                </div>
             </div>
-        </div>
-        <div class="profile-tagline">
-            <p data-field="tagline">Subtitle text here</p>
-        </div>
-    <div class="profile-content">
-
-        <div class="profile-tabs">
-            <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
-            <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
-            <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
-        </div>
-
-        <div class="profile-tab-content active" data-content="intro">
-            <h3>Introduction</h3>
-            <p data-field="intro"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="lifecycle">
-            <h3>Life cycle</h3>
-            <p data-field="lifecycle"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="howtohelp">
-            <h3>How to help them</h3>
-            <p data-field="howtohelp"></p>
-        </div>
-    </div>
-
-</section>
-
-    <!-- 2. BEETLE -->
-    <section class="pop-box profile" id="beetle-box">
-        <div class="profile-head">
-            <div class="hex hex-profile" id="beetle-hex">?</div>
-
-            <div class="profile-head-text">
-                <h2 data-field="fullname">Item 2</h2>
-                <p data-field="sciname">Scientific name here</p>
-            </div>
-
-        </div>
-        <div class="profile-tagline">
-            <p data-field="tagline">Subtitle text here</p>
-        </div>
-
-    <div class="profile-content">
-        <div class="profile-tabs">
-            <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
-            <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
-            <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
-        </div>
-
-        <div class="profile-tab-content active" data-content="intro">
-            <h3>Introduction</h3>
-            <p data-field="intro"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="lifecycle">
-            <h3>Life cycle</h3>
-            <p data-field="lifecycle"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="howtohelp">
-            <h3>How to help them</h3>
-            <p data-field="howtohelp"></p>
-        </div>
-    </div>
-
-</section>
-
-
-    <!-- 3. DRAGONFLY -->
-    <section class="pop-box profile" id="dragonfly-box">
-        <div class="profile-head">
-            <div class="hex hex-profile" id="dragonfly-hex" data-category="dragonfly">?</div>
-
-            <div class="profile-head-text">
-                <h2 data-field="fullname">Dog</h2>
-                <p data-field="sciname">Scientific name here</p>
+            <div class="hexie-chatting">
+                <img src="images/hexie-happy.svg" alt="hexie happy">
             </div>
         </div>
 
-        <div class="profile-tagline">
-            <p data-field="tagline">Subtitle text here</p>
+
+        <div class="profiles-container">
+
+            <!-- 1. BEE -->
+            <section class="pop-box profile" id="bee-box">
+                <div class="profile-head">
+                    <div class="hex hex-profile" id="bee-hex" data-category="bee">?</div>
+
+                    <div class="profile-head-text">
+                        <h2 data-field="fullname">Item 1</h2>
+                        <p data-field="sciname">Scientific name here</p>
+                    </div>
+                </div>
+                <div class="profile-tagline">
+                    <p data-field="tagline">Subtitle text here</p>
+                </div>
+                <div class="profile-content">
+
+                    <div class="profile-tabs">
+                        <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
+                        <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
+                        <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
+                    </div>
+
+                    <div class="profile-tab-content active" data-content="intro">
+                        <h3>Introduction</h3>
+                        <p data-field="intro"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="lifecycle">
+                        <h3>Life cycle</h3>
+                        <p data-field="lifecycle"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="howtohelp">
+                        <h3>How to help them</h3>
+                        <p data-field="howtohelp"></p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- 2. BEETLE -->
+            <section class="pop-box profile" id="beetle-box">
+                <div class="profile-head">
+                    <div class="hex hex-profile" id="beetle-hex">?</div>
+
+                    <div class="profile-head-text">
+                        <h2 data-field="fullname">Item 2</h2>
+                        <p data-field="sciname">Scientific name here</p>
+                    </div>
+
+                </div>
+                <div class="profile-tagline">
+                    <p data-field="tagline">Subtitle text here</p>
+                </div>
+
+                <div class="profile-content">
+                    <div class="profile-tabs">
+                        <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
+                        <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
+                        <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
+                    </div>
+
+                    <div class="profile-tab-content active" data-content="intro">
+                        <h3>Introduction</h3>
+                        <p data-field="intro"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="lifecycle">
+                        <h3>Life cycle</h3>
+                        <p data-field="lifecycle"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="howtohelp">
+                        <h3>How to help them</h3>
+                        <p data-field="howtohelp"></p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- 3. DRAGONFLY -->
+            <section class="pop-box profile" id="dragonfly-box">
+                <div class="profile-head">
+                    <div class="hex hex-profile" id="dragonfly-hex" data-category="dragonfly">?</div>
+
+                    <div class="profile-head-text">
+                        <h2 data-field="fullname">Dog</h2>
+                        <p data-field="sciname">Scientific name here</p>
+                    </div>
+                </div>
+
+                <div class="profile-tagline">
+                    <p data-field="tagline">Subtitle text here</p>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-tabs">
+                        <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
+                        <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
+                        <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
+                    </div>
+
+                    <div class="profile-tab-content active" data-content="intro">
+                        <h3>Introduction</h3>
+                        <p data-field="intro"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="lifecycle">
+                        <h3>Life cycle</h3>
+                        <p data-field="lifecycle"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="howtohelp">
+                        <h3>How to help them</h3>
+                        <p data-field="howtohelp"></p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- 4. HOVERFLY -->
+            <section class="pop-box profile" id="hoverfly-box">
+                <div class="profile-head">
+                    <div class="hex hex-profile" id="hoverfly-hex" data-category="hoverfly">?</div>
+
+                    <div class="profile-head-text">
+                        <h2 data-field="fullname">Elf</h2>
+                        <p data-field="sciname">Scientific name here</p>
+                    </div>
+                </div>
+
+                <div class="profile-tagline">
+                    <p data-field="tagline">Subtitle text here</p>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-tabs">
+                        <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
+                        <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
+                        <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
+                    </div>
+
+                    <div class="profile-tab-content active" data-content="intro">
+                        <h3>Introduction</h3>
+                        <p data-field="intro"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="lifecycle">
+                        <h3>Life cycle</h3>
+                        <p data-field="lifecycle"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="howtohelp">
+                        <h3>How to help them</h3>
+                        <p data-field="howtohelp"></p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- 5. BUG -->
+            <section class="pop-box profile" id="bug-box">
+                <div class="profile-head">
+                    <div class="hex hex-profile" id="bug-hex" data-category="bug">?</div>
+
+                    <div class="profile-head-text">
+                        <h2 data-field="fullname">Cat</h2>
+                        <p data-field="sciname">Scientific name here</p>
+
+                    </div>
+                </div>
+
+                <div class="profile-tagline">
+                    <p data-field="tagline">Subtitle text here</p>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-tabs">
+                        <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
+                        <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
+                        <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
+                    </div>
+
+                    <div class="profile-tab-content active" data-content="intro">
+                        <h3>Introduction</h3>
+                        <p data-field="intro"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="lifecycle">
+                        <h3>Life cycle</h3>
+                        <p data-field="lifecycle"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="howtohelp">
+                        <h3>How to help them</h3>
+                        <p data-field="howtohelp"></p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- 6. MOTH -->
+            <section class="pop-box profile last" id="moth-box">
+                <div class="profile-head">
+                    <div class="hex hex-profile" id="moth-hex" data-category="moth">?</div>
+
+                    <div class="profile-head-text">
+                        <h2 data-field="fullname">Fire</h2>
+                        <p data-field="sciname">Scientific name here</p>
+                    </div>
+                </div>
+
+                <div class="profile-tagline">
+                    <p data-field="tagline">Subtitle text here</p>
+                </div>
+                <div class="profile-content">
+
+                    <div class="profile-tabs">
+                        <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
+                        <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
+                        <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
+                    </div>
+
+                    <div class="profile-tab-content active" data-content="intro">
+                        <h3>Introduction</h3>
+                        <p data-field="intro"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="lifecycle">
+                        <h3>Life cycle</h3>
+                        <p data-field="lifecycle"></p>
+                    </div>
+
+                    <div class="profile-tab-content" data-content="howtohelp">
+                        <h3>How to help them</h3>
+                        <p data-field="howtohelp"></p>
+                    </div>
+                </div>
+
+            </section>
         </div>
-    <div class="profile-content">
-        <div class="profile-tabs">
-            <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
-            <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
-            <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
-        </div>
-
-        <div class="profile-tab-content active" data-content="intro">
-            <h3>Introduction</h3>
-            <p data-field="intro"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="lifecycle">
-            <h3>Life cycle</h3>
-            <p data-field="lifecycle"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="howtohelp">
-            <h3>How to help them</h3>
-            <p data-field="howtohelp"></p>
-        </div>
-    </div>
-
-</section>
-
-    <!-- 4. HOVERFLY -->
-    <section class="pop-box profile" id="hoverfly-box">
-        <div class="profile-head">
-            <div class="hex hex-profile" id="hoverfly-hex" data-category="hoverfly">?</div>
-
-            <div class="profile-head-text">
-                <h2 data-field="fullname">Elf</h2>
-                <p data-field="sciname">Scientific name here</p>
-            </div>
-        </div>
-
-        <div class="profile-tagline">
-            <p data-field="tagline">Subtitle text here</p>
-        </div>
-    <div class="profile-content">
-        <div class="profile-tabs">
-            <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
-            <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
-            <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
-        </div>
-
-        <div class="profile-tab-content active" data-content="intro">
-            <h3>Introduction</h3>
-            <p data-field="intro"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="lifecycle">
-            <h3>Life cycle</h3>
-            <p data-field="lifecycle"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="howtohelp">
-            <h3>How to help them</h3>
-            <p data-field="howtohelp"></p>
-        </div>
-    </div>
-
-</section>
-
-    <!-- 5. BUG -->
-    <section class="pop-box profile" id="bug-box">
-        <div class="profile-head">
-            <div class="hex hex-profile" id="bug-hex" data-category="bug">?</div>
-
-            <div class="profile-head-text">
-                <h2 data-field="fullname">Cat</h2>
-                <p data-field="sciname">Scientific name here</p>
-
-            </div>
-        </div>
-
-        <div class="profile-tagline">
-            <p data-field="tagline">Subtitle text here</p>
-        </div>
-    <div class="profile-content">
-        <div class="profile-tabs">
-            <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
-            <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
-            <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
-        </div>
-
-        <div class="profile-tab-content active" data-content="intro">
-            <h3>Introduction</h3>
-            <p data-field="intro"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="lifecycle">
-            <h3>Life cycle</h3>
-            <p data-field="lifecycle"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="howtohelp">
-            <h3>How to help them</h3>
-            <p data-field="howtohelp"></p>
-        </div>
-    </div>
-
-</section>
 
 
-    <!-- 6. MOTH -->
-    <section class="pop-box profile last" id="moth-box">
-        <div class="profile-head">
-            <div class="hex hex-profile" id="moth-hex" data-category="moth">?</div>
+        <div id="menu-overlay" class="menu-overlay hidden"></div>
 
-            <div class="profile-head-text">
-                <h2 data-field="fullname">Fire</h2>
-                <p data-field="sciname">Scientific name here</p>
-            </div>
-        </div>
-
-        <div class="profile-tagline">
-            <p data-field="tagline">Subtitle text here</p>
-        </div>
-    <div class="profile-content">
-
-        <div class="profile-tabs">
-            <button type="button" class="profile-tab-btn active" data-tab="intro">Intro</button>
-            <button type="button" class="profile-tab-btn" data-tab="lifecycle">Life cycle</button>
-            <button type="button" class="profile-tab-btn" data-tab="howtohelp">How to help</button>
-        </div>
-
-        <div class="profile-tab-content active" data-content="intro">
-            <h3>Introduction</h3>
-            <p data-field="intro"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="lifecycle">
-            <h3>Life cycle</h3>
-            <p data-field="lifecycle"></p>
-        </div>
-
-        <div class="profile-tab-content" data-content="howtohelp">
-            <h3>How to help them</h3>
-            <p data-field="howtohelp"></p>
-        </div>
-    </div>
-
-</section>
-</div>
-
-
-<div id="menu-overlay" class="menu-overlay hidden"></div>
-
-<script src="script.js"></script>
-</main>
+        <script src="script.js"></script>
+    </main>
 
 
 
 
 </body>
+
 </html>

@@ -10,9 +10,16 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="images/svg" href="images/hexie-favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- -pre-fetch the first two (bee) images likely to be seen, and the largest two (dragonfly) which may cause issues -->
+    <link rel="prefetch" href="images/darter-dragonfly-fullcolour-hex.svg">
+    <link rel="prefetch" href="images/darter-dragonfly-outline-hex.svg">
+    <link rel="prefetch" href="images/ivy-bee-fullcolour-hex.svg">
+    <link rel="prefetch" href="images/ivy-bee-outline-hex.svg">
+
 </head>
 
-<body>
+<body id="codeword-page" class="background-box">
     <!-- top banner with icon, page title and burger menu -->
     <header class="floating-header" id="floating-header">
         <a href="index.html" class="header-link" id="logo-link" aria-label="Home">
@@ -70,8 +77,7 @@
                 <div class="hexie-speech">
                     <h2>Found a codeword?</h2>
                     <p>
-                        Great! Enter it here to reveal the creature, and find out more
-                        about them!
+                        Great! Enter it here to unlock the creature and find out more!
                     </p>
                 </div>
             </div>
@@ -99,7 +105,6 @@
                 </div>
 
                 <div id="modal-text" class="modal-text"></div>
-
                 <button type="button" id="unlock-btn" class="unlock-btn">
                     Unlock!
                 </button>
@@ -107,6 +112,8 @@
                 <button type="button" id="go-to-profile-btn" class="profile-btn">
                     Go to profile
                 </button>
+
+
             </div>
         </section>
 
