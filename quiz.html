@@ -12,8 +12,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="images/svg" href="images/hexie-favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="images/quiz-hexie-neutral.svg" as="image">
+    <link rel="preload" href="images/quiz-hexie-incorrect.svg" as="image">
+    <link rel="preload" href="images/quiz-hexie-correct.svg" as="image">
 </head>
 
+<!-- TO DO - try pre-loading-->
 
 <body>
 
@@ -50,9 +54,12 @@
             <div class="nav-icon"><img src="images/profile-icon.svg" alt=""></div>
             <div class="label">Profiles</div>
         </a>
-        <a href="codeword.html" class="nav-option">
-            <div class="nav-icon"><img src="images/codeword-icon.svg" alt=""></div>
-            <div class="label">Codeword</div>
+        <!-- codeword shown by default, feedback shown when all found-->
+        <a href="codeword.html" class="nav-option" id="progressNav">
+            <div class="nav-icon">
+                <img src="images/codeword-icon.svg" alt="" id="progressNavIcon">
+            </div>
+            <div class="label" id="progressNavLabel">Codeword</div>
         </a>
 
         <a href="map.html" class="nav-option">

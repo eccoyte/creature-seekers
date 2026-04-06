@@ -37,22 +37,26 @@
 
         <!-- password input form -->
         <!-- TO DO: Rework to make more semantic-->
-        <div class="input-container" id="password-container">
 
-            <input type="text" id="password-input" placeholder="Enter password" size="35">
-            <button type="button" class="help-link-btn" onclick="checkPassword()">Submit</button>
-        </div>
-        <p id="error-message" class="error" style="display:none;">Incorrect password. Try again.</p>
+
 
         <!-- button to access homepage (hidden initially) -->
-        <div id="pwd-access-container" style="display:none;">
-            <button type="button" class="help-link-btn" onclick="window.location.href='index.html';">Go to
-                Homepage</button>
-        </div>
 
 
+        <section title="Codeword entry">
+            <div class="input-container" id="password-container">
+                <input type="text" class="text-input" id="password-input" placeholder="Enter password" size="35">
+                <button type="button" class="help-link-btn" onclick="checkPassword()">Submit</button>
+            </div>
+            <p id="error-message" class="error" style="display:none;">Incorrect password. Try again.</p>
 
 
+            <div id="pwd-access-container" style="display:none;">
+                <button type="button" class="help-link-btn" onclick="window.location.href='index.html';">Go to
+                    Homepage</button>
+            </div>
+
+        </section>
 
         <div id="menu-overlay" class="menu-overlay hidden"></div>
 

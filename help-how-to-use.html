@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Creature Seekers: Map</title>
@@ -13,87 +14,97 @@
 
 <body>
 
-<!-- top banner with icon, page title and burger menu -->
-<header class="floating-header" id="floating-header">
-    <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg" alt="" width="36" height="36"> </a>
-    <h2 class="site-title">Creature Seekers</h2>
-    <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
-        &#9776;
-    </button>
-</header>
+    <!-- top banner with icon, page title and burger menu -->
+    <header class="floating-header" id="floating-header">
+        <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg"
+                alt="" width="36" height="36"> </a>
+        <h2 class="site-title">Creature Seekers</h2>
+        <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
+            &#9776;
+        </button>
+    </header>
 
-<!-- Pull-out menu -->
-<nav id="dropdown-menu" aria-label="burger-menu">
-    <ul>
-        <li><a href="help-how-to-use.html">Help: how to use</a></li>
-        <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
-        <li><a href="feedback.html">Give feedback!</a></li>
-        <li><a href="issue-report.html">Report an issue</a></li>
-        <li><a href="settings.html">Settings</a></li>
-    </ul>
-</nav>
-
-
-<!-- Bottom Navigation Bar -->
-<nav class="bottom-nav" aria-label="main menu">
-    <a href="index.html" class="nav-option">
-        <div class="nav-icon"><img src="images/home-icon.svg" alt="" > </div>
-        <div class="label">Home</div>
-    </a>
-
-    <a href="profiles.html" class="nav-option">
-        <div class="nav-icon"><img src="images/profile-icon.svg" alt="" ></div>
-        <div class="label">Profiles</div>
-    </a>
-    <a href="codeword.html" class="nav-option">
-        <div class="nav-icon"><img src="images/codeword-icon.svg" alt="" ></div>
-        <div class="label">Codeword</div>
-    </a>
-
-    <a href="map.html" class="nav-option">
-        <div class="nav-icon"><img src="images/map-icon.svg" alt="" ></div>
-        <div class="label">Map</div>
-    </a>
-
-    <a href="quiz.html" class="nav-option">
-        <div class="nav-icon"><img src="images/quiz-icon.svg" alt="" ></div>
-        <div class="label">Quiz</div>
-    </a>
-</nav>
-
-<main>
-
-<!-- Page content -->
-
-<section>
-<h1>How does Creature Seekers work?</h1>
+    <!-- Pull-out menu -->
+    <nav id="dropdown-menu" aria-label="burger-menu">
+        <ul>
+            <li><a href="help-how-to-use.html">Help: how to use</a></li>
+            <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
+            <li><a href="feedback.html">Give feedback!</a></li>
+            <li><a href="issue-report.html">Report an issue</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
 
 
-<div id="how-to-use-list">
-    <h3><strong>Step 1</strong></h3>
-        <p>Around St Andrews Park this summer are six stations featuring insects which can be found locally, in different habitat areas.</p><p>You can follow the trail in the "Map" page, or explore in your way!</p>
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav" aria-label="main menu">
+        <a href="index.html" class="nav-option">
+            <div class="nav-icon"><img src="images/home-icon.svg" alt=""> </div>
+            <div class="label">Home</div>
+        </a>
 
-    <h3><strong>Step 2</strong></h3>
-        <p>At each station you'll find artwork and a <strong>codeword</strong> related to the insect you've found.</p>
+        <a href="profiles.html" class="nav-option">
+            <div class="nav-icon"><img src="images/profile-icon.svg" alt=""></div>
+            <div class="label">Profiles</div>
+        </a>
 
-    <h3><strong>Step 3</strong></h3>
-    <p>Go to the "Codeword" page and type in the unique codeword for that insect.</p>
+        <!-- codeword shown by default, feedback shown when all found-->
+        <a href="codeword.html" class="nav-option" id="progressNav">
+            <div class="nav-icon">
+                <img src="images/codeword-icon.svg" alt="" id="progressNavIcon">
+            </div>
+            <div class="label" id="progressNavLabel">Codeword</div>
+        </a>
 
-    <h3><strong>Step 4</strong></h3>
-    <p>You'll unlock full-colour art of that insect, plus a factfile about their life-cycle and how you can help them out in your area</p>
+        <a href="map.html" class="nav-option">
+            <div class="nav-icon"><img src="images/map-icon.svg" alt=""></div>
+            <div class="label">Map</div>
+        </a>
 
-    <h3><strong>Step 5</strong></h3>
-    <p>Complete the trail and unlock a quiz about the insects featured in the trail!</p>
+        <a href="quiz.html" class="nav-option">
+            <div class="nav-icon"><img src="images/quiz-icon.svg" alt=""></div>
+            <div class="label">Quiz</div>
+        </a>
+    </nav>
 
-    <h3><strong>Step 6</strong></h3>
-    <p>Good luck, have fun, enjoy creature seeking!</p>
-</div>
-</section>
+    <main>
 
-<div id="menu-overlay" class="menu-overlay hidden"></div>
+        <!-- Page content -->
 
-<script src="script.js"></script>
-</main>
+        <section>
+            <h1>How does Creature Seekers work?</h1>
+
+
+            <div id="how-to-use-list">
+                <h3><strong>Step 1</strong></h3>
+                <p>Around St Andrews Park this summer are six stations featuring insects which can be found locally, in
+                    different habitat areas.</p>
+                <p>You can follow the trail in the "Map" page, or explore in your way!</p>
+
+                <h3><strong>Step 2</strong></h3>
+                <p>At each station you'll find artwork and a <strong>codeword</strong> related to the insect you've
+                    found.</p>
+
+                <h3><strong>Step 3</strong></h3>
+                <p>Go to the "Codeword" page and type in the unique codeword for that insect.</p>
+
+                <h3><strong>Step 4</strong></h3>
+                <p>You'll unlock full-colour art of that insect, plus a factfile about their life-cycle and how you can
+                    help them out in your area</p>
+
+                <h3><strong>Step 5</strong></h3>
+                <p>Complete the trail and unlock a quiz about the insects featured in the trail!</p>
+
+                <h3><strong>Step 6</strong></h3>
+                <p>Good luck, have fun, enjoy creature seeking!</p>
+            </div>
+        </section>
+
+        <div id="menu-overlay" class="menu-overlay hidden"></div>
+
+        <script src="script.js"></script>
+    </main>
 
 </body>
+
 </html>

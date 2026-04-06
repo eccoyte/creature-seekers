@@ -127,23 +127,6 @@ body.darkmode #quiz-feedback-text.incorrect {
 
 }
 
-/* Text input styling */
-#password-input {
-    flex: 4;
-    /* input grows to fill extra space */
-    padding: 14px;
-    /* taller input */
-    border: 2px solid var(--colour-teal-primary);
-    border-radius: 6px;
-    font-size: 1rem;
-}
-
-#password-container button {
-    min-height: 48px;
-    /* recommended mobile tap height */
-    width: 100%;
-    /* full width when stacked */
-}
 
 
 /* --- Headers! --- */
@@ -206,7 +189,10 @@ body.darkmode #quiz-feedback-text.incorrect {
     margin: 0.2rem;
 }
 
-
+/* shows or hides the right menu item */
+.nav-hidden {
+    display: none !important;
+}
 
 
 
@@ -289,6 +275,52 @@ body.darkmode #quiz-feedback-text.incorrect {
     /* under the menu but above page */
 }
 
+
+/* --- Buttons! --- */
+button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 4px var(--shadow-soft);
+
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--colour-mantis-light);
+
+    box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
+/* Button styling */
+#submit-btn {
+    flex: 1;
+    padding: 14px 20px;
+    background-color: var(--colour-mantis-primary);
+    color: var(--colour-black-bean);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    /* keeps text on one line */
+    box-shadow: 0 2px 4px var(--shadow-soft);
+
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+#submit-btn:hover {
+    background-color: var(--colour-mantis-light);
+
+    box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
+#homepage-help-fbk-btn {
+    margin-bottom: 35px;
+}
 
 .info-box-btn-container {
     display: flex;
@@ -394,7 +426,7 @@ body.darkmode #quiz-feedback-text.incorrect {
 }
 
 /* Text input styling */
-#keyword-input {
+.text-input {
 
     /* input grows to fill extra space */
     flex: 4;
@@ -423,51 +455,6 @@ body.darkmode #quiz-feedback-text.incorrect {
     font-weight: bold;
 }
 
-/* --- Buttons! --- */
-button {
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Lato', Arial, sans-serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-    box-shadow: 0 2px 4px var(--shadow-soft);
-
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-button:hover {
-    background-color: var(--colour-mantis-light);
-
-    box-shadow: 0 4px 8px var(--shadow-medium);
-}
-
-/* Button styling */
-#submit-btn {
-    flex: 1;
-    padding: 14px 20px;
-    background-color: var(--colour-mantis-primary);
-    color: var(--colour-black-bean);
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    /* keeps text on one line */
-    box-shadow: 0 2px 4px var(--shadow-soft);
-
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-
-#submit-btn:hover {
-    background-color: var(--colour-mantis-light);
-
-    box-shadow: 0 4px 8px var(--shadow-medium);
-}
-
-#homepage-help-fbk-btn {
-    margin-bottom: 35px;
-}
 
 
 /* --- Bottom Navigation Bar --- */
