@@ -540,8 +540,6 @@ function initHomepage() {
 
     const homepageHexieText = document.getElementById('homepage-hexie-speech');
 
-    const codeQuizButton = document.getElementById('homepage-codeword-quiz-btn');
-    const helpFbkButton = document.getElementById('homepage-help-fbk-btn');
 
     if (!homepageHexieText) return;
 
@@ -549,32 +547,49 @@ function initHomepage() {
 
     homepageHexieText.innerHTML = homepageMessage.message;
 
-    if (!helpFbkButton || !codeQuizButton) return;
+}
 
-    if (foundCount === 0) {
+function initFlexiButtons() {
 
-        codeQuizButton.style.display = "inline-block";
-        codeQuizButton.textContent = "Enter a codeword";
-        codeQuizButton.href = "codeword.html";
+    const codeFbkButton = document.getElementById('codeword-fbk-btn');
+    const helpButton = document.getElementById('help-btn');
 
-        helpFbkButton.style.display = "inline-block";
-        helpFbkButton.textContent = "How does this work?";
-        helpFbkButton.href = "help-how-to-use.html";
 
-    } else if (foundCount < keyvalues.length) {
+    if (codeFbkButton) {
 
-        helpFbkButton.style.display = "none";
+        if (foundCount === 0) {
 
-    } else {
+            codeFbkButton.style.display = "inline-block";
+            codeFbkButton.textContent = "Found a codeword? Press here!";
+            codeFbkButton.href = "codeword.html";
 
-        codeQuizButton.style.display = "inline-block";
-        codeQuizButton.textContent = "Take the quiz";
-        codeQuizButton.href = "quiz.html";
+        } else if (foundCount < keyvalues.length) {
 
-        helpFbkButton.style.display = "inline-block";
-        helpFbkButton.textContent = "Give feedback";
-        helpFbkButton.href = "feedback.html";
+            codeFbkButton.textContent = "Enter a codeword";
+
+        } else {
+
+            codeFbkButton.style.display = "inline-block";
+            codeFbkButton.textContent = "Give feedback";
+            codeFbkButton.href = "feedback.html";
+
+        }
     }
+
+    if (helpButton) {
+        if (foundCount === 0) {
+
+            helpButton.style.display = "inline-block";
+            helpButton.textContent = "How does this work?";
+            helpButton.href = "help-how-to-use.html";
+
+        } else {
+
+            helpButton.style.display = "none";
+        }
+    }
+
+
 }
 
 // quiz setting initialisation
@@ -597,7 +612,7 @@ function initQuiz() {
     }
 }
 
-// one event listener at the bottom
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // progress and hex display initialisation
@@ -614,6 +629,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // homepage text and buttons initialisation
     initHomepage();
+
+    //initialise contextual buttons
+    initFlexiButtons();
 
     // quiz setting initialisation
     initQuiz();
