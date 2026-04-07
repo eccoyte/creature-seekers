@@ -287,14 +287,8 @@ button {
     font-size: 1.2rem;
     box-shadow: 0 2px 4px var(--shadow-soft);
 
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-button:hover {
-    background-color: var(--colour-mantis-light);
-
-    box-shadow: 0 4px 8px var(--shadow-medium);
-}
 
 /* Button styling */
 #submit-btn {
@@ -647,6 +641,18 @@ button:hover {
     margin-top: 0.5rem;
 }
 
+#how-to-use-list {
+    margin-bottom: 3rem;
+}
+
+
+.h3-list h3:not(:first-of-type) {
+    margin-top: 3rem;
+}
+
+.h3-list a {
+    color: var(--colour-teal-primary);
+}
 
 .profiles-container {
     max-width: 600px;

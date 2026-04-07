@@ -612,6 +612,28 @@ function initQuiz() {
     }
 }
 
+function initSurvey() {
+
+    const container = document.getElementById("survey-container");
+    const loading = document.getElementById("survey-loading");
+    const formId = container.dataset.formId;
+
+    // If this page doesn't have a survey, do nothing
+    if (!formId) return;
+
+    window.addEventListener("load", function () {
+        const script = document.createElement("script");
+        script.src = `https://form.jotform.com/jsform/${formId}`;
+
+        container.appendChild(script);
+
+        setTimeout(function () {
+
+            loading.style.display = "none";
+
+        }, 2500); // hide the loading message after 3 seconds, around the time it takes to load
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -635,5 +657,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // quiz setting initialisation
     initQuiz();
+
+    // survey initialisation
+    initSurvey();
 
 });

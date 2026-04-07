@@ -69,21 +69,22 @@
 
 
     <main>
+        <script src="script.js"></script>
 
         <section class="external-form-wrapper">
-            <script src="https://form.jotform.com/jsform/260584604930357"></script>
-            <p>If the form does not load after 10 seconds, please <a
-                    href="https://form.jotform.com/jsform/260584604930357" target="_blank">visit it directly here</a>.
-            </p>
+            <div id="survey-loading">
+                <h3>Loading feedback form. This may take a few seconds…</h3>
+            </div>
+            <div id="survey-container" data-form-id="260584604930357"><!-- to be added here--></div>
+            <div id="survey-back-up"></div>
+            <p>If the form does not load after 10 seconds, or if you prefer, please <a
+                    href="https://form.jotform.com/260584604930357" target="_blank">visit it directly here</a>.</p>
         </section>
-
-
 
         <div id="menu-overlay" class="menu-overlay hidden"></div>
 
-        <script src="script.js"></script>
-    </main>
 
+    </main>
 
 </body>
 
