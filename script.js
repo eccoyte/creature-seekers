@@ -486,18 +486,29 @@ function initMenu() {
         const headerHeight = header.offsetHeight;
 
         dropdownMenu.style.top = headerHeight + "px";
-
         dropdownMenu.classList.add("open");
+
+        dropdownMenu.setAttribute("aria-hidden", "false");
+        overlay.setAttribute("aria-hidden", "true");
+
         overlay.classList.remove("hidden");
         burger.setAttribute("aria-expanded", "true");
-        burger.innerHTML = "✖";
+        document.getElementById("burger-icon").textContent = "✖";
+
+        // move focus to first link
+        dropdownLinks[0].focus();
     }
 
     function closeMenu() {
         dropdownMenu.classList.remove("open");
+        dropdownMenu.setAttribute("aria-hidden", "true");
+
         overlay.classList.add("hidden");
         burger.setAttribute("aria-expanded", "false");
-        burger.innerHTML = "&#9776;";
+        document.getElementById("burger-icon").textContent = "☰";
+
+        // move focus to the burger menu
+        burger.focus();
     }
 
     burger.addEventListener("click", (e) => {
@@ -616,6 +627,9 @@ function initSurvey() {
 
     const container = document.getElementById("survey-container");
     const loading = document.getElementById("survey-loading");
+
+    if (!container) return;
+
     const formId = container.dataset.formId;
 
     // If this page doesn't have a survey, do nothing
@@ -629,7 +643,7 @@ function initSurvey() {
 
         setTimeout(function () {
 
-            loading.style.display = "none";
+            if (loading) { loading.style.display = "none"; }
 
         }, 2500); // hide the loading message after 3 seconds, around the time it takes to load
     });

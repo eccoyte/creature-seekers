@@ -4,7 +4,7 @@
     --colour-floral-off-white: #FFFBF4;
     --colour-almost-white: #FDFDFD;
     --colour-black-bean: #341407;
-    --colour-dark-walnut: #5A3117;
+    --colour-dark-walnut: #4D2E11;
 
     --colour-teal-primary: #008081;
     --colour-teal-light: #1fb3b3;
@@ -81,6 +81,11 @@ body.darkmode .pop-box h3 {
     color: var(--colour-teal-light);
 }
 
+body.darkmode .text-link {
+    color: var(--colour-teal-light);
+}
+
+
 body.darkmode .glow {
     background: radial-gradient(circle, rgba(204, 202, 61, 0.6) 0%, rgba(255, 255, 200, 0) 70%);
 }
@@ -125,6 +130,19 @@ body.darkmode #quiz-feedback-text.incorrect {
 .pwd-access-container {
     padding: 20px;
 
+}
+
+/* --- category for screen-reader only elements --- */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
 }
 
 
@@ -650,7 +668,7 @@ button {
     margin-top: 3rem;
 }
 
-.h3-list a {
+.text-link {
     color: var(--colour-teal-primary);
 }
 

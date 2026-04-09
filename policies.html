@@ -3,19 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Creature Seekers: Feedback</title>
+    <title>Creature Seekers: Map</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="images/svg" href="images/hexie-favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 
+
 <body>
-
-
-    <!-- top banner with icon, page title and burger menu -->
     <!-- top banner with icon, page title and burger menu -->
     <header class="floating-header" id="floating-header">
         <a href="index.html" class="header-link" id="logo-link" aria-label="Home">
@@ -40,13 +37,10 @@
             <li><a href="settings.html">Settings</a></li>
         </ul>
     </nav>
-
-
-
     <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav" aria-label="main menu">
         <a href="index.html" class="nav-option">
-            <div class="nav-icon"><img src="images/home-icon.svg" alt=""> </div>
+            <div class="nav-icon"><img src="images/home-icon.svg" alt=""></div>
             <div class="label">Home</div>
         </a>
 
@@ -73,28 +67,38 @@
             <div class="label">Quiz</div>
         </a>
     </nav>
-
-
     <main>
-        <script src="script.js"></script>
+        <!-- Page content -->
 
-        <section class="external-form-wrapper">
-            <div id="survey-loading">
-                <h3>Loading feedback form. This may take a few seconds…</h3>
-            </div>
-            <div id="survey-container" data-form-id="260955199353367"><!-- to be added here--></div>
-            <div id="survey-back-up">
-                <p>If the form does not load after 10 seconds, or if you prefer, please <a
-                        href="https://form.jotform.com/260955199353367" target="_blank" rel="noopener noreferrer"
-                        class="text-link">visit it directly here</a>.</p>
-            </div>
+        <section>
+            <h2>Data and privacy</h2>
+
+            <p>
+                Creature Seekers does not use any analytics tools or cookies to monitor users. Additionally, no personal
+                data is
+                collected, stored or processed by Creature Seekers.</p>
+            <p>Some pages contain embedded surveys hosted by a third-party service (Jotform), which may set cookies and
+                process data necessary to provide the service, according to their own <a
+                    href="https://www.jotform.com/privacy/" target="_blank" rel="noopener noreferrer"> privacy
+                    policy<span class="visually-hidden"> (opens in a new tab)</span></a>. These surveys are optional,
+                anonymous and do not collect personally identifiable data.</p>
+        </section>
+
+        <section>
+            <h2>Accessibility</h2>
+            <p>
+                This site was designed with accessibility in mind, including
+                responsive design, keyboard navigation, colour choices and more. If you have accessibility needs which
+                are not being met,
+                please use the
+                <a href="issue-report.html"> Issue Report</a> form.
+            </p>
         </section>
 
         <div id="menu-overlay" class="menu-overlay hidden"></div>
 
-
+        <script src="script.js"></script>
     </main>
-
 </body>
 
 </html>

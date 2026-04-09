@@ -16,20 +16,24 @@
 
     <!-- top banner with icon, page title and burger menu -->
     <header class="floating-header" id="floating-header">
-        <a href="index.html" class="header-link" id="logo-link" aria-label="Home"> <img src="images/hexie-favicon.svg"
-                alt="" width="36" height="36"> </a>
+        <a href="index.html" class="header-link" id="logo-link" aria-label="Home">
+            <img src="images/hexie-favicon.svg" alt="" width="36" height="36">
+        </a>
         <h2 class="site-title">Creature Seekers</h2>
         <button type="button" class="header-link" id="burger" aria-expanded="false" aria-controls="dropdown-menu">
-            &#9776;
+            <span aria-hidden="true" id="burger-icon">☰</span>
+            <span class="visually-hidden">Main menu</span>
         </button>
     </header>
 
+
     <!-- Pull-out menu -->
-    <nav id="dropdown-menu" aria-label="burger-menu">
+    <nav id="dropdown-menu" aria-label="dropdown-menu">
         <ul>
-            <li><a href="help-how-to-use.html">Help: how to use</a></li>
-            <li><a href="about-trail-faqs.html">About info and FAQs</a></li>
-            <li><a href="feedback.html">Give feedback!</a></li>
+            <li><a href="help-how-to-use.html">Help! How to use</a></li>
+            <li><a href="about-info.html">About info</a></li>
+            <li><a href="policies.html">Privacy and accessbility</a></li>
+            <li><a href="feedback.html">Give feedback</a></li>
             <li><a href="issue-report.html">Report an issue</a></li>
             <li><a href="settings.html">Settings</a></li>
         </ul>
@@ -78,7 +82,8 @@
             <div id="survey-container" data-form-id="260584604930357"><!-- to be added here--></div>
             <div id="survey-back-up"></div>
             <p>If the form does not load after 10 seconds, or if you prefer, please <a
-                    href="https://form.jotform.com/260584604930357" target="_blank">visit it directly here</a>.</p>
+                    href="https://form.jotform.com/260584604930357" target="_blank" rel="noopener noreferrer"
+                    class="text-link">visit it directly here</a>.</p>
         </section>
 
         <div id="menu-overlay" class="menu-overlay hidden"></div>
