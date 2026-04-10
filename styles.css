@@ -295,7 +295,21 @@ body.darkmode #quiz-feedback-text.incorrect {
 
 
 /* --- Buttons! --- */
+
 button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 4px var(--shadow-soft);
+
+}
+
+
+.link-button {
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -332,6 +346,10 @@ button {
 
 #help-btn {
     margin-bottom: 35px;
+}
+
+#index-btn {
+    margin-top: 1.5rem;
 }
 
 .info-box-btn-container {
@@ -1202,7 +1220,7 @@ p[data-field="sciname"] {
 
 #quiz-feedback-text {
     font-weight: bold;
-
+    font-size: 1.1rem;
     opacity: 0;
     transition: opacity 0.2s ease;
 }
