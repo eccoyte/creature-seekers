@@ -74,31 +74,33 @@
 
     <main>
 
+        <h1 class="visually-hidden">Settings</h1>
+        <div class="h2-list">
+            <section>
+                <h2>Dark mode </h2>
 
-        <section>
-            <h2>Dark mode </h2>
+                <p>Use this to change some colour setting to make it darker or brighter.</p>
 
-            <p>Use this to change some colour setting to make it darker or brighter.</p>
+                <button type="button" class="settings-button" id="darkmode-btn" onclick="toggleDarkmode()">Turn dark
+                    mode
+                    on/off</button>
+            </section>
+            <section>
+                <h2>Reset progress</h2>
 
-            <button type="button" class="settings-button" id="darkmode-btn" onclick="toggleDarkmode()">Turn dark mode
-                on/off</button>
-        </section>
-        <section>
-            <h2>Reset progress</h2>
+                <p>CAUTION: This will remove all found keywords, and cannot be undone.</p>
 
-            <p>CAUTION: This will remove all found keywords, and cannot be undone.</p>
+                <div class="more-info-details" id="reset-details">
+                    <details>
+                        <summary>Show/hide reset button</summary>
+                        <p>Only click if you are sure. There will not be a second confirmation message.</p>
 
-            <div class="more-info-details" id="reset-details">
-                <details>
-                    <summary>Show/hide reset button</summary>
-                    <p>Only click if you are sure. There will not be a second confirmation message.</p>
-
-                    <button type="button" class="settings-button" id="reset-btn" onclick="handleReset()">Reset found
-                        words</button>
-                </details>
-            </div>
-        </section>
-
+                        <button type="button" class="settings-button" id="reset-btn" onclick="handleReset()">Reset found
+                            words</button>
+                    </details>
+                </div>
+            </section>
+        </div>
 
 
         <div id="menu-overlay" class="menu-overlay hidden"></div>

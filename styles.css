@@ -33,6 +33,9 @@
     --shadow-strong: rgba(0, 0, 0, 0.5);
     --shadow-very-strong: rgba(0, 0, 0, 0.8);
 
+    /* other stuff */
+    --bottom-nav-spacing: 63px;
+
     --profile-tab-indicator-size: 0.75rem;
     --profile-tab-indicator-gap: 0.4rem;
     --profile-tab-line-thickness: 0.15rem;
@@ -44,8 +47,11 @@ body {
     color: var(--colour-black-bean);
     font-family: 'Lato', Arial, sans-serif;
     font-size: 1rem;
-    padding-top: 60px;
-    padding-bottom: 60px;
+
+    /* pading around top and bottom menu bars */
+    padding-top: 65px;
+    padding-bottom: 105px;
+
     padding-left: 20px;
     padding-right: 20px;
     max-width: 600px;
@@ -59,6 +65,11 @@ body h1 {
     font-size: 1.6rem;
     font-weight: bold;
     margin: 0.8rem;
+}
+
+body p {
+
+    line-height: 1.4;
 }
 
 
@@ -121,9 +132,6 @@ body.darkmode #quiz-feedback-text.incorrect {
 :focus:not(:focus-visible) {
     outline: none;
 }
-
-
-
 
 /* --- Password section - to be removed for release! --- */
 
@@ -342,10 +350,6 @@ button {
     background-color: var(--colour-mantis-light);
 
     box-shadow: 0 4px 8px var(--shadow-medium);
-}
-
-#help-btn {
-    margin-bottom: 35px;
 }
 
 #index-btn {
@@ -677,14 +681,15 @@ button {
     margin-top: 0.5rem;
 }
 
-#how-to-use-list {
-    margin-bottom: 3rem;
-}
-
-
 .h3-list h3:not(:first-of-type) {
     margin-top: 3rem;
 }
+
+
+.h2-list section:not(:first-of-type) {
+    margin-top: 3rem;
+}
+
 
 .text-link {
     color: var(--colour-teal-primary);
@@ -730,7 +735,6 @@ button {
 
 .profile-content p {
     margin: 0 0 8px 0;
-    line-height: 1.4;
     margin-bottom: 1rem;
 }
 
@@ -809,11 +813,6 @@ p[data-field="sciname"] {
     width: 100%;
     /* forces subtitle onto its own line */
     display: block;
-}
-
-
-.profile.last {
-    margin-bottom: 2.8rem;
 }
 
 
@@ -1382,8 +1381,9 @@ p[data-field="sciname"] {
 .more-info-details summary {
     color: var(--colour-black-bean);
     font-weight: bold;
-    margin: -0.5em -0.5em 0;
-    padding: 0.5em;
+    font-size: 1.1rem;
+    margin: -0.5rem -0.5rem 0;
+    padding: 0.8rem 0.5rem;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
@@ -1410,7 +1410,7 @@ p[data-field="sciname"] {
 #route-details details {
 
     margin-top: 30px;
-    margin-bottom: 80px;
+    margin-bottom: 30px;
 }
 
 
@@ -1421,12 +1421,6 @@ p[data-field="sciname"] {
     margin-bottom: 60px;
 }
 
-.form-iframe {
-    width: 100%;
-    height: 90vh;
-    border: 0;
-    margin-bottom: 50px;
-}
 
 
 /* Responsiveness */
