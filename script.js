@@ -1,5 +1,5 @@
 // authentication - to be removed upon release
-const ENABLE_AUTH = false;
+const ENABLE_AUTH = true;
 
 // if on, "care about authentication"
 if (ENABLE_AUTH) {
