@@ -162,14 +162,19 @@ body.darkmode #quiz-feedback-text.incorrect {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+
     width: 100%;
     max-width: 600px;
+
     padding: 0 20px;
+
     background-color: var(--colour-almost-white);
     border-bottom: 3px solid var(--colour-teal-primary);
-    display: flex;
-    justify-content: space-between;
+
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
     align-items: center;
+
     z-index: 999;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -179,7 +184,7 @@ body.darkmode #quiz-feedback-text.incorrect {
 .header-link {
     display: flex;
     align-items: center;
-
+    justify-content: center;
     background: none;
 
     border: none;
@@ -212,7 +217,9 @@ body.darkmode #quiz-feedback-text.incorrect {
     font-size: 1.4em;
     font-weight: bold;
     color: var(--colour-black-bean);
-    margin: 0.2rem;
+
+    text-align: center;
+    margin: 0;
 }
 
 /* shows or hides the right menu item */
@@ -306,7 +313,7 @@ body.darkmode #quiz-feedback-text.incorrect {
 
 button {
     border: none;
-    padding: 10px 15px;
+    padding: 15px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-family: 'Lato', Arial, sans-serif;
@@ -314,92 +321,110 @@ button {
     font-size: 1.2rem;
     box-shadow: 0 2px 4px var(--shadow-soft);
 
+    transition: box-shadow 0.2s ease;
 }
 
-
-.link-button {
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Lato', Arial, sans-serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-    box-shadow: 0 2px 4px var(--shadow-soft);
-
+button:hover:not(:disabled) {
+    box-shadow: 0 4px 8px var(--shadow-medium);
 }
 
+/* makes clicking / tapping satisfying */
+button:active:not(:disabled) {
+    transform: scale(0.96);
+}
 
-/* Button styling */
 #submit-btn {
     flex: 1;
-    padding: 14px 20px;
     background-color: var(--colour-mantis-primary);
     color: var(--colour-black-bean);
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    /* keeps text on one line */
-    box-shadow: 0 2px 4px var(--shadow-soft);
 
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    /* keeps text on one line */
+    white-space: nowrap;
+    transition: background-color 0.3s ease,
+
 }
 
 
 #submit-btn:hover {
     background-color: var(--colour-mantis-light);
 
+}
+
+
+/* all internal links styled like buttons */
+.link-button {
+
+    width: fit-content;
+
+    border: none;
+    border-radius: 5px;
+
+    margin: 0 auto;
+    padding: 15px 20px;
+
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    box-shadow: 0 2px 4px var(--shadow-soft);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+
+}
+
+.link-button:hover {
     box-shadow: 0 4px 8px var(--shadow-medium);
 }
+
+/* makes clicking / tapping satisfying */
+.link-button:active {
+    transform: scale(0.96);
+}
+
+.link-button::after {
+    content: "➜";
+    display: inline-block;
+    margin-left: 0.6em;
+
+    /* makes it feel a bit more “button-like” */
+    transition: transform 0.15s ease;
+}
+
+/* subtle movement on hover  */
+.link-button:hover::after {
+    transform: translateX(3px);
+}
+
+
+
+.codeword-link-btn {
+    background-color: var(--colour-mantis-primary);
+    color: var(--colour-black-bean);
+}
+
+.codeword-link-btn:hover {
+    background-color: var(--colour-mantis-light);
+}
+
 
 #index-btn {
     margin-top: 1.5rem;
 }
 
-.info-box-btn-container {
+/* Buttons on the settings page */
+.settings-button {
+    background-color: var(--colour-teal-primary);
+    color: var(--colour-almost-white);
+}
+
+
+.link-button-container {
     display: flex;
-    padding-bottom: 20px;
+    padding: 15px;
 }
 
-
-.codeword-btn-container {
-    padding: 20px;
-}
-
-.codeword-link-btn {
-    display: block;
-    /* full-width element */
-    width: fit-content;
-    /* shrink to the button's content */
-    margin: 0 auto;
-    /* centers horizontally */
-
-    background-color: var(--colour-mantis-primary);
-    color: var(--colour-black-bean);
-
-    font-family: 'Lato', Arial, sans-serif;
-    font-size: 1.2em;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    padding: 15px 20px;
-    text-decoration: none;
-    cursor: pointer;
-
-    box-shadow: 0 2px 4px var(--shadow-soft);
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
-}
-
-.codeword-link-btn:hover {
-    background-color: var(--colour-mantis-light);
-    box-shadow: 0 4px 8px var(--shadow-medium);
-}
-
-/* TO DO - make this happen to all buttons - have global class, but beware some are <a> links */
-/* makes clicking / tapping satisfying */
-.codeword-link-btn:active {
-    transform: scale(0.96);
-}
 
 
 .help-link-btn {
@@ -1186,14 +1211,12 @@ p[data-field="sciname"] {
 .quiz-option-btn {
     min-height: 4.5rem;
     font-size: 0.95rem;
+    width: 100%;
+
     background: var(--colour-almost-white);
     color: var(--colour-black-bean);
-    width: 100%;
     border: 2px solid var(--colour-teal-primary);
     padding: 1.0rem 0.5rem;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
     transition: all 0.2s ease;
 }
 
@@ -1239,9 +1262,7 @@ p[data-field="sciname"] {
 #quiz-next-btn {
     background: var(--colour-teal-primary);
     color: var(--colour-almost-white);
-    border: 0;
-    padding: 10px 35px;
-    border-radius: 5px;
+    padding: 12px 35px;
 
 }
 
@@ -1286,7 +1307,6 @@ p[data-field="sciname"] {
 .quiz-incorrect {
     background: #D07E80;
     border-color: var(--colour-grey-3);
-    position: relative;
     color: var(--colour-grey-4);
 }
 
@@ -1296,6 +1316,7 @@ p[data-field="sciname"] {
     background-color: var(--colour-grey-1);
     border-color: var(--colour-grey-3);
     color: var(--colour-grey-4);
+
 
 }
 

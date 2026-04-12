@@ -1,6 +1,6 @@
 // this whole page will be removed when the site is live
 
-const pwdCorrect = "mothra5678"; // if you're seeing this - enjoy perusing the code but please don't do anything mean!
+const pwdCorrect = "mMthra5678"; // if you're seeing this - enjoy perusing the code but please don't do anything mean!
 
 
 
@@ -12,7 +12,7 @@ function checkPassword() {
     const accessContainer = document.getElementById("pwd-access-container");
 
     // clear the error message first, if one is present
-    errorMessage.style.display = "none"; 
+    errorMessage.style.display = "none";
 
     if (pwdInput === pwdCorrect) {
 
@@ -20,10 +20,10 @@ function checkPassword() {
         sessionStorage.setItem("authenticated", "true");
 
         // change what appears on the screen
-        passwordContainer.style.display = "none"; 
-        accessContainer.style.display = "block"; 
+        passwordContainer.style.display = "none";
+        accessContainer.style.display = "block";
     } else {
-        errorMessage.style.display = "block"; 
+        errorMessage.style.display = "block";
     }
 }
 

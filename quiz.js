@@ -5,67 +5,67 @@ const questions = [
         fullimgsrc: "images/ivy-bee-fullcolour-hex.svg",
         question: "In which season does ivy produce the most flowers, loved by <i>ivy bees</i>?",
         answers: [
-            {text: "Autumn e.g. September to November", correct: true},
-            {text: "Spring e.g. March to May", correct: false},
-            {text: "Summer e.g. June to August", correct: false},
-            {text: "Winter e.g. December to February", correct: false}
+            { text: "Autumn e.g. September to November", correct: true },
+            { text: "Spring e.g. March to May", correct: false },
+            { text: "Summer e.g. June to August", correct: false },
+            { text: "Winter e.g. December to February", correct: false }
         ],
-        feedback: {correct: "Bee-autiful!", incorrect: "Incorrect"}
+        feedback: { correct: "Bee-autiful!", incorrect: "Incorrect" }
     },
     {
         fullimgsrc: "images/lesser-stag-beetle-fullcolour-hex.svg",
         question: "Which of these piles would be the most help to <i>lesser stag beetles</i>?",
         answers: [
-            {text: "Untreated wood", correct: true},
-            {text: "Loamy soil", correct: false},
-            {text: "Food scraps", correct: false},
-            {text: "Deer droppings", correct: false}
+            { text: "Untreated wood", correct: true },
+            { text: "Loamy soil", correct: false },
+            { text: "Food scraps", correct: false },
+            { text: "Deer droppings", correct: false }
         ],
-        feedback: {correct: "Nice work!", incorrect: "That's not right"}
+        feedback: { correct: "Nice work!", incorrect: "That's not right" }
     },
     {
         fullimgsrc: "images/green-shield-bug-fullcolour-hex.svg",
         question: "Where do <i>green shield bugs</i> like to lay their eggs?",
         answers: [
-            {text: "On the underside of leaves", correct: true},
-            {text: "Deep under the ground", correct: false},
-            {text: "Near shallow fresh water", correct: false},
-            {text: "Inside medieval armour", correct: false}
+            { text: "On the underside of leaves", correct: true },
+            { text: "Deep under the ground", correct: false },
+            { text: "Near shallow fresh water", correct: false },
+            { text: "Inside medieval armour", correct: false }
         ],
-        feedback: {correct: "Egg-cellent!", incorrect: "Not this one"}
+        feedback: { correct: "Egg-cellent!", incorrect: "Not this one" }
     },
     {
         fullimgsrc: "images/darter-dragonfly-fullcolour-hex.svg",
         question: "What are juveniles of the <i>common darter dragonfly</i> called?",
         answers: [
-            {text: "Nymphs", correct: true},
-            {text: "Griffins", correct: false},
-            {text: "Wyverns", correct: false},
-            {text: "Pixies", correct: false}
+            { text: "Nymphs", correct: true },
+            { text: "Griffins", correct: false },
+            { text: "Wyverns", correct: false },
+            { text: "Pixies", correct: false }
         ],
-        feedback: {correct: "Awesome!", incorrect: "Alas, no"}
+        feedback: { correct: "Awesome!", incorrect: "Alas, no" }
     },
     {
         fullimgsrc: "images/marmalade-hoverfly-fullcolour-hex.svg",
         question: "What is the favourite food of <i>marmalade hoverfly</i> larvae?",
         answers: [
-            {text: "Aphids", correct: true},
-            {text: "Compost", correct: false},
-            {text: "Jam", correct: false},
-            {text: "Ants", correct: false}
+            { text: "Aphids", correct: true },
+            { text: "Compost", correct: false },
+            { text: "Jam", correct: false },
+            { text: "Ants", correct: false }
         ],
-        feedback: {correct: "Sweet!", incorrect: "Not quite"}
+        feedback: { correct: "Sweet!", incorrect: "Not quite" }
     },
     {
         fullimgsrc: "images/mint-moth-fullcolour-hex.svg",
         question: "Why do <i>mint moths</i> have this name?",
         answers: [
-            {text: "The caterpillars feed on herbs including mint", correct: true},
-            {text: "The adults make a minty smell when disturbed", correct: false},
-            {text: "The adults sometimes steal breath mints", correct: false},
-            {text: "The caterpillars are a minty green colour", correct: false}
+            { text: "The caterpillars feed on herbs including mint", correct: true },
+            { text: "The adults make a minty smell when disturbed", correct: false },
+            { text: "The adults sometimes steal breath mints", correct: false },
+            { text: "The caterpillars are a minty green colour", correct: false }
         ],
-        feedback: {correct: "You got it!", incorrect: "Sadly not"}
+        feedback: { correct: "You got it!", incorrect: "Sadly not" }
     }
 ];
 
@@ -80,8 +80,8 @@ const hexieText = document.querySelector("#quiz-hexie-help .hexie-text");
 
 // 12 possible answer combinations to pick between randomly.
 const questionOrders = [
-    [2, 0, 5, 1, 4, 3], [4, 1, 3, 5, 0, 2], [1, 5, 0, 4, 3, 2], [3, 2, 1, 0, 5, 4], 
-    [5, 4, 2, 3, 1, 0], [0, 3, 4, 2, 5, 1], [1, 0, 5, 3, 4, 2], [4, 2, 0, 1, 3, 5], 
+    [2, 0, 5, 1, 4, 3], [4, 1, 3, 5, 0, 2], [1, 5, 0, 4, 3, 2], [3, 2, 1, 0, 5, 4],
+    [5, 4, 2, 3, 1, 0], [0, 3, 4, 2, 5, 1], [1, 0, 5, 3, 4, 2], [4, 2, 0, 1, 3, 5],
     [3, 5, 1, 4, 2, 0], [5, 1, 3, 0, 2, 4], [2, 4, 0, 5, 1, 3], [0, 5, 2, 3, 4, 1]
 ];
 
@@ -110,12 +110,12 @@ function startQuiz() {
     score = 0;
 
     if (quizState === "front") {
-        hexieText.innerHTML = "<p>You have completed the Creature Seekers trail!</p><p>You can now start the quiz on all the insects you found.</p>";
+        hexieText.innerHTML = "<p>You have completed the Creature Seekers trail!</p><p>You can now start the quiz on all the insects you found.</p><p>Hexie hint: All the answers can be found within the Profiles page!</p>";
 
-        resetState(); 
-        nextButton.disabled = false; 
-        nextButton.innerHTML = "Start Quiz";
-    } 
+        resetState();
+        nextButton.disabled = false;
+        nextButton.innerHTML = "Start quiz!";
+    }
 };
 
 function showQuestion() {
@@ -123,23 +123,23 @@ function showQuestion() {
     let currentQuestion = questions[selectedQuestionOrder[currentQuestionIndex]];
     selectedAnswerOrder = answerOrders[Math.floor(Math.random() * answerOrders.length)];
     let questionNo = currentQuestionIndex + 1;
-    
+
     // write question text with number
     questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
 
-        const quizImage = document.querySelector("#quiz-question-img img");
+    const quizImage = document.querySelector("#quiz-question-img img");
     quizImage.src = currentQuestion.fullimgsrc;
-    
+
 
     // generate the answer buttons
     // loop through answers in the selected random order
     selectedAnswerOrder.forEach(i => {
-        let answer = currentQuestion.answers[i]; 
+        let answer = currentQuestion.answers[i];
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("quiz-option-btn");
         answerButtons.appendChild(button);
-        if(answer.correct) {
+        if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
         button.addEventListener("click", selectAnswer);
@@ -156,11 +156,11 @@ function showQuestion() {
 // removes other questions
 function resetState() {
     const hexieFace = document.getElementById("quiz-feedback-hexie")
-    
+
     // keep Next button always visible but disabled
     nextButton.disabled = true;
 
-    while(answerButtons.firstChild) {
+    while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild)
     }
     // hide feedback and remove classes
@@ -178,16 +178,16 @@ function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     const hexieFace = document.getElementById("quiz-feedback-hexie");
-    
+
     // adds the coloration etc based on correctness
     if (isCorrect) {
         selectedBtn.classList.add("quiz-correct");
-        
+
         score += 1;
     } else {
         selectedBtn.classList.add("quiz-incorrect");
     }
-    
+
     // add the relevant feedback
     let currentQuestion = questions[selectedQuestionOrder[currentQuestionIndex]];
 
@@ -210,18 +210,18 @@ function selectAnswer(e) {
 
     // automatically mark and style the options after answering
     Array.from(answerButtons.children).forEach(button => {
-        if(button.dataset.correct === "true") {
+        if (button.dataset.correct === "true") {
             button.classList.add("quiz-correct", "pulse");
             setTimeout(() => button.classList.remove("pulse"), 500);
         }
 
         if (button !== selectedBtn && !button.classList.contains("quiz-correct")) {
-        button.classList.add("dimmed"); // grey out unselected, incorrect buttons
-    }
+            button.classList.add("dimmed"); // grey out unselected, incorrect buttons
+        }
         // stops further clicking on button
         button.disabled = true;
     });
-        // enable Next button
+    // enable Next button
     nextButton.disabled = false;
 }
 
@@ -231,10 +231,10 @@ function selectAnswer(e) {
 function handleNextButton() {
     if (quizState === "front") {
 
-    // hide hexie intro
-    // show quiz elements when quiz begins
-    quizApp.classList.remove("quiz-front", "quiz-end");
-    quizApp.classList.add("quiz-active");
+        // hide hexie intro
+        // show quiz elements when quiz begins
+        quizApp.classList.remove("quiz-front", "quiz-end");
+        quizApp.classList.add("quiz-active");
 
         // move from front page to quiz
         quizState = "inProgress";
@@ -256,7 +256,7 @@ function handleNextButton() {
     } else {
         showScore();
         quizState = "front"; // allow "Play Again"
-        nextButton.innerHTML = "Play Again";
+        nextButton.innerHTML = "Play again!";
         nextButton.disabled = false;
     }
 }
@@ -271,9 +271,9 @@ function showScore() {
     scoreMessage = `<p>You scored:</p><h2>${score} out of ${questions.length}</h2></p>`
 
     if (score == 0) {
-        scoreMessage += "<p>Check out the creature profiles page to see what you missed, and try again!</p>"; 
+        scoreMessage += "<p>Check out the creature profiles page to see what you missed, and try again!</p>";
     } else if (score < questions.length - 1) {
-        scoreMessage += "<p>Partly right! Check out the creature profiles page to see what you missed, and try again!</p>"; 
+        scoreMessage += "<p>Partly right! Check out the creature profiles page to see what you missed, and try again!</p>";
     } else if (score === questions.length - 1) {
         scoreMessage += "<p>Nearly there! Check out the creature profiles page to see what you missed, and try again!</p>";
     } else {
@@ -282,11 +282,11 @@ function showScore() {
 
     // update what Hexie says, and the button
     hexieText.innerHTML = scoreMessage;
-    nextButton.innerHTML = "Play again";
+    nextButton.innerHTML = "Play again!";
 
     // reset image back to mystery hex
     const quizImage = document.querySelector("#quiz-question-img img");
-    quizImage.src = "images/mystery-bug-animation-hex.svg"; 
+    quizImage.src = "images/mystery-bug-animation-hex.svg";
 
     // enable the button so user can click it
     nextButton.disabled = false;

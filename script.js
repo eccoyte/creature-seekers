@@ -137,7 +137,9 @@ function updateDisplay() {
 function handleReset() {
     keyvalues.forEach(item => item.found = false);
     localStorage.clear();
+    loadProgress();
     updateDisplay();
+    initSettings();
 }
 
 // bottom nav menu setting - codeword when not all found, feedback when all found
@@ -405,10 +407,9 @@ document.addEventListener("click", function (e) {
 
 function getHomepageTextMessages() {
 
-    // Determine message
     if (foundCount === 0) {
         return {
-            message: "<h2>Welcome to Creature Seekers!</h2><p>I'm Hexie, your guide. Find all six Creature Seeker stations in St Andrew's Park, and get to know some lovely little local insects!</p>",
+            message: "<h2>Welcome to Creature Seekers!</h2><p>I'm Hexie, your guide!</p><p>Find all six Creature Seeker stations in St Andrews Park, and get to know some lovely little local insects!</p>",
         };
     } else if (foundCount < keyvalues.length) {
         return {
@@ -416,11 +417,16 @@ function getHomepageTextMessages() {
         };
     } else {
         return {
-            message: "<p>Hooray! You've found every creature on the trail!</p><p>Next, check out the quiz, and please tell us your thoughts about Creature Seekers.</p>",
+            message: "<p>Hooray! You've found every creature on the trail!</p><p>Hexie hint: Next, check out the quiz, and please tell us your thoughts about Creature Seekers on the feedback page.</p>",
         };
     }
 }
 
+
+function getProgressMessage() {
+
+    return `<p><i>Progress: <b>${foundCount}</b> out of <b>${keyvalues.length}</b> codewords currently found</i></p>`;
+}
 
 
 //QUIZ SETTINGS
@@ -603,6 +609,14 @@ function initFlexiButtons() {
 
 }
 
+function initSettings() {
+    const progressMsg = document.getElementById("progress-message");
+
+    if (progressMsg) {
+        progressMsg.innerHTML = getProgressMessage();
+    }
+}
+
 // quiz setting initialisation
 function initQuiz() {
 
@@ -668,6 +682,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //initialise contextual buttons
     initFlexiButtons();
+
+    // initialise settings page
+    initSettings()
 
     // quiz setting initialisation
     initQuiz();
