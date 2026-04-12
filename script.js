@@ -3,8 +3,8 @@ const ENABLE_AUTH = true;
 
 // if on, "care about authentication"
 if (ENABLE_AUTH) {
-    const publicPages = ["/login.html"];
-    const currentPage = window.location.pathname;
+    const publicPages = ["/", "/login.html"];
+    const currentPage = window.location.pathname.replace(/\/+$/, "") || "/";
 
     // this value is set in the other script
     const isAuthenticated = sessionStorage.getItem("authenticated") === "true";
