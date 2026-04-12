@@ -1,6 +1,6 @@
 // this whole page will be removed when the site is live
 
-const pwdCorrect = "mMthra5678"; // if you're seeing this - enjoy perusing the code but please don't do anything mean!
+const pwdCorrect = "Mothra5678"; // if you're seeing this - enjoy perusing the code but please don't do anything mean!
 
 
 
