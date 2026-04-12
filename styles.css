@@ -88,7 +88,7 @@ body.darkmode .pop-box {
 }
 
 
-body.darkmode .pop-box h3 {
+body.darkmode .profile-content h3 {
     color: var(--colour-teal-light);
 }
 
@@ -781,6 +781,8 @@ p[data-field="sciname"] {
     font-style: italic;
     margin-top: 0.3rem;
 }
+
+
 
 /* Highlight profiles that have been found */
 .profile.found {
