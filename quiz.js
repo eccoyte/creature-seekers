@@ -10,7 +10,7 @@ const questions = [
             { text: "Summer e.g. June to August", correct: false },
             { text: "Winter e.g. December to February", correct: false }
         ],
-        feedback: { correct: "Bee-autiful!", incorrect: "Incorrect" }
+        feedback: { correct: "Bee-autiful!", incorrect: "Wrong season" }
     },
     {
         fullimgsrc: "images/lesser-stag-beetle-fullcolour-hex.svg",
