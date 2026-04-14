@@ -133,12 +133,12 @@ body.darkmode #quiz-feedback-text.incorrect {
     outline: none;
 }
 
-/* --- Password section - to be removed for release! --- */
-
-.pwd-access-container {
-    padding: 20px;
-
+/* --- keeps images to the height of their container - needed for Safari --- */
+.hex img {
+    max-width: 100%;
+    height: auto;
 }
+
 
 /* --- category for screen-reader only elements --- */
 .visually-hidden {
@@ -154,6 +154,13 @@ body.darkmode #quiz-feedback-text.incorrect {
 }
 
 
+
+/* --- Password section - to be removed for release! --- */
+
+.pwd-access-container {
+    padding: 20px;
+
+}
 
 /* --- Headers! --- */
 
