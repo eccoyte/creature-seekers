@@ -162,7 +162,7 @@ function updateBottomNav() {
 }
 
 
-function triggerConfetti() {
+function triggerConfetti(confettiSize) {
     const container = document.querySelector(".confetti-container");
     if (!container) return;
 
@@ -175,7 +175,8 @@ function triggerConfetti() {
         "#A0C4FF"
     ];
 
-    const count = 24; // keep low for performance
+    const count = confettiSize === "large" ? 36 : 24;
+
 
     for (let i = 0; i < count; i++) {
         const piece = document.createElement("div");
@@ -289,7 +290,7 @@ function showRewardModal(item) {
                 // trigger animations
                 full.classList.add("animate-full");
 
-                triggerConfetti();
+                triggerConfetti("small");
             }, { once: true });
 
         }, 900);

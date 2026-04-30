@@ -15,10 +15,12 @@
 
     --colour-error-darker: #971111;
     --colour-error-lighter: #D07E80;
-    /* Old rose */
+    --colour-error-lightest: #FFF3F3;
 
     --colour-success-darker: #2e7d32;
     --colour-success-lighter: #73d478;
+    --colour-success-lightest: #F3FFF3;
+    ;
 
     --colour-grey-1: #f0f0f0;
     --colour-grey-2: #d3d3d3;
@@ -1327,6 +1329,96 @@ p[data-field="sciname"] {
     color: var(--colour-grey-4);
 
 
+}
+
+#quiz-results {
+    margin-top: 15px;
+}
+
+
+/* Quiz results cards */
+.results-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.result-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid var(--colour-grey-2);
+    background: var(--colour-almost-white);
+}
+
+.result-card.correct {
+    color: var(--colour-success-darker);
+    border-color: var(--colour-success-lighter);
+    background: var(--colour-success-lightest);
+}
+
+.result-card.incorrect {
+    color: var(--colour-error-darker);
+    border-color: var(--colour-error-lighter);
+    background: var(--colour-error-lightest);
+}
+
+.result-img {
+    width: 48px;
+    flex-shrink: 0;
+}
+
+.result-text {
+    flex: 1;
+}
+
+.result-name {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.result-feedback {
+    margin: 2px 0 0;
+    font-size: 0.8rem;
+}
+
+.result-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.result-card.correct .result-icon {
+    color: var(--colour-success-darker);
+}
+
+.result-card.incorrect .result-icon {
+    color: var(--colour-error-darker);
+}
+
+/*  Results card animation */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* initial hidden state */
+.result-card {
+    opacity: 0;
+}
+
+/* animated state */
+.result-card.show {
+    animation: fadeInUp 0.5s ease-out forwards;
 }
 
 

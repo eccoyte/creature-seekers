@@ -1,5 +1,10 @@
 // quiz logic assumes the quiz has been unlocked (all codewords found)
 
+
+function getInsectDataByImage(imgSrc) {
+    return keyvalues.find(item => item.fullimgsrc === imgSrc);
+}
+
 const questions = [
     {
         fullimgsrc: "images/ivy-bee-fullcolour-hex.svg",
@@ -102,8 +107,11 @@ let score = 0;
 let selectedQuestionOrder = [];
 let selectedAnswerOrder = [];
 
+let userResults = [];
+
 
 let quizState = "front"; // "front" = front page, "inProgress" = quiz active
+
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -123,6 +131,11 @@ function showQuestion() {
     let currentQuestion = questions[selectedQuestionOrder[currentQuestionIndex]];
     selectedAnswerOrder = answerOrders[Math.floor(Math.random() * answerOrders.length)];
     let questionNo = currentQuestionIndex + 1;
+
+    // clear results container
+    const resultsContainer = document.getElementById("quiz-results");
+    resultsContainer.innerHTML = "";
+    resultsContainer.classList.add("hidden");
 
     // write question text with number
     questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
@@ -157,6 +170,11 @@ function showQuestion() {
 function resetState() {
     const hexieFace = document.getElementById("quiz-feedback-hexie")
 
+    // clear results container
+    const resultsContainer = document.getElementById("quiz-results");
+    resultsContainer.innerHTML = "";
+    resultsContainer.classList.add("hidden");
+
     // keep Next button always visible but disabled
     nextButton.disabled = true;
 
@@ -179,6 +197,7 @@ function selectAnswer(e) {
     const isCorrect = selectedBtn.dataset.correct === "true";
     const hexieFace = document.getElementById("quiz-feedback-hexie");
 
+
     // adds the coloration etc based on correctness
     if (isCorrect) {
         selectedBtn.classList.add("quiz-correct");
@@ -190,6 +209,17 @@ function selectAnswer(e) {
 
     // add the relevant feedback
     let currentQuestion = questions[selectedQuestionOrder[currentQuestionIndex]];
+    let insectData = getInsectDataByImage(currentQuestion.fullimgsrc);
+
+    // store result
+    userResults.push({
+        name: insectData ? insectData.fullname : "Unknown insect",
+        img: currentQuestion.fullimgsrc,
+        correct: isCorrect,
+        feedback: isCorrect
+            ? currentQuestion.feedback.correct
+            : currentQuestion.feedback.incorrect
+    });
 
     feedbackElement.classList.remove("correct", "incorrect", "show");
 
@@ -244,6 +274,7 @@ function handleNextButton() {
         selectedQuestionOrder = questionOrders[Math.floor(Math.random() * questionOrders.length)];
 
         score = 0;
+        userResults = [];
         nextButton.innerHTML = "Next";
         showQuestion();
         return;
@@ -268,6 +299,9 @@ function showScore() {
     quizApp.classList.remove("quiz-active");
     quizApp.classList.add("quiz-end");
 
+    const resultsContainer = document.getElementById("quiz-results");
+
+    // Hexie message
     scoreMessage = `<p>You scored:</p><h2>${score} out of ${questions.length}</h2></p>`
 
     if (score == 0) {
@@ -278,6 +312,49 @@ function showScore() {
         scoreMessage += "<p>Nearly there! Check out the creature profiles page to see what you missed, and try again!</p>";
     } else {
         scoreMessage += "<p>Amazing, top score! Now go and see what creatures you can seek out and help in your local area. Good luck!</p>";
+    }
+
+    // build results cards
+    let cardsHTML = `<div class="results-cards">`;
+
+    userResults.forEach((result, index) => {
+        const delay = 0.3 + (index * 0.22); // 0.5s initial pause, then stagger
+
+        cardsHTML += `
+                <div class="result-card ${result.correct ? "correct" : "incorrect"}"
+             style="animation-delay: ${delay}s">
+                    
+                    <img src="${result.img}" alt="${result.name}" class="result-img">
+
+                    <div class="result-text">
+                        <h3 class="result-name"> ${result.name} question:</h3>
+                        <p class="result-feedback">${result.feedback}</p>
+                    </div>
+
+                    <div class="result-icon" aria-label="${result.correct ? "Correct" : "Incorrect"}">
+                        ${result.correct ? "✔" : "✖"}
+                    </div>
+                </div>
+            `;
+    });
+
+    cardsHTML += `</div>`;
+
+
+    resultsContainer.innerHTML = cardsHTML;
+    resultsContainer.classList.remove("hidden");
+
+    // trigger staggered animation
+    setTimeout(() => {
+        document.querySelectorAll(".result-card").forEach(card => {
+            card.classList.add("show");
+        });
+    }, 50);
+
+    if (score === questions.length) {
+        setTimeout(() => {
+            triggerConfetti("large");
+        }, 600);
     }
 
     // update what Hexie says, and the button
