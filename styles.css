@@ -7,7 +7,7 @@
     --colour-dark-walnut: #4D2E11;
 
     --colour-teal-primary: #008081;
-    --colour-teal-light: #1fb3b3;
+    --colour-teal-light: #1FB3B3;
 
     --colour-mantis-primary: #87CF6A;
     --colour-mantis-light: #D1DE7F;
@@ -17,14 +17,13 @@
     --colour-error-lighter: #D07E80;
     --colour-error-lightest: #FFF3F3;
 
-    --colour-success-darker: #2e7d32;
-    --colour-success-lighter: #73d478;
+    --colour-success-darker: #2E7D32;
+    --colour-success-lighter: #73D478;
     --colour-success-lightest: #F3FFF3;
-    ;
 
-    --colour-grey-1: #f0f0f0;
-    --colour-grey-2: #d3d3d3;
-    --colour-grey-3: #8b8b8b;
+    --colour-grey-1: #F0F0F0;
+    --colour-grey-2: #D3D3D3;
+    --colour-grey-3: #8B8B8B;
     --colour-grey-4: #444444;
 
 
@@ -754,8 +753,9 @@ button:active:not(:disabled) {
 
 
 .profile-content {
-    flex: 1 1 0;
-    /* take remaining space */
+
+    border-bottom: var(--profile-tab-line-thickness) solid var(--colour-mantis-light);
+    padding-bottom: 0.5rem;
 }
 
 .profile-content h2 {
@@ -767,9 +767,9 @@ button:active:not(:disabled) {
     color: var(--colour-teal-primary);
 }
 
-.profile-content p {
-    margin: 0 0 8px 0;
-    margin-bottom: 1rem;
+.profile-content p,
+.profile-footer p {
+    margin: 0 0 1rem 0;
 }
 
 
