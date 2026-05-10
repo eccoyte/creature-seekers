@@ -755,6 +755,8 @@ button:hover:not(:disabled) {
 
 
 .profile-content {
+    /* keeps the buttons spread across the screen */
+    width: 100%;
 
     border-bottom: var(--profile-tab-line-thickness) solid var(--colour-mantis-light);
     padding-bottom: 0.5rem;
