@@ -353,11 +353,13 @@ button:active:not(:disabled) {
 }
 
 
-#submit-btn:hover {
-    background-color: var(--colour-mantis-light);
-
+#submit-btn:disabled {
+    background-color: var(--colour-grey-2);
 }
 
+button:hover:not(:disabled) {
+    background-color: var(--colour-mantis-light);
+}
 
 /* all internal links styled like buttons */
 .link-button {

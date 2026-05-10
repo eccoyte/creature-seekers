@@ -37,7 +37,7 @@ const keyvalues = [
     { category: "moth", congrats: "Awesome!", prefix: "a", icon: "🦋", fullname: "Mint moth", sciname: "Pyrausta aurata", keyword: "herb", tagline: "&quot;Make some thyme to provide for this lovely little herb-ivore!&quot;", order: "Lepidoptera, the butterflies and moths", intro: "<p>The mint moth is also called the ‘small purple and gold’, which is pretty descriptive in terms of visuals!</p><p>With a wingspan under 2 cm, they are very little, but their majestic colour scheme makes them a bit easier to spot!</p>", lifecycle: "<p>Mint moth caterpillars start out small and green with black spots, turning more purple like the adults as they mature. They spend their time munching on herbs in the mint family, including thyme, sage, rosemary and of course mint!</p><p>The adults are nectar-drinking pollinators, and often seen resting on the herbs during the day.</p>", howtohelp: "<p>Treat yourself to more herbs! Many of these are quite straightforward to grow and can be kept in pots, so you don’t need much space, just some sunshine.</p><p>The caterpillars are only little and don’t take much, so there’ll be plenty for your culinary needs!</p>", outlineimgsrc: "images/mint-moth-outline-hex.svg", fullimgsrc: "images/mint-moth-fullcolour-hex.svg", unfoundimgsrc: "images/moth-mystery-hex.svg", animationsrc: "images/moth-animation.svg", moreinfo: "<p><b><a class=text-link target='_blank' rel='noopener noreferrer' href='https://www.wildlifetrusts.org/wildlife-explorer/invertebrates/moths/mint-moth'>Learn more about this creature<span class='visually-hidden'> (opens in a new tab)</span></a></a></p>", found: false },
 ]
 
-const defaultvalues = { category: "default", congrats: "Great!", prefix: "a", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", tagline: "Find my codeword to unlock info about me.", order: "One of the insects, who knows!", intro: "You've make this creature's acquaintance when you unlock it on the trail!", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this creature to find out!", fullimgsrc: "images/mystery-bug-fullcolour-hex.svg", unfoundimgsrc: "images/mystery-bug-fullcolour-hex.svg", moreinfo: "Find out more later!", found: false }
+const defaultvalues = { category: "default", congrats: "Great!", prefix: "a", keyword: "default", icon: "?", fullname: "Mystery creature!", sciname: "It's unknown... for now.", tagline: "Find my codeword to unlock info about me.", order: "One of the insects, who knows!", intro: "You've make this creature's acquaintance when you unlock it on the trail!", lifecycle: "This will be revealed in time.", howtohelp: "Unlock this creature to find out!", fullimgsrc: "images/mystery-bug-fullcolour-hex.svg", unfoundimgsrc: "images/mystery-bug-fullcolour-hex.svg", moreinfo: "", found: false }
 
 
 // load progress from localStorage
@@ -102,8 +102,16 @@ function handleKeywordGuess() {
 
 // Allow pressing Enter to submit, if keyword-input is present
 const keywordInput = document.getElementById("keyword-input");
+const submitBtn = document.getElementById("submit-btn");
 
 if (keywordInput) {
+
+    // enable button when at least 1 character exists
+    keywordInput.addEventListener("input", () => {
+        submitBtn.disabled = keywordInput.value.trim().length === 0;
+    });
+
+    // allow pressing Enter to submit
     keywordInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
             handleKeywordGuess();
@@ -327,12 +335,6 @@ function showRewardModal(item) {
     };
 
 
-    // clicking outside modal closes it
-    overlay.onclick = (e) => {
-        if (e.target === overlay) {
-            overlay.classList.add("hidden");
-        }
-    };
 
     // Enter key takes user to profile as the button does, escape allows user to exit modal
     function handleModalKey(e) {
@@ -437,9 +439,9 @@ function getQuizMessage() {
 
     // Determine message
     if (foundCount === 0) {
-        return "<h2>Come back later!</h2><p>Complete the trail and find all the creatures to unlock the Creature Seeker quiz!</p>";
+        return "<h2>Come back later!</h2><p>Enter all 6 codewords on the Creature Seeker signs to complete the trail and unlock the quiz!</p>";
     } else if (foundCount < keyvalues.length) {
-        return `<p>Complete the trail to unlock the quiz!</p><p>You have found ${foundCount} of ${keyvalues.length} codewords so far - keep it up!</p>`;
+        return `<h2>Quiz locked - for now!</h2><p>Complete the Creature Seekers trail to unlock the quiz.</p><p>You have unlocked ${foundCount} of ${keyvalues.length} creatures so far - keep it up!</p>`;
     } else {
         return "Quiz unlocked! Check out the creature profile information and see how you do!";
     }
