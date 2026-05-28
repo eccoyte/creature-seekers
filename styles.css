@@ -5,6 +5,7 @@
     --colour-almost-white: #FDFDFD;
     --colour-black-bean: #341407;
     --colour-dark-walnut: #4D2E11;
+    --colour-just-brown: #fceddc;
 
     --colour-teal-primary: #008081;
     --colour-teal-light: #1FB3B3;
@@ -466,7 +467,6 @@ button:hover:not(:disabled) {
 }
 
 
-/* TODO: refactor this is properly */
 #unlock-btn {
     background-color: var(--colour-teal-primary);
     color: var(--colour-almost-white);
@@ -481,6 +481,7 @@ button:hover:not(:disabled) {
     padding: 0.8rem 2.0rem;
     box-shadow: 0 2px 4px var(--shadow-soft);
 }
+
 
 
 /* Container for input + button */
@@ -604,6 +605,18 @@ button:hover:not(:disabled) {
 
 
 
+body .pop-box {
+    background-color: var(--colour-almost-white);
+    border-color: var(--colour-mantis-primary);
+    border: 2px solid var(--colour-mantis-light);
+    border-radius: 12px;
+    padding: 15px 15px 5px;
+    box-shadow: 0 4px 10px rgba(52, 168, 83, 0.3);
+
+}
+
+
+
 
 .hex-grid {
     --hex-size: clamp(130px, 42vw, 190px);
@@ -706,6 +719,10 @@ button:hover:not(:disabled) {
     padding: 5px 20px 20px;
 }
 
+#social-media-box {
+    padding: 1.0rem;
+    margin-top: 2.0rem;
+}
 
 #profile-info-box {
     overflow: auto;
@@ -809,8 +826,8 @@ p[data-field="sciname"] {
 
 /* Grayed-out (unfound) profiles */
 .profile:not(.found) {
-    background-color: var(--colour-grey-2);
-    opacity: 0.5;
+    background-color: var(--colour-just-brown);
+    opacity: 0.55;
     /* Slightly transparent */
 }
 
