@@ -307,13 +307,13 @@ function showScore() {
     if (score === questions.length) {
         scoreMessage += "<p>Amazing, top score! Now go and see what creatures you can seek out and help in your local area. Good luck!</p>";
     } else if (score === questions.length - 1) {
-        scoreMessage += "<p>Nearly there! Check out the Profiles page on the thing you missed, and try again!</p>";
+        scoreMessage += "<p>Nearly there! Check out the Profiles page to see what you missed, and try again!</p>";
     } else if (score > questions.length / 2) {
-        scoreMessage += "<p>Over half way! Check out the Profiles page on the things you missed, and try again!</p>";
+        scoreMessage += "<p>Over half way! Check out the Profiles page to see what you missed, and try again!</p>";
     } else if (score === 0) {
         scoreMessage += "<p>You can do it! Check out the Profiles page to find the answers, and try again!</p>";
     } else {
-        scoreMessage += "<p>Partly right! Check out the Profiles page on the things you missed, and try again!</p>";
+        scoreMessage += "<p>Partly right! Check out the Profiles page to see what you missed, and try again!</p>";
     }
 
     // build results cards
