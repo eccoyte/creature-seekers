@@ -433,10 +433,12 @@ button:hover:not(:disabled) {
 
 .link-button-container {
     display: flex;
-    padding: 15px;
+    padding: 1rem;
 }
 
-
+.btm-padding-container {
+    padding-bottom: 0.5rem;
+}
 
 .help-link-btn {
     display: block;
@@ -720,6 +722,9 @@ body .pop-box {
 }
 
 #social-media-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 1.0rem;
     margin-top: 2.0rem;
 }
